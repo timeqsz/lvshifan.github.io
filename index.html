@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="时之碎片">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="时之碎片">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="窃时者">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>时之碎片</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">时之碎片</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">窃时者</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/02/%E5%87%BD%E6%95%B0%E5%BC%8F%E4%B8%89%E6%9D%BF%E6%96%A7-map-filter-fold/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/02/%E5%87%BD%E6%95%B0%E5%BC%8F%E4%B8%89%E6%9D%BF%E6%96%A7-map-filter-fold/" class="post-title-link" itemprop="url">函数式三板斧(map,filter,fold)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-02 21:27:02" itemprop="dateCreated datePublished" datetime="2021-08-02T21:27:02+08:00">2021-08-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-10 23:47:34" itemprop="dateModified" datetime="2021-12-10T23:47:34+08:00">2021-12-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">编程相关</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>18</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="什么是-map-filter-fold"><a href="#什么是-map-filter-fold" class="headerlink" title="什么是 map,filter,fold"></a>什么是 map,filter,fold</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/04/%E7%AC%A8%E6%8B%99%E7%9A%84%E5%88%9D%E5%AD%A6%E8%80%85%E4%B8%8E%E2%80%9D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A5%9E%E7%81%B5%E2%80%9C%E7%9A%84%E5%AF%B9%E8%AF%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/04/%E7%AC%A8%E6%8B%99%E7%9A%84%E5%88%9D%E5%AD%A6%E8%80%85%E4%B8%8E%E2%80%9D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A5%9E%E7%81%B5%E2%80%9C%E7%9A%84%E5%AF%B9%E8%AF%9D/" class="post-title-link" itemprop="url">笨拙的初学者与”计算机神灵“的对话</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-04 12:56:23" itemprop="dateCreated datePublished" datetime="2019-11-04T12:56:23+08:00">2019-11-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-10 23:47:33" itemprop="dateModified" datetime="2021-12-10T23:47:33+08:00">2021-12-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>本人以拙劣的文笔和对计算机粗浅的理解，写下了这篇文章。<br>（该文风格模仿了侯世达先生的《GEB》）<br>注：文章中 GOC 表示“计算机神灵”，ACB 表示“笨拙的初学者”，UIT 表示下文说到的可以解释一切的机器。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>ACB: 好久不见啊，尊敬的 GOC。</p>
+<p>GOC: 不用这么拘谨，今天的天气不错啊，这次来找我什么事？</p>
+<p>ACB: 您还是一如既往的喜欢晴天呢，这次我来是想请教一下理发师悖论。</p>
+<p>GOC：理发师悖论？</p>
+<p>ACB: 没错，理发师悖论，就是说从前有个理发师说他只给不给自己理发的人理发。</p>
+<p>GOC: 啊，这个我知道。但是你知道么，你问了个愚蠢的问题，这种问题往往只是文字游戏罢了。自己给自己理发不是一件很愚蠢的事吗？天啊，怎么会有人自己给自己理发？</p>
+<p>ACB: 那我换个说法，用数学语言来描述吧。</p>
+<p>GOC: 数学？说实话我不太喜欢数学家。</p>
+<p>ACB: 但是我们得承认他们的确很聪明。</p>
+<p>GOC: 这倒是。</p>
+<p>ACB：用数学语言大概应该这么描述：“S={x|x ∉ x}”</p>
+<p>GOC: 这么看倒是悖论，不过那些聪明的数学家肯定已经解决这个问题了。</p>
+<p>ACB: 的确，不过他们解决的办法显得不是那么的“聪明”。他们把对象区分开了，像是自然而然地那样。</p>
+<p>GOC: 我想你说的是 Type Theory？</p>
+<p>ACB: 没错，他们把一切都分开了，这样一来就不会产生自己包含自己这种荒谬事情发生了。他们弄了一条公理（正则性）“如果 A 是一个非空的集合，那么至少 A 含有一个元素 x,它要么不是集合，要么与 A 不相交的集合。”（注：该公理也称为基础公理（foundation axiom））</p>
+<p>GOC：他们解决的不错，不过我对这种问题厌烦了。就如同和尚讲故事一样。</p>
+<p>ACB：和尚讲故事？</p>
+<p>GOC: 对啊，你没听过那个著名的故事吗？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 从前有座山，山里有个庙，庙里有个老和尚给小和尚讲故事</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从前有座山，山里有个庙，庙里有个老和尚给小和尚讲故事</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从前有座山，山里有个庙，庙里有个老和尚给小和尚讲故事<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; …….</p>
+<p>（过了大概有几分钟）</p>
+<p>ACB: 那个，其实我也对和尚讲的故事不太感兴趣。</p>
+<p>GOC: 我也说烦了，不如去我家歇一会把，我也想回去喝点水。正好给你看看我收到的一个有趣的新玩艺。</p>
+<p>ACB：有趣的新玩艺？</p>
+<p>GOC: 嗨，别提了。那天我正在我家地下室打扫卫生，忽然听到有人敲门，我问了半天也没人回答。后来我开门一看发现一个大盒子摆在了门口，上面还贴着一张纸条</p>
+<p>“这个机器可以解释一切问题”<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; —无名氏献上</p>
+<p>ACB：解决一切问题？那可真是有点怪，我还从来没听说过有人开发出了这种机器。</p>
+<p>GOC：不过就像方便面的包装一样，我从来不相信包装上的任何东西。</p>
+<p>ACB: 我觉得你是对的，但这种神奇的东西我也想要见识见识。</p>
+<p>GOC: 我们已经到了，我把那台机器放在了地下室，这东西或许能让你大吃一惊。</p>
+<p>ACB：光看到这个机器我就已经大吃一惊了。你是怎么把它搬到地下室的？</p>
+<p>（指了指那台几乎占满整个地下室的机器）</p>
+<p>GOC:嗨，那可差点累死我。不过先别说那个了，让我们先来打开这个机器。（说着按下了机器按钮，那台巨大的机器开始运作并发出了巨大的轰鸣声）</p>
+<p>GOC: 这破机器每次运行都要这么大噪音吗？我现在倒是很担心家里的电费怎么办。</p>
+<p>ACB: 这应该是风扇的声音。（一股热浪向两人袭来）</p>
+<p>GOC：我觉得冬天开着这台机器都不用烧炉子，但是电费……诶，好了，现在可以问问题了。</p>
+<p>ACB: 这东西真的能解释一切问题吗？</p>
+<p>GOC: 大概吧，或许你可以自己试试。我先去喝点茶。</p>
+<p>ACB: 好吧，那我试一试。</p>
+<p>UIT: 你好，你有什么问题？</p>
+<p>ACB: 嗯，我想想，你到底是什么？</p>
+<p>UIT：如你所见我就是 UIT，我可以解释一切问题。</p>
+<p>ACB: 虽然我觉得这不算回答……那，你能帮我解释一下哥德尔不完备定律吗？</p>
+<p>UIT: 没问题。(它给出了完整的回答)</p>
+<p>（过了大概一个小时，GOC 回到了地下室）</p>
+<p>GOC: 你不会还在和这台机器玩游戏吧，我觉得我该把它关了，我可不想明天早上收到电费催缴单。</p>
+<p>ACB: 快了，这台机器知道的还不少呢，看上去真像送来这个东西的那个人写的一样。</p>
+<p>ACB: 我再问它最后一个问题，你看上去的确比大多数人都要聪明啊，不过我很好奇，你该怎么解释你是如何解释一切的吗？</p>
+<p>GOC: 说实话，我觉得你又提了个愚蠢的问题。</p>
+<p>UIT: ……</p>
+<p>UIT: ……</p>
+<p>UIT: ……</p>
+<p>ACB: 这机器坏了吗？怎么突然没反应了？</p>
+<p>（啪的一声，地下室的灯灭了，机器也停了下来）</p>
+<p>GOC: 天啊怎么回事，好像停电了？我去看看地下室的电闸。（说着变戏法一样的掏出了一个手电筒。）</p>
+<p>GOC: 我看看，电闸跳闸了。说实话兄弟，我觉得你今天总是提出一些愚蠢的问题。</p>
+<p>ACB: 的确是这样，我很抱歉。我能帮上什么忙吗？</p>
+<p>GOC：我觉得把电闸推回去就行。（说着推了下电闸）</p>
+<p>(地下室的灯又亮了起来)</p>
+<p>GOC: 让我看看这台机器。（说着又按下机器按钮）</p>
+<p>(过了两分钟，没有丝毫的动静)</p>
+<p>ACB: 我很抱歉，看起来我弄坏了这台机器。</p>
+<p>GOC: 不是我说，你不能总是提这种愚蠢的问题，尽管你是初学者。现在看来我得修修这台机器了，我才发现这箱子里根本没有保修单啊。</p>
+<p>ACB: 难不成这是个三无产品？</p>
+<p>GOC：你好像机敏了一些，就现在来看，你是正确的。</p>
+<p>ACB: 或许我能帮上些什么忙？</p>
+<p>GOC: 或许你可以帮我带晚饭？这台见鬼的机器不知道什么时候能修好。这样，离着两公里远有一家川菜馆，你或许可以给我带点不辣的川菜回来。</p>
+<p>ACB: 不辣的川菜？</p>
+<p>GOC：对，这是他们家的招牌，不辣的川菜。</p>
+<p>ACB：好吧，这还真是奇怪，真是抱歉给你添麻烦了，我去去就回。</p>
+<p>（ACB 觉得在这个地下室里的确很不自在，于是赶快离开了）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/02/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%870%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/02/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%870%EF%BC%89/" class="post-title-link" itemprop="url">一起学习魔法吧（番外篇0）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-02 12:56:23" itemprop="dateCreated datePublished" datetime="2019-11-02T12:56:23+08:00">2019-11-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-11 00:38:21" itemprop="dateModified" datetime="2021-12-11T00:38:21+08:00">2021-12-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">编程相关</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>任何非常先进的技术，初看都与魔法无异。</p>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>高阶函数是什么？在第一次遇见这个名词的时候，我还以为是封装好的轮子，只是可以实现的功能比较强大，然而其实际的含义可以解释为\</p>
+<ul>
+<li>接受一个或多个函数作为输入</li>
+<li><p>输出一个函数</p>
+<p>满足上述两个条件之一便可称之为高阶函数</p>
+</li>
+</ul>
+<p>例如我们要构建一个数学上的 Σ 符号（求和符号），可能有人觉得这有什么难的？然后给出下面这种代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int a[10000];</span><br><span class="line">int sum(int n,int *a)&#123;</span><br><span class="line">   int result;</span><br><span class="line">   for(int i &#x3D; 0;i&lt;n;i++)&#123;</span><br><span class="line">       result +&#x3D; a[i];</span><br><span class="line">   &#125;</span><br><span class="line">   return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数却可以做到求和，但是如果我现在想求 n^2 的和怎么办呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int a[10000];</span><br><span class="line">int sum(int n,int *a)&#123;</span><br><span class="line">   int result;</span><br><span class="line">   for(int i &#x3D; 0;i&lt;n;i++)&#123;</span><br><span class="line">       result +&#x3D; pow(a[i],2);</span><br><span class="line">   &#125;</span><br><span class="line">   return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好吧，但是我又想求 n^3 的和怎么办呢？<del>就你事多</del></p>
+<p>突然你的同事过来告诉你：“好吧，技术部门搞错了，他们其实想要的是平方和”</p>
+<p>这个时候你可能已经打算举起手中键盘了，但是等等，你不觉得这样写求和函数代码根本没有复用性吗？如果我的求和函数又要更改步长怎么办？如果需求再次变动怎么办？当代码比较少的时候你可能还能找到令你抓狂的求和函数并修改它，一旦程序的复杂性增长，你每次变动程序都有可能带来灾难性的后果。这个时候你可能会想到面向对象编程（oop），但是我们今天不讨论这个，我们试图用高阶函数来解决这个问题。 作者：菌汤锅好吃</p>
+<p>额，这个看上去够丑的，那些个函数指针是什么？我们为什么要构建这么丑的一个函数？这个函数（过程）已经很好的抽象出了数学符号 ∑ start 与 end 分别代表了上下界，next,term 两个函数（过程）分别表达了步长和操作，这样一来每次需求变化时我只要改动 sum 的参数就行了，根本不用再次修改底层的 sum 代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int next(int i) &#123;</span><br><span class="line">   &#x2F;&#x2F;下一个迭代;</span><br><span class="line">   i +&#x3D; 1;</span><br><span class="line">   return i;</span><br><span class="line">&#125;</span><br><span class="line">int square(int n) &#123;</span><br><span class="line">   n &#x3D; n * n;</span><br><span class="line">   return n;</span><br><span class="line">&#125;</span><br><span class="line">int next2(int i) &#123;</span><br><span class="line">   i +&#x3D; 2;</span><br><span class="line">   return i;</span><br><span class="line">&#125;</span><br><span class="line">int term2(int n) &#123;</span><br><span class="line">   n &#x3D; n * 2;</span><br><span class="line">   return n;</span><br><span class="line">&#125;</span><br><span class="line">double sum(int start, int end, int(*next)(int a), int(*term)(int b)) &#123;</span><br><span class="line">   static int result &#x3D; 0;</span><br><span class="line">   if (start &lt;&#x3D; end) &#123;</span><br><span class="line">       result +&#x3D; term(start);</span><br><span class="line">       return sum(next(start), end, (*next), (*term));</span><br><span class="line">   &#125;</span><br><span class="line">   else</span><br><span class="line">       return result;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">   int a, b;</span><br><span class="line">   scanf(&quot;%d %d&quot;, &amp;a, &amp;b);</span><br><span class="line">   printf(&quot;%f&quot;,sum(a, b, next2, term2));</span><br><span class="line">   printf(&quot;%f&quot;,sum(a, b ,next1, term1));</span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/10/04/%E4%B8%80%E9%81%93%E5%B0%8F%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/04/%E4%B8%80%E9%81%93%E5%B0%8F%E9%A2%98/" class="post-title-link" itemprop="url">一道小题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-04 12:56:23" itemprop="dateCreated datePublished" datetime="2019-10-04T12:56:23+08:00">2019-10-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-11 00:38:24" itemprop="dateModified" datetime="2021-12-11T00:38:24+08:00">2021-12-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="一道小题"><a href="#一道小题" class="headerlink" title="一道小题"></a>一道小题</h3><h4 id="题目内容"><a href="#题目内容" class="headerlink" title="题目内容"></a>题目内容</h4><p>在本讲中，我们讲了 RISC 计算机的基本思想。事实上，人们可以设计出只有一条指令的计算机，这种计算机称为单指令计算机 （Single Instruction Computer，SIC） 。因为只有一条指令，指令集不能再精简，所以这种计算机也称为终极精简指令集计算机 （Ultra Reduced Instruction Set Computer，URISC） 。<br>这条唯一的指令有三个操作数，每个操作数均为一个存储单元地址，指令的功能是对前两个存储单元中的操作数做减法，将结果写入 第二个操作数 所指的存储单元中。如果减法的结果小于 0，则发生跳转，执行第三个操作数所指向的存储单元中的指令，否则；继续执行后继指令。<br>因为只有一条指令，所以不需要操作码，因此该指令的格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[L:] a, b, c ; mem[b] &#x3D; mem[b] - mem[a]，if (mem[b] &lt; 0) goto c</span><br></pre></td></tr></table></figure>
+<p>其中，L 为可选的标号，“；” 后面是注释，此处实际上是对该指令功能的形式化描述。<br>尽管 URISC 只有一条指令，但是它是一种通用计算机，也就是说用这一条指令可以编写出实现任何复杂算法的程序。<br>例如，将地址为 SRC 的存储单元中的内容传送到地址为 DEST 的存储单元中。可以编写出如下程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">START: DEST, DEST, ADD</span><br><span class="line">ADD : SRC, TEMP, NEXT</span><br><span class="line">NEXT: TEMP, DEST, CONT</span><br><span class="line">CONT: …</span><br><span class="line">…</span><br><span class="line">TEMP: WORD 0</span><br></pre></td></tr></table></figure>
+<p>其中，WORD 是伪指令，用于将指定的内存单元初始化为指定的常数。<br>根据以上说明，完成如下题目：</p>
+<p>编写一段 URISC 程序，将 a 和 b 相加，结果写入 a 中，b 保持不变。</p>
+<p>编写一段 URISC 程序，将 a 和 b 相乘，结果写入 c 中。约定存储单元 one 包含常数 1，a 和 b 均大于 0，并且 a 和 b 可以被程序修改。</p>
+<p>请提出一个设计方案，用硬件实现 URISC 计算机。你只需提出顶层设计，可以不考虑电路细节。</p>
+<p>（选做）编写一个 C/C++ 程序，对 URISC 的功能进行仿真。</p>
+<p>作答思路<br>这道题主要考察的还是一种数学上的思维，并不考察具体的计算机技术（让人莫名想到皮亚诺公理）<br>由于本人对硬件不太了解所以做做 1，2，4 问，这篇先写一二问（第四个以后填坑）</p>
+<p>第一问的内容思路很清晰，从题目叙述就能知道，这个所谓的 ultra 指令集只支持减法，但是支持负数的存储（应该是补码形式）那么我们只要构建相应的减去负数即可了。</p>
+<p>第二问的就是在加法的基础上构建出乘法，思路是一样的。(构建循环)</p>
+<p>第一问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">START: TEMP, TEMP, L1 ; TEMP &#x3D; 0</span><br><span class="line">L1: b, TEMP, L2 ; TEMP &#x3D; -b</span><br><span class="line">L2: TEMP, a, END ; a &#x3D; a - TEMP</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p>第二问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">START: c, c, T1 ; c &#x3D; 0</span><br><span class="line">T1: pone, pone, T2 ; pone &#x3D; 0</span><br><span class="line">T2: one, pone, S1 ; pone &#x3D; -1</span><br><span class="line">S1: b1, b1, S2 ; b1 &#x3D; 0</span><br><span class="line">s2: b, b1, L1 ; b1 &#x3D; -b</span><br><span class="line">L1: TEMP, TEMP, L2 ; TEMP &#x3D; 0</span><br><span class="line">L2: a, TEMP, LOOP ; TEMP &#x3D; -a</span><br><span class="line">LOOP: TEMP, c, j ; c -&#x3D; TEMP</span><br><span class="line">j: pone, b1, LOOP ; jump</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p><del>写的好丑</del></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/08/02/%E5%B0%8F%E6%98%8E%E7%9A%84%E8%88%85%E8%88%85%E6%98%AF%E8%B0%81%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/02/%E5%B0%8F%E6%98%8E%E7%9A%84%E8%88%85%E8%88%85%E6%98%AF%E8%B0%81%EF%BC%9F/" class="post-title-link" itemprop="url">小明的舅舅是谁？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-02 21:27:02" itemprop="dateCreated datePublished" datetime="2019-08-02T21:27:02+08:00">2019-08-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-10 23:44:59" itemprop="dateModified" datetime="2021-12-10T23:44:59+08:00">2021-12-10</time>
+      </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="这和计算机有什么关系？"><a href="#这和计算机有什么关系？" class="headerlink" title="这和计算机有什么关系？"></a>这和计算机有什么关系？</h3><p>小明的舅舅是谁？突然问这个问题恐怕所有人都会一头雾水，大多数人的第一反应恐怕是：小明是谁？？？<br>这个问题实在让人烦躁。这个家伙上来就问我小明的舅舅是谁，可我连小明是谁都不知道，这人怕不是失了智。好吧，我们换个问题。</p>
+<h3 id="什么是计算机程序？"><a href="#什么是计算机程序？" class="headerlink" title="什么是计算机程序？"></a>什么是计算机程序？</h3><p>有些人可能会毫不犹豫地说 lambda 算子就是程序，也有些人可能说对计算机硬件的可预先设定的操作就是程序。这两个说法都没有问题，维基百科上给出的解释是这样。</p>
+<blockquote>
+<p>A computer program is a collection of instructions that performs a specific task when executed by a computer. A computer requires programs to function</p>
+</blockquote>
+<p>我们今天可以看看另一种风格的“程序”</p>
+<h3 id="prolog"><a href="#prolog" class="headerlink" title="prolog"></a>prolog</h3><p>这是一门不同的语言，它没有赋值，也没有传统意义上的函数。它有的只是陈述性语句和待求解的问题。这是个例子：</p>
+<p>这并不像是程序而像一份声明清单，而 prolog 恰恰是以一阶谓词为基础的逻辑性语言（program in logic）（个人认为，这某种程度上也限制了它的应用场景）prolog 求解问题的方是还是十分暴力的，主要是匹配和回溯。<br>例如上述问题，prolog 是如何处理的呢？其步骤如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1.找到第一个问题 uncle(a,U)</span><br><span class="line">2.进行事实匹配</span><br><span class="line">father(a,b).</span><br><span class="line">father(c,d).</span><br><span class="line">father(a,c).</span><br><span class="line">均不符合。</span><br><span class="line">3.规则匹配有</span><br><span class="line">brother(a,Z),father(Z,U)</span><br><span class="line">4.再分为两个问题</span><br><span class="line">brother(a,Z)与 father(Z,U)</span><br><span class="line">进行匹配</span><br><span class="line">5.brother(a,Z)</span><br><span class="line">可以匹配到</span><br><span class="line">brother(a,c).</span><br><span class="line">故有：&#123;c&#x2F;Z&#125; （注：类似于变量替换）</span><br><span class="line">6.代入进第二个问题</span><br><span class="line">father(c,U)</span><br><span class="line">7.寻找事实</span><br><span class="line">father(c,d)符合</span><br><span class="line">可得&#123;d&#x2F;U&#125; 8.解为 d 即 a 是 d 的叔叔</span><br></pre></td></tr></table></figure>
+<p>可以看出 prolog 处理问题比较死板，其逻辑又相似于 sql 之类的数据库语言（事实上其变种语言的确应用在了数据库上）然而其程序编写的难度对新手的确极不友好但学习这种这种语言也给我们提供了另一种看待程序语言的思路（或者说看待程序的思路）<br>这篇博客只是简要介绍了 prolog 的基本思路，prolog 中还有很多其他技巧，如果感兴趣可以慢慢探索。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/06/04/%E6%9C%89%E5%85%B3%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/06/04/%E6%9C%89%E5%85%B3%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">有关色彩模式的一些总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-06-04 16:56:23" itemprop="dateCreated datePublished" datetime="2019-06-04T16:56:23+08:00">2019-06-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-10 23:44:56" itemprop="dateModified" datetime="2021-12-10T23:44:56+08:00">2021-12-10</time>
+      </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>985</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="三原色光模式-RGB"><a href="#三原色光模式-RGB" class="headerlink" title="三原色光模式(RGB)"></a>三原色光模式(RGB)</h3><p>三原色模式应用极其广泛，这种模式通过红，绿，蓝三个颜色通道的变化以及叠加来形成各种不同的颜色。但 RGB 依赖于设备，即不同的设备对同一个 RGB 值的检测与重现可能不同。</p>
+<h3 id="三原色模式为相加原色（加法混合）"><a href="#三原色模式为相加原色（加法混合）" class="headerlink" title="三原色模式为相加原色（加法混合）"></a>三原色模式为相加原色（加法混合）</h3><h3 id="三原色的表示"><a href="#三原色的表示" class="headerlink" title="三原色的表示"></a>三原色的表示</h3><h4 id="数值表示"><a href="#数值表示" class="headerlink" title="数值表示"></a>数值表示</h4><p>使用用一个三维向量来描述，大多使用八位十六进制数来表示。例如：用 66ccff 来表示天蓝色$<br>每两位十六进制数表示一个分量（r,g,b）<br><del>当然一些土豪的高级设备会使用更大的数值范围来描述颜色</del></p>
+<h3 id="印刷四分色（CMYK）"><a href="#印刷四分色（CMYK）" class="headerlink" title="印刷四分色（CMYK）"></a>印刷四分色（CMYK）</h3><p>顾名思义，这种色彩模式用于全彩印刷，四种标准颜色分别为青色（C-Cyan），洋红（M-Magenta），黄色（Y-Yellow），黑色（B-Black）</p>
+<h4 id="CMYK-混合"><a href="#CMYK-混合" class="headerlink" title="CMYK 混合"></a>CMYK 混合</h4><p>与 RGB 相反，CMYK 是减法混合模式，CMY 三种颜色混合后会产生深灰色。</p>
+<h3 id="HSL-与-HSV-HSB-色彩空间"><a href="#HSL-与-HSV-HSB-色彩空间" class="headerlink" title="HSL 与 HSV(HSB)色彩空间"></a>HSL 与 HSV(HSB)色彩空间</h3><p>HSL 与 HSV 均把 RGB 的点转换为圆柱坐标系中表示，这样更加直观。<br>HSL 为色相、饱和度、亮度。HSV 为色相、饱和度、明度。</p>
+<h4 id="色相、饱和度、亮度（明度）"><a href="#色相、饱和度、亮度（明度）" class="headerlink" title="色相、饱和度、亮度（明度）"></a>色相、饱和度、亮度（明度）</h4><p>-色相（H）：色彩的基本属性，就是我们日常生活中所说的颜色。红色，黄色等。</p>
+<p>-饱和度：色彩的纯度饱和度越高色彩越纯，越低就越加变灰。</p>
+<p>-亮度（明度）：顾名思义,取值从 0%~100%。</p>
+<h4 id="HSL-与-HSV-比较"><a href="#HSL-与-HSV-比较" class="headerlink" title="HSL 与 HSV 比较"></a>HSL 与 HSV 比较</h4><p>HSV 在 Adobe 系列中常用，而 HSL 应用于 CSS3 规定。</p>
+<p>在 HSL 中，饱和度分量总是从完全饱和色变化到等价的灰色（在 HSV 中，在极大值 V 的时候，饱和度从全饱和色变化到白色，这可以被认为是反直觉的）。</p>
+<p>在 HSL 中，亮度跨越从黑色过选择的色相到白色的完整范围（在 HSV 中，V 分量只走一半行程，从黑到选择的色相）。</p>
+<h3 id="YUV（Y’CbCr）"><a href="#YUV（Y’CbCr）" class="headerlink" title="YUV（Y’CbCr）"></a>YUV（Y’CbCr）</h3><p>YUV 发明于黑白电视与彩色电视的过渡时期。黑白视频只有 Y 视频（灰阶值）。YUV 的颜色编码模式常用于流媒体其中 U 表示色度 V 表示明度。而 Y’CbCr 是 YUV 的压缩版本，Y’CbCr 常用于数字图像领域，YUV 常用于模拟信号领域。</p>
+<p>formats 格式：<br>紧缩格式：将 YUV 的值存储成 Macro Pixels 数组，与 RGB 存放类似。</p>
+<p>平面格式：将 YUV 三个分量存放在不同的矩阵中。<br>注：Macro Pixels 数组即宏像素。</p>
+<h3 id="Lab-色彩空间"><a href="#Lab-色彩空间" class="headerlink" title="Lab 色彩空间"></a>Lab 色彩空间</h3><p>Lab 色彩空间中 L 代表亮度，a 和 b 表示颜色对立维度。<br>Lab 颜色被设计接近于人类视觉,致力于感知均匀。在 ps 中图像编辑有“Lab 模式”，PDF 使用的也是“Lab 色彩空间”。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/05/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/05/test/" class="post-title-link" itemprop="url">test</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-05 13:59:29" itemprop="dateCreated datePublished" datetime="2018-12-05T13:59:29+08:00">2018-12-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-10 22:41:38" itemprop="dateModified" datetime="2021-12-10T22:41:38+08:00">2021-12-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">测试</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>596</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Lorem-ipsum"><a href="#Lorem-ipsum" class="headerlink" title="Lorem ipsum"></a>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>test test test</p>
+<p>“中文”</p>
+<p>$a^{2} + b^{2} = c^{2}$<br>$\infty, \aleph, \complement, \backepsilon, \eth, \Finv, \hbar$<br>$s_k \equiv 0 \pmod{m}$<br>$\cup, \Cup, \sqcup, \bigcup, \bigsqcup, \uplus, \biguplus$<br>$\lim_{x \to \infty} \frac{1}{n(n+1)}$<br>わたぃ<br>リンゴ<br>ビル</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/05/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/05/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-05 13:30:20" itemprop="dateCreated datePublished" datetime="2018-12-05T13:30:20+08:00">2018-12-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-10 22:41:39" itemprop="dateModified" datetime="2021-12-10T22:41:39+08:00">2021-12-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">测试</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>363</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">窃时者</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">8k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

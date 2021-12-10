@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="说明本人以拙劣的文笔和对计算机粗浅的理解，写下了这篇文章。（该文风格模仿了侯世达先生的《GEB》）注：文章中 GOC 表示“计算机神灵”，ACB 表示“笨拙的初学者”，UIT 表示下文说到的可以解释一切的机器。 正文ACB: 好久不见啊，尊敬的 GOC。 GOC: 不用这么拘谨，今天的天气不错啊，这次来找我什么事？ ACB: 您还是一如既往的喜欢晴天呢，这次我来是想请教一下理发师悖论。 GOC：理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笨拙的初学者与”计算机神灵“的对话">
+<meta property="og:url" content="http://example.com/2019/11/04/%E7%AC%A8%E6%8B%99%E7%9A%84%E5%88%9D%E5%AD%A6%E8%80%85%E4%B8%8E%E2%80%9D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A5%9E%E7%81%B5%E2%80%9C%E7%9A%84%E5%AF%B9%E8%AF%9D/index.html">
+<meta property="og:site_name" content="时之碎片">
+<meta property="og:description" content="说明本人以拙劣的文笔和对计算机粗浅的理解，写下了这篇文章。（该文风格模仿了侯世达先生的《GEB》）注：文章中 GOC 表示“计算机神灵”，ACB 表示“笨拙的初学者”，UIT 表示下文说到的可以解释一切的机器。 正文ACB: 好久不见啊，尊敬的 GOC。 GOC: 不用这么拘谨，今天的天气不错啊，这次来找我什么事？ ACB: 您还是一如既往的喜欢晴天呢，这次我来是想请教一下理发师悖论。 GOC：理">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-04T04:56:23.000Z">
+<meta property="article:modified_time" content="2021-12-10T15:47:33.119Z">
+<meta property="article:author" content="窃时者">
+<meta property="article:tag" content="计算机科学">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2019/11/04/%E7%AC%A8%E6%8B%99%E7%9A%84%E5%88%9D%E5%AD%A6%E8%80%85%E4%B8%8E%E2%80%9D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A5%9E%E7%81%B5%E2%80%9C%E7%9A%84%E5%AF%B9%E8%AF%9D/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>笨拙的初学者与”计算机神灵“的对话 | 时之碎片</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">时之碎片</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">窃时者</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/04/%E7%AC%A8%E6%8B%99%E7%9A%84%E5%88%9D%E5%AD%A6%E8%80%85%E4%B8%8E%E2%80%9D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A5%9E%E7%81%B5%E2%80%9C%E7%9A%84%E5%AF%B9%E8%AF%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="窃时者">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时之碎片">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          笨拙的初学者与”计算机神灵“的对话
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-04 12:56:23" itemprop="dateCreated datePublished" datetime="2019-11-04T12:56:23+08:00">2019-11-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-10 23:47:33" itemprop="dateModified" datetime="2021-12-10T23:47:33+08:00">2021-12-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>本人以拙劣的文笔和对计算机粗浅的理解，写下了这篇文章。<br>（该文风格模仿了侯世达先生的《GEB》）<br>注：文章中 GOC 表示“计算机神灵”，ACB 表示“笨拙的初学者”，UIT 表示下文说到的可以解释一切的机器。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>ACB: 好久不见啊，尊敬的 GOC。</p>
+<p>GOC: 不用这么拘谨，今天的天气不错啊，这次来找我什么事？</p>
+<p>ACB: 您还是一如既往的喜欢晴天呢，这次我来是想请教一下理发师悖论。</p>
+<p>GOC：理发师悖论？</p>
+<p>ACB: 没错，理发师悖论，就是说从前有个理发师说他只给不给自己理发的人理发。</p>
+<p>GOC: 啊，这个我知道。但是你知道么，你问了个愚蠢的问题，这种问题往往只是文字游戏罢了。自己给自己理发不是一件很愚蠢的事吗？天啊，怎么会有人自己给自己理发？</p>
+<p>ACB: 那我换个说法，用数学语言来描述吧。</p>
+<p>GOC: 数学？说实话我不太喜欢数学家。</p>
+<p>ACB: 但是我们得承认他们的确很聪明。</p>
+<p>GOC: 这倒是。</p>
+<p>ACB：用数学语言大概应该这么描述：“S={x|x ∉ x}”</p>
+<p>GOC: 这么看倒是悖论，不过那些聪明的数学家肯定已经解决这个问题了。</p>
+<p>ACB: 的确，不过他们解决的办法显得不是那么的“聪明”。他们把对象区分开了，像是自然而然地那样。</p>
+<p>GOC: 我想你说的是 Type Theory？</p>
+<p>ACB: 没错，他们把一切都分开了，这样一来就不会产生自己包含自己这种荒谬事情发生了。他们弄了一条公理（正则性）“如果 A 是一个非空的集合，那么至少 A 含有一个元素 x,它要么不是集合，要么与 A 不相交的集合。”（注：该公理也称为基础公理（foundation axiom））</p>
+<p>GOC：他们解决的不错，不过我对这种问题厌烦了。就如同和尚讲故事一样。</p>
+<p>ACB：和尚讲故事？</p>
+<p>GOC: 对啊，你没听过那个著名的故事吗？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 从前有座山，山里有个庙，庙里有个老和尚给小和尚讲故事</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从前有座山，山里有个庙，庙里有个老和尚给小和尚讲故事</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从前有座山，山里有个庙，庙里有个老和尚给小和尚讲故事<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; …….</p>
+<p>（过了大概有几分钟）</p>
+<p>ACB: 那个，其实我也对和尚讲的故事不太感兴趣。</p>
+<p>GOC: 我也说烦了，不如去我家歇一会把，我也想回去喝点水。正好给你看看我收到的一个有趣的新玩艺。</p>
+<p>ACB：有趣的新玩艺？</p>
+<p>GOC: 嗨，别提了。那天我正在我家地下室打扫卫生，忽然听到有人敲门，我问了半天也没人回答。后来我开门一看发现一个大盒子摆在了门口，上面还贴着一张纸条</p>
+<p>“这个机器可以解释一切问题”<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; —无名氏献上</p>
+<p>ACB：解决一切问题？那可真是有点怪，我还从来没听说过有人开发出了这种机器。</p>
+<p>GOC：不过就像方便面的包装一样，我从来不相信包装上的任何东西。</p>
+<p>ACB: 我觉得你是对的，但这种神奇的东西我也想要见识见识。</p>
+<p>GOC: 我们已经到了，我把那台机器放在了地下室，这东西或许能让你大吃一惊。</p>
+<p>ACB：光看到这个机器我就已经大吃一惊了。你是怎么把它搬到地下室的？</p>
+<p>（指了指那台几乎占满整个地下室的机器）</p>
+<p>GOC:嗨，那可差点累死我。不过先别说那个了，让我们先来打开这个机器。（说着按下了机器按钮，那台巨大的机器开始运作并发出了巨大的轰鸣声）</p>
+<p>GOC: 这破机器每次运行都要这么大噪音吗？我现在倒是很担心家里的电费怎么办。</p>
+<p>ACB: 这应该是风扇的声音。（一股热浪向两人袭来）</p>
+<p>GOC：我觉得冬天开着这台机器都不用烧炉子，但是电费……诶，好了，现在可以问问题了。</p>
+<p>ACB: 这东西真的能解释一切问题吗？</p>
+<p>GOC: 大概吧，或许你可以自己试试。我先去喝点茶。</p>
+<p>ACB: 好吧，那我试一试。</p>
+<p>UIT: 你好，你有什么问题？</p>
+<p>ACB: 嗯，我想想，你到底是什么？</p>
+<p>UIT：如你所见我就是 UIT，我可以解释一切问题。</p>
+<p>ACB: 虽然我觉得这不算回答……那，你能帮我解释一下哥德尔不完备定律吗？</p>
+<p>UIT: 没问题。(它给出了完整的回答)</p>
+<p>（过了大概一个小时，GOC 回到了地下室）</p>
+<p>GOC: 你不会还在和这台机器玩游戏吧，我觉得我该把它关了，我可不想明天早上收到电费催缴单。</p>
+<p>ACB: 快了，这台机器知道的还不少呢，看上去真像送来这个东西的那个人写的一样。</p>
+<p>ACB: 我再问它最后一个问题，你看上去的确比大多数人都要聪明啊，不过我很好奇，你该怎么解释你是如何解释一切的吗？</p>
+<p>GOC: 说实话，我觉得你又提了个愚蠢的问题。</p>
+<p>UIT: ……</p>
+<p>UIT: ……</p>
+<p>UIT: ……</p>
+<p>ACB: 这机器坏了吗？怎么突然没反应了？</p>
+<p>（啪的一声，地下室的灯灭了，机器也停了下来）</p>
+<p>GOC: 天啊怎么回事，好像停电了？我去看看地下室的电闸。（说着变戏法一样的掏出了一个手电筒。）</p>
+<p>GOC: 我看看，电闸跳闸了。说实话兄弟，我觉得你今天总是提出一些愚蠢的问题。</p>
+<p>ACB: 的确是这样，我很抱歉。我能帮上什么忙吗？</p>
+<p>GOC：我觉得把电闸推回去就行。（说着推了下电闸）</p>
+<p>(地下室的灯又亮了起来)</p>
+<p>GOC: 让我看看这台机器。（说着又按下机器按钮）</p>
+<p>(过了两分钟，没有丝毫的动静)</p>
+<p>ACB: 我很抱歉，看起来我弄坏了这台机器。</p>
+<p>GOC: 不是我说，你不能总是提这种愚蠢的问题，尽管你是初学者。现在看来我得修修这台机器了，我才发现这箱子里根本没有保修单啊。</p>
+<p>ACB: 难不成这是个三无产品？</p>
+<p>GOC：你好像机敏了一些，就现在来看，你是正确的。</p>
+<p>ACB: 或许我能帮上些什么忙？</p>
+<p>GOC: 或许你可以帮我带晚饭？这台见鬼的机器不知道什么时候能修好。这样，离着两公里远有一家川菜馆，你或许可以给我带点不辣的川菜回来。</p>
+<p>ACB: 不辣的川菜？</p>
+<p>GOC：对，这是他们家的招牌，不辣的川菜。</p>
+<p>ACB：好吧，这还真是奇怪，真是抱歉给你添麻烦了，我去去就回。</p>
+<p>（ACB 觉得在这个地下室里的确很不自在，于是赶快离开了）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" rel="tag"># 计算机科学</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/11/02/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%870%EF%BC%89/" rel="prev" title="一起学习魔法吧（番外篇0）">
+                  <i class="fa fa-chevron-left"></i> 一起学习魔法吧（番外篇0）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/02/%E5%87%BD%E6%95%B0%E5%BC%8F%E4%B8%89%E6%9D%BF%E6%96%A7-map-filter-fold/" rel="next" title="函数式三板斧(map,filter,fold)">
+                  函数式三板斧(map,filter,fold) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">窃时者</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">8k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
