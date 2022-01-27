@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2018/12/05/hello-world/</url>
+    <url>/2018/03/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -22,7 +22,7 @@
   </entry>
   <entry>
     <title>test</title>
-    <url>/2018/12/05/test/</url>
+    <url>/2018/03/05/test/</url>
     <content><![CDATA[<h2 id="Lorem-ipsum"><a href="#Lorem-ipsum" class="headerlink" title="Lorem ipsum"></a>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <p>test test test</p>
 <p>“中文”</p>
@@ -267,6 +267,184 @@
       <tags>
         <tag>编程相关</tag>
         <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一起学习魔法吧（0）</title>
+    <url>/2018/11/11/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%880%EF%BC%89/</url>
+    <content><![CDATA[<p><em>开始念动咒语吧！</em></p>
+<h2 id="古老的魔法"><a href="#古老的魔法" class="headerlink" title="古老的魔法"></a>古老的魔法</h2><p>从某种意义上讲，写程序和念咒语是没什么区别的。不信你看：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int number  &#x3D;  5;</span><br><span class="line">number ++;</span><br></pre></td></tr></table></figure><br>例如上面这个c语言程序片段，我们念动咒语 int number = 5 就把5赋值给了number，这好比念动咒语让帽子里出现鸽子。魔法师是分派别的，他们念动的咒语不同，效果也不用。写程序也是如此，程序编写者使用的语言不同，就好像念动不同派别的咒语。在辉煌的程序语言家族里，有一门较为古老的语言，lisp。这个系列要了解的就是它的一门方言scheme，让我们先来看看这们语言的基础吧：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(display &quot;Hello Scheme!&quot;)</span><br><span class="line">Hello Scheme!</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure><br>（注：关于法杖（开发环境）的获取，网络上有许多经验，故不再赘述）<br>这门古老的语言和一般的语言不太相同，例如最基本的表达式：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(3 + 4)</span><br><span class="line">application: not a procedure;</span><br><span class="line">expected a procedure that can be applied to arguments</span><br><span class="line">given: 3</span><br><span class="line">arguments...:</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure><br>额，看来我们念错了咒语。<del>（还好没被吸进魔法书里）</del>我们看看计算机向我们抱怨了什么，它说这并不是一个过程，现在需要一个过程来应用于参数上。看来计算机认为我们输入的（3 + 4）是参数。其实正确的咒语是这样的：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 3 4)</span><br><span class="line">7</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure><br>这也可以理解，不过就是把加法应用在3和4上，也没什么复杂的嘛！其他的基本运算也是如此：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 3 4)</span><br><span class="line">(* 3 4)</span><br><span class="line">(- 3 4)</span><br><span class="line">(&#x2F; 3 4)</span><br><span class="line"></span><br><span class="line">7</span><br><span class="line">12</span><br><span class="line">-1</span><br><span class="line">3</span><br><span class="line">—</span><br><span class="line">4</span><br></pre></td></tr></table></figure><br>看起来还都不错，除了最后一个，那是什么？这个东西太诡异了吧，仔细看看好像是分数？等等，你别骗我，计算机可不能搞出来分数。我知道IEEE754！别想骗我！是的，计算机本身不能表示分数（其实你也可以强行搞，得不偿失），但是不代表我们不能弄出分数结构对不对？<br>我猜你肯定在想这个吧？<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(&#x2F; 2 4)</span><br><span class="line">1</span><br><span class="line">—</span><br><span class="line">2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure><br>嘿嘿，事情并不像你想的那样吧，显然我们完全可以用分数进行计算，这就像1+1 = 2 （当然这是十进制加法，皮亚诺公理下的）一样。我们再试试这样？：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 6 3&#x2F;4)</span><br><span class="line">   3</span><br><span class="line"> 6 —</span><br><span class="line">   4</span><br><span class="line">&gt; </span><br></pre></td></tr></table></figure><br>(当然这个比例不太对，但是结果的结构是正确的)能看得出来这是带分数，下面我们看看小数：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(* 0.43 0.7)</span><br><span class="line">0.301</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure><br>不错，scheme直接计算小数乘法还是不错的，不如我们再做一些好玩的事？<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 9999999999999999999999999999 233333333333333333333333333)</span><br><span class="line">10233333333333333333333333332</span><br></pre></td></tr></table></figure><br>你在干什么！机器会被你玩坏的！额，但是看上去好像一点问题都没有啊。对了，我们在念动咒语的时候并不像c那样要念出我们要召唤精灵的名字(int,char,double,float…)我们直接进行了计算，可见scheme不像c语言那样是静态类型而是动态类型。所以我们也不用担心Int的溢出问题了。<br>刚才我们试的所有式子都是(operator exp exp)的形式，我们不如试试别的？<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 0.321 0.32143 0.5634)</span><br><span class="line">1.2058300000000002</span><br></pre></td></tr></table></figure><br>这不对啊，这根本不是他们算出来的结果啊。虽然scheme的小数可以直接输入操作，但如同c中的float,double一样有精度的限制。（IEEE754）<br>这节我们了解了基础的运算和一些规则，但是我们还没有掌握其他的一些必要工具，我们将在下节中介绍。</p>
+]]></content>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一起学习魔法吧（1）</title>
+    <url>/2020/01/27/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<p>上一节中我们对scheme有了初步印象，这节我们来介绍它的基本运算。<br>与c语言不同的是，scheme种并没有真正意义上的变量。例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Int a &#x3D; 3;</span><br></pre></td></tr></table></figure><br>这种形式的语句在scheme中并不存在。在c语言中，一个变量必须声明类型，而scheme 则有所不同。首先来看数的计算。<br>在c语言中，我们可以这样写：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Int a &#x3D; 5；</span><br><span class="line">Int b &#x3D; 6;</span><br><span class="line">Int c &#x3D; a + b;</span><br></pre></td></tr></table></figure><br>而在scheme中其书写是这样的：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure><br>这两者能达到同样的效果。但两者还是有较大的区别的，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Int a &#x3D; 5;</span><br><span class="line">Int b &#x3D; 6;</span><br><span class="line">b &#x3D; 9;</span><br><span class="line">int c &#x3D; a + b;</span><br></pre></td></tr></table></figure><br>在这时，c为14而在scheme中：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define b 9)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure><br>此时则会报错，在scheme中所有的值都是常量，不可更改，而不像c语言，需要用const修饰才为常量。<br>四则运算在上节中也做过基本的介绍，这节中不再过多阐述。<br>同样的，scheme中也有不同的类型，例如数字，字符，列表，其中列表是一个及其重要的组成。不夸张的说，scheme的强大与列表有着很深的相关性。<br>接下来我们说说字符，在c语言中，我们有字符和字符串，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">char d &#x3D; ‘h’;</span><br><span class="line">string e &#x3D; “abcdefg”;</span><br></pre></td></tr></table></figure><br>在scheme中，我们如是表示：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define d “h”)</span><br><span class="line">(define e “abcdefg”)</span><br></pre></td></tr></table></figure><br>值得注意的是，在scheme中，字符和字符串都用“xxxxxxxxx”表示，我们可以把字符理解成长度为一的字符串。<br>接下来我们说最重要的部分，列表：<br>列表主要由cons car cdr 构成，其中cons 是把两个组成部分合成一个序对，值得注意的时，cons可以连接不同类型的单元，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(cons “abcdef” 6)</span><br><span class="line">    &#39;(&quot;abcdef&quot; . 6)</span><br></pre></td></tr></table></figure><br>如果我们想得到“abcdef” 只需 (car (cons “abcdef” 6))<br>如果要得到6 只需要(cdr (cons “abcdef” 6))<br>上面简要说了说scheme中基本的要素，下节中我们将介绍更多内容。</p>
+]]></content>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一起学习魔法吧（番外篇1）</title>
+    <url>/2018/04/22/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%871%EF%BC%89/</url>
+    <content><![CDATA[<p><em>任何非常先进的技术，初看都与魔法无异。</em></p>
+<h2 id="currying"><a href="#currying" class="headerlink" title="currying"></a>currying</h2><p>currying(柯里化)将函数转化成单参函数，即将所有函数固定为接受一个参数，返回一个值的形式。给予λ演算一个理论模型。<br><br><br>而柯里化究竟是什么呢?我们可以这么理解，例如现在我们有一个二元函数<em>f(x,y) = x + y</em> 那么在代码里可以这么书写：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int add(int a, int b)&#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>甚至没学过计算机的人都能看懂它的含义，取两个数a,b在进行相加运算后返回结果。但我们应当注意的是，这个函数传进去的只能是两个参数，否则机器将无法工作。更重要的是这个函数返回的是一个数值。<br><br><br>而柯里化的方式是什么呢？柯里化要把这个函数改造为单参函数。逻辑上如下图所示<br><img src="https://s2.ax1x.com/2020/02/08/1W2fiQ.png" alt="image"><br><strong>该图上面是正常的add，下面是柯里化的add。</strong><br><br><br>我们相当于构建了两个“机器”每个“机器”只做有限的工作，剩下的工作交给下一个“机器”，这样我们可以把复杂的“机器”拆分成一系列的小型“机器”。<br><br><br>柯里化给我们理清了一个思路，类似于用皮亚诺公理解释自然数，我们可以用这种简单的函数（过程）模型来构建出强大的系统。但是这个理论在实际应用上貌似并不多，至少在我所触及的范围内几乎没有用过。</p>
+<p>注：由于笔者的水平有限，文章中可能存在疏漏。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一起学习魔法吧（番外篇2）</title>
+    <url>/2018/04/24/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%89/</url>
+    <content><![CDATA[<p><em>任何非常先进的技术，初看都与魔法无异。</em></p>
+<h2 id="λ-calculus"><a href="#λ-calculus" class="headerlink" title="λ-calculus"></a>λ-calculus</h2><p>这篇博客我们简单说说λ-calculus。<br>在λ演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故λ演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予λ演算一个理论模型）而函数由λ表达式匿名定义，如：f(x) = x * 2<br>可以写为 λx.x * 2 而f(4)的值即可表示为(λx.x * 2) 4。<br>看上去怪怪的，突然冒出来一个孤零零的数字4，如果有强迫症的话简直不能忍啊！那么我们还可以把它写成下面这个样子：<br>(λf.f 4)(λ.x x * 2)这回看着规整了一些。(λf.f 4)表示的是这个函数接受一个函数作为参数，并作用在4上。<br>就如同任何编程语言都有语法一样，λ演算也需要语法。λ演算将符合这些语法的表达式也称作“lambda项”其语法可归纳成三条规则：</p>
+<ul>
+<li>变量x本身就是一个有效的lambda项</li>
+<li>如果t是一个lambda项，而x是一个变量，则(λx.t) 是一个lambda项（称为lambda抽象）</li>
+<li>如果t和s是lambda项，那么(ts)是一个lambda项（称为应用）<br>等等，这样一来，我写下这种式子(λx.x x)(λx.x x)也是对的，但是貌似计算不出来一个确定的值啊。然而这是可以接受的，因为lambda表达式并不要求必须归约到一个确定的值上。<br>接下来我们来看一个有趣的东西：<h2 id="Church数"><a href="#Church数" class="headerlink" title="Church数"></a>Church数</h2>Church数0, 1, 2, …在lambda演算中被定义如下：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0 ≡ λf.λx. x</span><br><span class="line">1 ≡ λf.λx. f x</span><br><span class="line">2 ≡ λf.λx. f (f x)</span><br><span class="line">3 ≡ λf.λx. f (f (f x))</span><br><span class="line">...</span><br><span class="line">n ≡ λf.λx. fn x</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+这是什么？怎么凭空就能冒出来0 ≡ λf.λx. x，1 ≡ λf.λx. f x这种奇怪的东西？我们先回想一下自然数是怎么定义的？<br>额，像是0，1，2，3······这种数叫自然数？这种定义太不严谨，我们要用皮亚诺公理定义自然数：</li>
+<li>0是一个自然数。</li>
+<li>0不是任何其他自然数的继数。</li>
+<li>每一个自然数a都有一个继数。</li>
+<li>如果a与b的继数相等则a与b亦相等。</li>
+<li>若一个由自然数组成的集合s包含有0，又若当s包含有某一数a时，它一定也含有a的继数，则s就包含有全体自然数。<br>看上去好多了，但是这又和上面的church数有什么关系呢？我们可以这么理解：<br>我们先定义了一个零作为基础，又定义了后继这个概念（计算方法），我们现在只不过在用λ表达式来表示罢了，其中的f就可以理解为后继。这倒是能说得通，但是我要做加法又怎么理解？很简单，只不过是进行多次后继罢了。<br><br><br>正真的λ演算比本文所描述的要复杂很多，本文只是简要的介绍。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>凸优化（零）</title>
+    <url>/2020/03/18/%E5%87%B8%E4%BC%98%E5%8C%96%EF%BC%88%E9%9B%B6%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列主要为《Convex Optimization》学习笔记  </p>
+<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><h4 id="直线与线段"><a href="#直线与线段" class="headerlink" title="直线与线段"></a>直线与线段</h4><p>设$x_{1} \neq x_{2}$为$\mathbb{R}^{n}$空间中两个点，则<br>$ y=\theta x_{1}+(1-\theta) x_{2},\theta \in \mathbb{R} $<br>为一条穿越$x_{1},x_{2}$的直线。当$\theta$在0~1变动时，可构成$x_{1}$与$x_{2}$之间的闭线段。y也可表示为：<br>$y=x_{2}+\theta(x_{1}-x_{2})$<br>这种形式可以解释成由基点$x_{2}$向方向$x_{1}-x_{2}$走一定距离的所有点的集合，当$\theta$在0~1之间时，构成了线段，若$\theta$可取任意值，则是直线。</p>
+<h4 id="仿射集合"><a href="#仿射集合" class="headerlink" title="仿射集合"></a>仿射集合</h4><p>设集合$C \subseteq \mathbb{R}^{n}$若$\forall x_{1},x_{2} \in C ,\theta \in \mathbb{R}$有$\theta x_{1}+(1-\theta) x_{2} \in C$则称集合$C$为仿射的。<br>该定义也可以扩展到多个点的情况。当$\theta_{1}+…+\theta_{k} = 1$时，我们称$\theta_{1}x_{1} + \theta_{2}x_{2}+…+\theta_{k}x_{k}$为$x_{1},…,x_{k}$的仿射组合。</p>
+<h4 id="凸集定义"><a href="#凸集定义" class="headerlink" title="凸集定义"></a>凸集定义</h4><p>集合$C$被称为凸集，如果$C$中任意两点间的线段仍在$C$，即对于$\forall x_{1},x_{2} \in C$和满足$0 \leqslant \theta \leqslant 1$均有$\theta x_{1}+(1-\theta)x_{2} \in C$<br>点$\theta_{1}x_{1} + \theta_{2}x_{2}+…+\theta_{k}x_{k}$为点$x_{1},x_{2},…x_{k}$的一个凸组合，其中$\theta_{1}+…+\theta_{k}$并且$\theta_{i} \geqslant 0, i=1,……,k$<br>与仿射集合类似，一个集合是凸集等价于集合包含其中所有点的凸组合。<br>我们称集合C为所有点的凸组合的集合为其凸包，记为 $conv C$:<br>$conv C = \lbrace \theta_{1}x_{1}+…+\theta_{k}x_{k}| x_{i} \in C, \theta_{i} \geqslant 0, i =1,…,k, \theta_{1}+\theta_{2}+…+\theta_{k}=1\rbrace$<br>凸包$conv C$总是凸的，它是包含$C$的最小的凸集。</p>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>凸优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>古典人工智能（零）</title>
+    <url>/2020/03/17/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%20%20(%E9%9B%B6)/</url>
+    <content><![CDATA[<h2 id="人工智能学派"><a href="#人工智能学派" class="headerlink" title="人工智能学派"></a>人工智能学派</h2><p>人工智能的主要流派有三个：1.符号主义(symbolicism)—数理逻辑 \ 2.连接主义(connectionism)—仿生学 \ 3.行为主义(actionism)—控制论<br>该系列博客主要写写其中的符号主义学派。<br>（注： 主要是总结所看过的书籍、博客等，并非完全原创）<br>符号主义学派的核心观点在于，人类的智能主要体现在推理能力。机器应当像人一样思考，这样一来机器才有获取智能的可能。符号主义学派的思路十分明了，建立一个庞大的知识库体系，并赋予机器推理能力这样便可以创造人工智能。至于为什么这种观点被称为<br>符号主义，原因在于该学派普遍认为人类认知基于符号，而思维是一种运算。如今的语义网络与专家系统很大程度上继承了符号主义学派的思路。</p>
+<h3 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h3><p>按照符号主义学派的思路，构建人工智能首先要获取知识。给知识下定义是极其困难的，但我们可以简单总结一下生活中的几种知识：<br>1.事实性知识<br>2.过程性知识<br>3.行为性知识<br>4.实例性知识<br>5.类比性知识<br>6.元知识  </p>
+<h4 id="事实性知识"><a href="#事实性知识" class="headerlink" title="事实性知识"></a>事实性知识</h4><p>这种知识一般采用直接表示的方式，例如：地球绕着太阳转、北京是中华人民共和国首都等。但要注意事实性知识的准确性，事实性知识如果出现错误，那么做出的推理必然结果也会不严密。<br>注：本文不讨论事实性知识能否正确被人类认知的哲学相关问题。</p>
+<h4 id="过程性知识"><a href="#过程性知识" class="headerlink" title="过程性知识"></a>过程性知识</h4><p>往往是一系列动作构成的知识，例如：如何做西红柿炒鸡蛋、如何维修电子计算机等</p>
+<h4 id="行为性知识"><a href="#行为性知识" class="headerlink" title="行为性知识"></a>行为性知识</h4><p>不给出事实本身，而是给出某方面的行为。例如微分方程刻画了一个函数的行为但并未给出函数本身。（这类知识往往是某种数学模型）行为性知识往往描述的是事物的内涵而非外延。<br>(注：<br>内涵：内涵往往指事物特有属性的反应<br>外延：外延往往指事物所组成的类<br>例如：当我们谈到人的内涵，指的是人类所具有属性(如：域：真核域 Eukarya \ 界：动物界 Animalia \ 门：脊索动物门 Chordata\ 亚门：脊椎动物亚门 Vertebrata \ 纲：哺乳纲 Mammalia \ 亚纲：真兽亚纲 Eutheria \ 目：灵长目 Primates \ 科：人科 Hominidae \  属：人属 Homo \ 种：智人种(Homo sapiens sapiens) \ )而人的外延则指全体人类（即所有人类个体的集合）<br>从集合论的角度看内涵指集合所有元素共有的属性，而外延指集合中的所有元素。)</p>
+<h4 id="实例性知识"><a href="#实例性知识" class="headerlink" title="实例性知识"></a>实例性知识</h4><p>只给出实例而知识隐藏在实例中。例如：观察到打雷之后下雨了这便是一个实例性知识。（注：这并不是说打雷一定下雨，所有观察数据都是实例性知识）</p>
+<h4 id="类比性知识"><a href="#类比性知识" class="headerlink" title="类比性知识"></a>类比性知识</h4><p>不给出内涵也不给出外延，但给出它与其他事物的相似之处。这种知识虽然不准确，却能使不同领域之间的知识可以被快速理解。</p>
+<h4 id="元知识"><a href="#元知识" class="headerlink" title="元知识"></a>元知识</h4><p>即关于知识的知识。例如：一个专家系统要知道该系统能回答什么不能回答什么，这本身也是一种知识，只不过是关于知识的知识。</p>
+<h4 id="知识表示"><a href="#知识表示" class="headerlink" title="知识表示"></a>知识表示</h4><p>大概了解了知识之后，问题便是如何表示知识，普遍上有如下几种：<br>1.演绎系统<br>2.产生式系统<br>3.框架结构<br>4.语义网络<br>5.过程性知识  </p>
+<p>在后续的文章中，我们将逐一解释这五种表示方法。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>古典人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>古典人工智能（一）</title>
+    <url>/2020/05/10/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="演绎系统"><a href="#演绎系统" class="headerlink" title="演绎系统"></a>演绎系统</h2><h3 id="谓词演算"><a href="#谓词演算" class="headerlink" title="谓词演算"></a>谓词演算</h3><h4 id="知识单元的构造"><a href="#知识单元的构造" class="headerlink" title="知识单元的构造"></a>知识单元的构造</h4><p>对于知识我们可以用一种陈述性结论表示，例如：<br>天是蓝的<br>1+1=2<br>表示知识的陈述性形式称为命题。带有参数的命题被称作谓词。<br>例如 xx 是水果这就是一个谓词，我们可以设谓词 P 为 xx 是水果，那么有：<br>P1： P(苹果)<br>P2： P(葡萄)<br>我们说 P1 和 P2 是两个命题。它们的含义分别是：<br>P1： 苹果是水果<br>P2： 葡萄是水果<br>我们可以将不同的谓词结合起来形成新的谓词，如：<br>P3: fruit(X) -&gt; sweet(X)<br>这个命题表示如果 X 是水果，那么水果是甜的。在这里我们必须注意的是，这个新的谓词在逻辑上被规定是正确的，但这并不能代表它就是真正意义上的正确。我们也可以轻轻松松举出反例来反驳这个命题，但计算机是无法做到的。<br>从某种程度上讲这也是演绎系统的一大问题，在人类社会并不是只存在逻辑支配着所有的规律（至少目前来看不是）。所以完全指望构建完美的演绎系统来模拟世界无论从工程角度还是理论角度恐怕都是不可能的。（参考哥德尔不完备定律）<br>如上所示，我们表示出了一个新的知识单元，如果构建出大量的知识单元并制定一些规则，那么计算机可以说有了一定的“智能”（只要这些规则足够复杂且规模庞大）。<br>谓词可以不断组合形成新的谓词，理论上一个逻辑链是可以无限延伸的，如 P1(X)-&gt;P2(X)-&gt;P3(X)-&gt;P4(X)-&gt;P5(X)-&gt;……-&gt;（无限延伸）。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>古典人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微观经济学（零）</title>
+    <url>/2020/03/20/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%EF%BC%88%E9%9B%B6%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>该系列总结曼昆微观经济学笔记。</p>
+<h2 id="经济学十大原理"><a href="#经济学十大原理" class="headerlink" title="经济学十大原理"></a>经济学十大原理</h2><h3 id="人们如何做出决策"><a href="#人们如何做出决策" class="headerlink" title="人们如何做出决策"></a>人们如何做出决策</h3><h4 id="原理一：人们面临权衡取舍"><a href="#原理一：人们面临权衡取舍" class="headerlink" title="原理一：人们面临权衡取舍"></a>原理一：人们面临权衡取舍</h4><p>做出决策就是要求我们在一个目标和另一个目标之间进行权衡取舍。例如社会面临的一种权衡取舍是在效率与平等之间。效率(effeciency)是指社会能从稀缺资源中取得到的最大利益，平等(equality)是指将这些利益平均分配给社会成员。<br>（注：为什么平等和效率是冲突的？这与平等的概念有关，平等究竟是什么？）</p>
+<h4 id="原理二：-某种东西的成本是为了得到它所放弃的东西"><a href="#原理二：-某种东西的成本是为了得到它所放弃的东西" class="headerlink" title="原理二： 某种东西的成本是为了得到它所放弃的东西"></a>原理二： 某种东西的成本是为了得到它所放弃的东西</h4><p>机会成本(opportunity cost)：是为了得到这种东西所放弃的东西。  </p>
+<h4 id="原理三：-理性人考虑边际量"><a href="#原理三：-理性人考虑边际量" class="headerlink" title="原理三： 理性人考虑边际量"></a>原理三： 理性人考虑边际量</h4><p>理性人(rational people)：系统而有目的地尽最大努力实现其目标的人。<br>边际变动(marginal change)：对行动计划的微小增量调整。</p>
+<h4 id="原理四：-人们会对激励作出反应"><a href="#原理四：-人们会对激励作出反应" class="headerlink" title="原理四： 人们会对激励作出反应"></a>原理四： 人们会对激励作出反应</h4><p>激励(incentive)：引起一个人做出某种行为得某种东西。<br>（注：此处的激励更像是反馈）</p>
+<h3 id="人们如何相互影响"><a href="#人们如何相互影响" class="headerlink" title="人们如何相互影响"></a>人们如何相互影响</h3><h4 id="原理五：贸易可以使每个人得状况都变得更好"><a href="#原理五：贸易可以使每个人得状况都变得更好" class="headerlink" title="原理五：贸易可以使每个人得状况都变得更好"></a>原理五：贸易可以使每个人得状况都变得更好</h4><h4 id="原理六：市场通常是组织经济活动的一种好方法"><a href="#原理六：市场通常是组织经济活动的一种好方法" class="headerlink" title="原理六：市场通常是组织经济活动的一种好方法"></a>原理六：市场通常是组织经济活动的一种好方法</h4><p>市场经济(market economy)：当许多企业和家庭在物品与服务市场上相互交易时，通过他们的分散决策配置资源的经济。</p>
+<h4 id="原理七：政府有时可以改善市场结果"><a href="#原理七：政府有时可以改善市场结果" class="headerlink" title="原理七：政府有时可以改善市场结果"></a>原理七：政府有时可以改善市场结果</h4><p>产权(property rights)：个人拥有并控制稀缺资源的能力。<br>市场失灵(market failure)：市场本身不能有效配置资源的情况。<br>外部性(externality)：一个人的行为对旁观者福利的影响。<br>市场势力(market power)：单个经济活动者（或某个经济活动小群体）对市场价格有显著影响的能力。<br>（注：什么时候市场会失灵？稀缺性的定义是否具有主体性？是否能找到所有的外部性并纳入成本？如何预防市场势力的产生？还是说市场势力是市场的正常结果？）</p>
+<h3 id="整体经济如何运行"><a href="#整体经济如何运行" class="headerlink" title="整体经济如何运行"></a>整体经济如何运行</h3><h4 id="原理八：一国的生活水平取决于它生产物品与服务的能力"><a href="#原理八：一国的生活水平取决于它生产物品与服务的能力" class="headerlink" title="原理八：一国的生活水平取决于它生产物品与服务的能力"></a>原理八：一国的生活水平取决于它生产物品与服务的能力</h4><p>生产率(productivity)：每单位劳动所投入的生产物品与服务数量。<br>（注：金融服务是否是一种服务？这种服务的稀缺性如何界定？该怎样看待利用金融体系吸血问题？还是说利用金融体系吸血这个命题根本不存在？）</p>
+<h4 id="原理九：当政府发行了过多货币时，物价上涨"><a href="#原理九：当政府发行了过多货币时，物价上涨" class="headerlink" title="原理九：当政府发行了过多货币时，物价上涨"></a>原理九：当政府发行了过多货币时，物价上涨</h4><p>通货膨胀(inflation)：经济中物价总水平的上升。</p>
+<h4 id="原理十：社会面临通货膨胀与失业之间的短期权衡取舍"><a href="#原理十：社会面临通货膨胀与失业之间的短期权衡取舍" class="headerlink" title="原理十：社会面临通货膨胀与失业之间的短期权衡取舍"></a>原理十：社会面临通货膨胀与失业之间的短期权衡取舍</h4><p>经济周期(business cycle)：就业和生产等经济活动的波动。</p>
+]]></content>
+      <categories>
+        <category>经济学相关</category>
+      </categories>
+      <tags>
+        <tag>经济学原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习（二） 朴素贝叶斯</title>
+    <url>/2020/04/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="朴素贝叶斯法的学习与分类"><a href="#朴素贝叶斯法的学习与分类" class="headerlink" title="朴素贝叶斯法的学习与分类"></a>朴素贝叶斯法的学习与分类</h2><h3 id="任务与数据"><a href="#任务与数据" class="headerlink" title="任务与数据"></a>任务与数据</h3><p>$ DATA =  \lbrace (x_{1},y_{1}),(x_{2},y_{2}),…,(x_{N},y_{N}) \rbrace $<br>$ input space: \mathcal {X} \subseteq \mathbb{R}^{n} $<br>$ output space: \mathcal{Y} = {c_{1},c_{2},…c_{k}} $<br>其中$c_{i}$为类标记，该类标记可以有两个或多个。  </p>
+<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯通过训练数据集学习联合概率分布P(X,Y)。<br>其中先验概率分布为：<br>$ \displaystyle P(Y = c_{k}),k=1,2,…,K $<br>条件概率分布：<br>$ \displaystyle P(X=x|Y=c_{k}) = P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k}),  k=1,2,…,K $<br>学习到联合概率分布P(X,Y)。<br>朴素贝叶斯法对条件概率分布作了条件独立性假设。即：<br>$ \displaystyle P(X=x|Y=c_{k})=P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k})=  \prod_{j=1}^{n} P(X^{(j)}=x^{(j)}|Y=c_{k}) $<br>计算后验概率，将后验概率最大类作为x的类输出，后验概率计算根据贝叶斯定理进行。<br>$ \displaystyle P(Y=c_{k}|X=x)=\frac{P(X=x|Y=c_{k})P(Y=c_{k})}{\sum_{k}P(X=x|Y=c_{k})P(Y=c_{k})} $<br>可解朴素贝叶斯分类器：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k})\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_{k}) $</p>
+<h3 id="后验概率最大化的含义"><a href="#后验概率最大化的含义" class="headerlink" title="后验概率最大化的含义"></a>后验概率最大化的含义</h3><p>使用0-1损失函数有期望风险函数：<br>$ \displaystyle R_{exp}(f)=E[L(Y,f(x))] $<br>取条件期望有：<br>$ \displaystyle R_{exp}f(x)=E_{x} \sum_{k=1}^K [L(c_{k},f(X))]P(c_{k}|X) $<br>为了令期望风险最小化，于是对每个X=x逐个极小化可得：<br>$ \displaystyle f(x)= \mathop{\arg\max}_{\mathbf y \in Y} P(y=c_{k}|X=x)$<br>也即：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k}|X=x) $</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习（一）k近邻算法</title>
+    <url>/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E4%B8%80)/</url>
+    <content><![CDATA[<h2 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K 近邻算法"></a>K 近邻算法</h2><p>K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。<br>其任务与数据如下：<br>$Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})…(x_{n},y_{n}) \rbrace $<br>$x<em>{i} \in \mathcal {X} \subseteq \mathbb{R}^{n}$<br>$y</em>{i} \in \mathcal {Y} = \lbrace (c<em>{1},c</em>{2},…,c<em>{k}) \rbrace $<br>其中$y</em>{i}$是实例的类别。<br>任务是输出实例x的类别y。<br>k近邻算法的三个要素是：1.k值选择 2.度量距离 3.分类决策规则<br>该算法流程如下：<br>根据给定的距离度量，在训练集中找出与x最近邻的k个点，涵盖这k个点的邻域记作$N<em>{k}(x)$<br>在$N</em>{k}(x)$中根据分类决策规则决定x的类别y：<br>$\displaystyle y = \mathop{\arg\min}_{\mathbf c_{j}} \sum<em>{x</em>{i} \in N<em>{k}(x)} I(y</em>{i}=c<em>{i}) , \ i=1,2,…,N; \ j=1,2,…,k $<br>其中 I 为指示函数当$y</em>{i} = c_{i}$时 I 为 1，否则为 0。当 k=1 时，该算法又可称最近邻算法。</p>
+<h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>该算法的距离度量往往采用$L_{p}$距离。其定义为：<br>$\displaystyle L<em>{p} (x</em>{i},x<em>{j}) = (\sum</em>{l=1}^n \vert x<em>{i}^{(l)}-x</em>{j}^{(l)} \vert ^p)^{1/p} $</p>
+<h3 id="k-值选择"><a href="#k-值选择" class="headerlink" title="k 值选择"></a>k 值选择</h3><p>k 值不易选取过大，应在较小的值中选取，选取不同的 k 值并进行交叉验证来选取最优值。</p>
+<h3 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h3><p>一般采用多数表决（majority voting rule），其误分类率是：<br>$\displaystyle 1/k \sum_{x_{i} \in N_{k}(x)} I(y_{i} \neq c_{j})$<br>那么要使其最小就是使$\displaystyle \sum_{x_{i} \in N_{k}(x)} I(y_{i} = c_{j})$最大，多数表决函数可以等价于经验风险最小化。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>往往利用 kd 树方式构造：<br>构造根结点，不妨选择$x^{(1)}$为坐标轴，以 T 中所有的实例的$x^{(1)}$坐标的中位数为切分点，将根节点对应的超矩形区域切分为两个子区域。切分由通过切分点并与坐标轴$x^{(1)}$垂直的超平面实现。由根节点生成深度为 1 的左右子节点；左子节点对应坐标$x^{(1)}$小于切分点的子区域，右子节点对应于坐标$x^{(1)}$大于切分点的子区域。将落在切分超平面上的点将被保存在根节点。<br>之后对深度为 j 的节点重复这种操作，选择$x^{(l)} \ l = j(mod k)+1$进行。<br>当两个子区域没有实例存在时停止。从而形成 kd 树的区域划分。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习（零）单层感知机</title>
+    <url>/2020/03/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E9%9B%B6)/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好久没更新博客了，准备开一个新的系列总结一下自己机器学习的相关经验</p>
+<h2 id="单层感知机"><a href="#单层感知机" class="headerlink" title="单层感知机"></a>单层感知机</h2><p>我们今天看一个超级简单的模型，单层感知机。其结构可以看作是（以四元为例）<br><a href="https://imgchr.com/i/3zt3Uf"><img src="https://s2.ax1x.com/2020/03/08/3zt3Uf.md.png" alt="3zt3Uf.md.png"></a><br>首先我们来看看任务和数据是什么样子的：  </p>
+<p>$Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})…(x_{m},y_{m}) \rbrace $<br>$x_{i} \in \mathcal {X} \subseteq \mathbb{R}^{n}$<br>$y_{i} \in \mathcal {Y} = \lbrace 1,-1 \rbrace $  </p>
+<p>这组数据给出的情景是：存在一个二分类任务，其中n维数据有m组，现要找到一个模型f(·)来对数据进行分类，并求出其w与b。<br>由于我们的任务是二分类任务，且输出为1或-1，不妨将f(·)设为sigmoid函数(由于sign函数不可导)<br>在该任务中我们要找到一个超平面 w*x+b = 0 将正负实例分到平面两侧，则有  </p>
+<script type="math/tex; mode=display">\begin{cases}
+1  \qquad & w*x+b \gt 0\\
+-1 \qquad & w*x+b \lt 0\\
+\end{cases}</script><p>我们可以将这两个公式合为一个 <script type="math/tex">(w*x_{i}+b)*y_{i} \gt 0</script>当一个数据符合该不等式时，该数据便被分类正确。<br>显而易见的，当误分类的点越少时，模型便越精准。因此我们可以定义loss函数为<script type="math/tex">\displaystyle \sum_{x_{i} \in M}   1</script>其中M为误分类点的集合。我们的目的就是找到合适的参数w与b将该loss函数取到最小值。但由于该loss函数是离散的，我们无法对其进行求导等操作。因此我们不妨将loss函数改为如下形式  </p>
+<script type="math/tex; mode=display">\displaystyle  L(w,b) =  \sum_{x_{i} \in M}   -y_{i}*(w*x+b)</script><p>这样一来我们便可以进行求导操作，利用随机梯度下降法(stochastic gradient descent)进行训练。loss函数对w和b分别求导可得：  </p>
+<script type="math/tex; mode=display">\nabla_{w} L(w,b) = \sum_{x_{i} \in M} -y_{i}*x_{i}</script><script type="math/tex; mode=display">\nabla_{b} L(w,b) = \sum_{x_{i} \in M} -y_{i}</script><p>进而我们利用每个误分类点$(x_{i},y_{i})$对w,b进行更新：  </p>
+<script type="math/tex; mode=display">w := w+\eta y_{i}x_{i}</script><script type="math/tex; mode=display">b := b+\eta y_{i}</script><p>其中$\eta$为学习率，我们可以取0~1中的任何一个数值。学习率的选取在很多时候对算法的收敛速度有很大的影响。<br>对上述式子我们可以不断地进行迭代，到没有误分类点后停止。<br>以上便是单层感知机模型。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
 </search>
