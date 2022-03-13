@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="K 近邻算法K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。其任务与数据如下：$Data &#x3D; \lbrace (x_{1},y_{1}),(x_{2},y_{2})…(x_{n},y_{n}) \rbrace $$x{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}$$y{i} \in \m">
+  <meta name="description" content="K 近邻算法K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。其任务与数据如下：   Data &#x3D; \lbrace (x_{1},y_{1}),(x_{2},y_{2})...(x_{n},y_{n}) \rbracex\_{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}y*{i} \in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习（一）k近邻算法">
 <meta property="og:url" content="http://example.com/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="时之碎片">
-<meta property="og:description" content="K 近邻算法K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。其任务与数据如下：$Data &#x3D; \lbrace (x_{1},y_{1}),(x_{2},y_{2})…(x_{n},y_{n}) \rbrace $$x{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}$$y{i} \in \m">
+<meta property="og:description" content="K 近邻算法K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。其任务与数据如下：   Data &#x3D; \lbrace (x_{1},y_{1}),(x_{2},y_{2})...(x_{n},y_{n}) \rbracex\_{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}y*{i} \in">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-16T12:08:41.000Z">
-<meta property="article:modified_time" content="2022-02-06T13:43:00.000Z">
+<meta property="article:modified_time" content="2022-02-06T14:07:49.147Z">
 <meta property="article:author" content="窃时者">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
@@ -306,7 +306,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-06 21:43:00" itemprop="dateModified" datetime="2022-02-06T21:43:00+08:00">2022-02-06</time>
+        <time title="修改时间：2022-02-06 22:07:49" itemprop="dateModified" datetime="2022-02-06T22:07:49+08:00">2022-02-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -333,7 +333,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -351,10 +351,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K 近邻算法"></a>K 近邻算法</h2><p>K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。<br>其任务与数据如下：<br>$Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})…(x_{n},y_{n}) \rbrace $<br>$x<em>{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}$<br>$y</em>{i} \in \mathcal{Y} = \lbrace (c<em>{1},c</em>{2},…,c<em>{k}) \rbrace $<br>其中$y</em>{i}$是实例的类别。<br>任务是输出实例x的类别y。<br>k近邻算法的三个要素是：1.k值选择 2.度量距离 3.分类决策规则<br>该算法流程如下：<br>根据给定的距离度量，在训练集中找出与x最近邻的k个点，涵盖这k个点的邻域记作$N<em>{k}(x)$<br>在$N</em>{k}(x)$中根据分类决策规则决定x的类别y：<br>$\displaystyle y = \mathop{\arg\min}_{\mathbf c_{j}} \sum<em>{x</em>{i} \in N<em>{k}(x)} I(y</em>{i}=c<em>{i}) , \ i=1,2,…,N; \ j=1,2,…,k $<br>其中 I 为指示函数当$y</em>{i} = c_{i}$时 I 为 1，否则为 0。当 k=1 时，该算法又可称最近邻算法。</p>
-<h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>该算法的距离度量往往采用$L_{p}$距离。其定义为：<br>$\displaystyle L<em>{p} (x</em>{i},x<em>{j}) = (\sum</em>{l=1}^n \vert x<em>{i}^{(l)}-x</em>{j}^{(l)} \vert ^p)^{1/p} $</p>
-<h3 id="k-值选择"><a href="#k-值选择" class="headerlink" title="k 值选择"></a>k 值选择</h3><p>k 值不易选取过大，应在较小的值中选取，选取不同的 k 值并进行交叉验证来选取最优值。</p>
-<h3 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h3><p>一般采用多数表决（majority voting rule），其误分类率是：<br>$\displaystyle 1/k \sum_{x_{i} \in N_{k}(x)} I(y_{i} \neq c_{j})$<br>那么要使其最小就是使$\displaystyle \sum_{x_{i} \in N_{k}(x)} I(y_{i} = c_{j})$最大，多数表决函数可以等价于经验风险最小化。</p>
+        <h2 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K 近邻算法"></a>K 近邻算法</h2><p>K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。<br>其任务与数据如下：  </p>
+<script type="math/tex; mode=display">Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})...(x_{n},y_{n}) \rbrace</script><script type="math/tex; mode=display">x\_{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}</script><script type="math/tex; mode=display">y*{i} \in \mathcal{Y} = \lbrace (c*{1},c*{2},...,c*{k}) \rbrace</script><p>其中$y<em>{i}$是实例的类别。<br>任务是输出实例x的类别y。<br>k近邻算法的三个要素是：1.k值选择 2.度量距离 3.分类决策规则<br>该算法流程如下：<br>根据给定的距离度量，在训练集中找出与x最近邻的k个点，涵盖这k个点的邻域记作$N</em>{k}(x)$<br>在$N*{k}(x)$中根据分类决策规则决定x的类别y：  </p>
+<script type="math/tex; mode=display">\displaystyle y = \mathop{\arg\min}_{\mathbf c\_{j}} \sum\_{x\_{i} \in N_{k}(x)} I(y\*{i}=c\*{i}) , \ i=1,2,...,N; \ j=1,2,...,k</script><p>其中 I 为指示函数当$y*{i} = c_{i}$时 I 为 1，否则为 0。当 k=1 时，该算法又可称最近邻算法。</p>
+<h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>该算法的距离度量往往采用$L_{p}$距离。其定义为：  </p>
+<script type="math/tex; mode=display">\displaystyle L*{p} (x*{i},x*{j}) = (\sum*{l=1}^n \vert x*{i}^{(l)}-x*{j}^{(l)} \vert ^p)^{1/p}</script><h3 id="k-值选择"><a href="#k-值选择" class="headerlink" title="k 值选择"></a>k 值选择</h3><p>k 值不易选取过大，应在较小的值中选取，选取不同的 k 值并进行交叉验证来选取最优值。</p>
+<h3 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h3><p>一般采用多数表决（majority voting rule），其误分类率是：  </p>
+<script type="math/tex; mode=display">\displaystyle 1/k \sum_{x_{i} \in N_{k}(x)} I(y_{i} \neq c_{j})</script><p>那么要使其最小就是使$\displaystyle \sum_{x_{i} \in N_{k}(x)} I(y_{i} = c_{j})$最大，多数表决函数可以等价于经验风险最小化。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>往往利用 kd 树方式构造：<br>构造根结点，不妨选择$x^{(1)}$为坐标轴，以 T 中所有的实例的$x^{(1)}$坐标的中位数为切分点，将根节点对应的超矩形区域切分为两个子区域。切分由通过切分点并与坐标轴$x^{(1)}$垂直的超平面实现。由根节点生成深度为 1 的左右子节点；左子节点对应坐标$x^{(1)}$小于切分点的子区域，右子节点对应于坐标$x^{(1)}$大于切分点的子区域。将落在切分超平面上的点将被保存在根节点。<br>之后对深度为 j 的节点重复这种操作，选择$x^{(l)} \ l = j(mod k)+1$进行。<br>当两个子区域没有实例存在时停止。从而形成 kd 树的区域划分。</p>
 
     </div>

@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="上一节中我们对scheme有了初步印象，这节我们来介绍它的基本运算。与c语言不同的是，scheme种并没有真正意义上的变量。例如：1Int a &#x3D; 3;这种形式的语句在scheme中并不存在。在c语言中，一个变量必须声明类型，而scheme 则有所不同。首先来看数的计算。在c语言中，我们可以这样写：123Int a &#x3D; 5；Int b &#x3D; 6;Int c &#x3D;">
+  <meta name="description" content="上一节中我们对 scheme 有了初步印象，这节我们来介绍它的基本运算。与 c 语言不同的是，scheme 种并没有真正意义上的变量。例如： 1Int a &#x3D; 3; 这种形式的语句在 scheme 中并不存在。在 c 语言中，一个变量必须声明类型，而 scheme 则有所不同。首先来看数的计算。在 c 语言中，我们可以这样写： 123Int a &#x3D; 5；Int b &#x3D; 6;Int c &#x3D; a +">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一起学习魔法吧（1）">
 <meta property="og:url" content="http://example.com/2020/01/27/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%881%EF%BC%89/index.html">
 <meta property="og:site_name" content="时之碎片">
-<meta property="og:description" content="上一节中我们对scheme有了初步印象，这节我们来介绍它的基本运算。与c语言不同的是，scheme种并没有真正意义上的变量。例如：1Int a &#x3D; 3;这种形式的语句在scheme中并不存在。在c语言中，一个变量必须声明类型，而scheme 则有所不同。首先来看数的计算。在c语言中，我们可以这样写：123Int a &#x3D; 5；Int b &#x3D; 6;Int c &#x3D;">
+<meta property="og:description" content="上一节中我们对 scheme 有了初步印象，这节我们来介绍它的基本运算。与 c 语言不同的是，scheme 种并没有真正意义上的变量。例如： 1Int a &#x3D; 3; 这种形式的语句在 scheme 中并不存在。在 c 语言中，一个变量必须声明类型，而 scheme 则有所不同。首先来看数的计算。在 c 语言中，我们可以这样写： 123Int a &#x3D; 5；Int b &#x3D; 6;Int c &#x3D; a +">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-27T06:31:18.000Z">
-<meta property="article:modified_time" content="2020-01-27T06:48:44.000Z">
+<meta property="article:modified_time" content="2022-03-13T04:18:32.137Z">
 <meta property="article:author" content="窃时者">
 <meta property="article:tag" content="魔法学习">
 <meta name="twitter:card" content="summary">
@@ -297,10 +297,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-01-27 14:31:18 / 修改时间：14:48:44" itemprop="dateCreated datePublished" datetime="2020-01-27T14:31:18+08:00">2020-01-27</time>
+      <time title="创建时间：2020-01-27 14:31:18" itemprop="dateCreated datePublished" datetime="2020-01-27T14:31:18+08:00">2020-01-27</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-03-13 12:18:32" itemprop="dateModified" datetime="2022-03-13T12:18:32+08:00">2022-03-13</time>
+      </span>
 
   
     <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -317,7 +323,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>943</span>
+      <span>893</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -335,7 +341,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>上一节中我们对scheme有了初步印象，这节我们来介绍它的基本运算。<br>与c语言不同的是，scheme种并没有真正意义上的变量。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Int a &#x3D; 3;</span><br></pre></td></tr></table></figure><br>这种形式的语句在scheme中并不存在。在c语言中，一个变量必须声明类型，而scheme 则有所不同。首先来看数的计算。<br>在c语言中，我们可以这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Int a &#x3D; 5；</span><br><span class="line">Int b &#x3D; 6;</span><br><span class="line">Int c &#x3D; a + b;</span><br></pre></td></tr></table></figure><br>而在scheme中其书写是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure><br>这两者能达到同样的效果。但两者还是有较大的区别的，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Int a &#x3D; 5;</span><br><span class="line">Int b &#x3D; 6;</span><br><span class="line">b &#x3D; 9;</span><br><span class="line">int c &#x3D; a + b;</span><br></pre></td></tr></table></figure><br>在这时，c为14而在scheme中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define b 9)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure><br>此时则会报错，在scheme中所有的值都是常量，不可更改，而不像c语言，需要用const修饰才为常量。<br>四则运算在上节中也做过基本的介绍，这节中不再过多阐述。<br>同样的，scheme中也有不同的类型，例如数字，字符，列表，其中列表是一个及其重要的组成。不夸张的说，scheme的强大与列表有着很深的相关性。<br>接下来我们说说字符，在c语言中，我们有字符和字符串，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char d &#x3D; ‘h’;</span><br><span class="line">string e &#x3D; “abcdefg”;</span><br></pre></td></tr></table></figure><br>在scheme中，我们如是表示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(define d “h”)</span><br><span class="line">(define e “abcdefg”)</span><br></pre></td></tr></table></figure><br>值得注意的是，在scheme中，字符和字符串都用“xxxxxxxxx”表示，我们可以把字符理解成长度为一的字符串。<br>接下来我们说最重要的部分，列表：<br>列表主要由cons car cdr 构成，其中cons 是把两个组成部分合成一个序对，值得注意的时，cons可以连接不同类型的单元，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;(cons “abcdef” 6)</span><br><span class="line">    &#39;(&quot;abcdef&quot; . 6)</span><br></pre></td></tr></table></figure><br>如果我们想得到“abcdef” 只需 (car (cons “abcdef” 6))<br>如果要得到6 只需要(cdr (cons “abcdef” 6))<br>上面简要说了说scheme中基本的要素，下节中我们将介绍更多内容。</p>
+        <p>上一节中我们对 scheme 有了初步印象，这节我们来介绍它的基本运算。<br>与 c 语言不同的是，scheme 种并没有真正意义上的变量。例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Int a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<p>这种形式的语句在 scheme 中并不存在。在 c 语言中，一个变量必须声明类型，而 scheme 则有所不同。首先来看数的计算。<br>在 c 语言中，我们可以这样写：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Int a = <span class="number">5</span>；</span><br><span class="line">Int b = <span class="number">6</span>;</span><br><span class="line">Int c = a + b;</span><br></pre></td></tr></table></figure>
+<p>而在 scheme 中其书写是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure>
+<p>这两者能达到同样的效果。但两者还是有较大的区别的，例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Int a = <span class="number">5</span>;</span><br><span class="line">Int b = <span class="number">6</span>;</span><br><span class="line">b = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure>
+<p>在这时，c 为 14 而在 scheme 中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define b 9)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure>
+<p>此时则会报错，在 scheme 中所有的值都是常量，不可更改，而不像 c 语言，需要用 const 修饰才为常量。<br>四则运算在上节中也做过基本的介绍，这节中不再过多阐述。<br>同样的，scheme 中也有不同的类型，例如数字，字符，列表，其中列表是一个及其重要的组成。不夸张的说，scheme 的强大与列表有着很深的相关性。<br>接下来我们说说字符，在 c 语言中，我们有字符和字符串，例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> d = ‘h’;</span><br><span class="line"><span class="built_in">string</span> e = “abcdefg”;</span><br></pre></td></tr></table></figure>
+<p>在 scheme 中，我们如是表示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(define d “h”)</span><br><span class="line">(define e “abcdefg”)</span><br></pre></td></tr></table></figure>
+<p>值得注意的是，在 scheme 中，字符和字符串都用“xxxxxxxxx”表示，我们可以把字符理解成长度为一的字符串。<br>接下来我们说最重要的部分，列表：<br>列表主要由 cons car cdr 构成，其中 cons 是把两个组成部分合成一个序对，值得注意的时，cons 可以连接不同类型的单元，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;(cons “abcdef” 6)</span><br><span class="line">    &#39;(&quot;abcdef&quot; . 6)</span><br></pre></td></tr></table></figure>
+<p>如果我们想得到“abcdef” 只需 (car (cons “abcdef” 6))<br>如果要得到 6 只需要(cdr (cons “abcdef” 6))<br>上面简要说了说 scheme 中基本的要素，下节中我们将介绍更多内容。</p>
 
     </div>
 

@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="任何非常先进的技术，初看都与魔法无异。 λ-calculus这篇博客我们简单说说λ-calculus。在λ演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故λ演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予λ演算一个理论模型）而函数由λ表达式匿名定义，如：f(x) &#x3D; x * 2可以写为 λx.x * 2 而f(4)的值即可表示为(λx.x * 2) 4">
+  <meta name="description" content="_任何非常先进的技术，初看都与魔法无异。_ λ-calculus这篇博客我们简单说说 λ-calculus。在 λ 演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故 λ 演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予 λ 演算一个理论模型）而函数由 λ 表达式匿名定义，如：f(x) &#x3D; x * 2可以写为 λx.x * 2 而 f(4)的值即可表示为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一起学习魔法吧（番外篇2）">
 <meta property="og:url" content="http://example.com/2018/04/24/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%89/index.html">
 <meta property="og:site_name" content="时之碎片">
-<meta property="og:description" content="任何非常先进的技术，初看都与魔法无异。 λ-calculus这篇博客我们简单说说λ-calculus。在λ演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故λ演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予λ演算一个理论模型）而函数由λ表达式匿名定义，如：f(x) &#x3D; x * 2可以写为 λx.x * 2 而f(4)的值即可表示为(λx.x * 2) 4">
+<meta property="og:description" content="_任何非常先进的技术，初看都与魔法无异。_ λ-calculus这篇博客我们简单说说 λ-calculus。在 λ 演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故 λ 演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予 λ 演算一个理论模型）而函数由 λ 表达式匿名定义，如：f(x) &#x3D; x * 2可以写为 λx.x * 2 而 f(4)的值即可表示为">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-04-24T14:49:10.000Z">
-<meta property="article:modified_time" content="2018-04-25T12:07:30.000Z">
+<meta property="article:modified_time" content="2022-03-13T04:19:05.912Z">
 <meta property="article:author" content="窃时者">
 <meta property="article:tag" content="魔法学习">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%CE%BB-calculus"><span class="nav-number">1.</span> <span class="nav-text">λ-calculus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Church%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">Church数</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%CE%BB-calculus"><span class="nav-number">1.</span> <span class="nav-text">λ-calculus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Church-%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">Church 数</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -306,7 +306,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2018-04-25 20:07:30" itemprop="dateModified" datetime="2018-04-25T20:07:30+08:00">2018-04-25</time>
+        <time title="修改时间：2022-03-13 12:19:05" itemprop="dateModified" datetime="2022-03-13T12:19:05+08:00">2022-03-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -351,18 +351,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><em>任何非常先进的技术，初看都与魔法无异。</em></p>
-<h2 id="λ-calculus"><a href="#λ-calculus" class="headerlink" title="λ-calculus"></a>λ-calculus</h2><p>这篇博客我们简单说说λ-calculus。<br>在λ演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故λ演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予λ演算一个理论模型）而函数由λ表达式匿名定义，如：f(x) = x * 2<br>可以写为 λx.x * 2 而f(4)的值即可表示为(λx.x * 2) 4。<br>看上去怪怪的，突然冒出来一个孤零零的数字4，如果有强迫症的话简直不能忍啊！那么我们还可以把它写成下面这个样子：<br>(λf.f 4)(λ.x x * 2)这回看着规整了一些。(λf.f 4)表示的是这个函数接受一个函数作为参数，并作用在4上。<br>就如同任何编程语言都有语法一样，λ演算也需要语法。λ演算将符合这些语法的表达式也称作“lambda项”其语法可归纳成三条规则：</p>
+        <p>_任何非常先进的技术，初看都与魔法无异。_</p>
+<h2 id="λ-calculus"><a href="#λ-calculus" class="headerlink" title="λ-calculus"></a>λ-calculus</h2><p>这篇博客我们简单说说 λ-calculus。<br>在 λ 演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故 λ 演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予 λ 演算一个理论模型）而函数由 λ 表达式匿名定义，如：f(x) = x * 2<br>可以写为 λx.x * 2 而 f(4)的值即可表示为(λx.x * 2) 4。<br>看上去怪怪的，突然冒出来一个孤零零的数字 4，如果有强迫症的话简直不能忍啊！那么我们还可以把它写成下面这个样子：<br>(λf.f 4)(λ.x x * 2)这回看着规整了一些。(λf.f 4)表示的是这个函数接受一个函数作为参数，并作用在 4 上。<br>就如同任何编程语言都有语法一样，λ 演算也需要语法。λ 演算将符合这些语法的表达式也称作“lambda 项”其语法可归纳成三条规则：</p>
 <ul>
-<li>变量x本身就是一个有效的lambda项</li>
-<li>如果t是一个lambda项，而x是一个变量，则(λx.t) 是一个lambda项（称为lambda抽象）</li>
-<li>如果t和s是lambda项，那么(ts)是一个lambda项（称为应用）<br>等等，这样一来，我写下这种式子(λx.x x)(λx.x x)也是对的，但是貌似计算不出来一个确定的值啊。然而这是可以接受的，因为lambda表达式并不要求必须归约到一个确定的值上。<br>接下来我们来看一个有趣的东西：<h2 id="Church数"><a href="#Church数" class="headerlink" title="Church数"></a>Church数</h2>Church数0, 1, 2, …在lambda演算中被定义如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">0 ≡ λf.λx. x</span><br><span class="line">1 ≡ λf.λx. f x</span><br><span class="line">2 ≡ λf.λx. f (f x)</span><br><span class="line">3 ≡ λf.λx. f (f (f x))</span><br><span class="line">...</span><br><span class="line">n ≡ λf.λx. fn x</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-这是什么？怎么凭空就能冒出来0 ≡ λf.λx. x，1 ≡ λf.λx. f x这种奇怪的东西？我们先回想一下自然数是怎么定义的？<br>额，像是0，1，2，3······这种数叫自然数？这种定义太不严谨，我们要用皮亚诺公理定义自然数：</li>
-<li>0是一个自然数。</li>
-<li>0不是任何其他自然数的继数。</li>
-<li>每一个自然数a都有一个继数。</li>
-<li>如果a与b的继数相等则a与b亦相等。</li>
-<li>若一个由自然数组成的集合s包含有0，又若当s包含有某一数a时，它一定也含有a的继数，则s就包含有全体自然数。<br>看上去好多了，但是这又和上面的church数有什么关系呢？我们可以这么理解：<br>我们先定义了一个零作为基础，又定义了后继这个概念（计算方法），我们现在只不过在用λ表达式来表示罢了，其中的f就可以理解为后继。这倒是能说得通，但是我要做加法又怎么理解？很简单，只不过是进行多次后继罢了。<br><br><br>正真的λ演算比本文所描述的要复杂很多，本文只是简要的介绍。</li>
+<li>变量 x 本身就是一个有效的 lambda 项</li>
+<li>如果 t 是一个 lambda 项，而 x 是一个变量，则(λx.t) 是一个 lambda 项（称为 lambda 抽象）</li>
+<li>如果 t 和 s 是 lambda 项，那么(ts)是一个 lambda 项（称为应用）<br>等等，这样一来，我写下这种式子(λx.x x)(λx.x x)也是对的，但是貌似计算不出来一个确定的值啊。然而这是可以接受的，因为 lambda 表达式并不要求必须归约到一个确定的值上。<br>接下来我们来看一个有趣的东西：</li>
+</ul>
+<h2 id="Church-数"><a href="#Church-数" class="headerlink" title="Church 数"></a>Church 数</h2><p>Church 数 0, 1, 2, …在 lambda 演算中被定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">0 ≡ λf.λx. x</span><br><span class="line">1 ≡ λf.λx. f x</span><br><span class="line">2 ≡ λf.λx. f (f x)</span><br><span class="line">3 ≡ λf.λx. f (f (f x))</span><br><span class="line">...</span><br><span class="line">n ≡ λf.λx. fn x</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>这是什么？怎么凭空就能冒出来 0 ≡ λf.λx. x，1 ≡ λf.λx. f x 这种奇怪的东西？我们先回想一下自然数是怎么定义的？<br>额，像是 0，1，2，3······这种数叫自然数？这种定义太不严谨，我们要用皮亚诺公理定义自然数：</p>
+<ul>
+<li>0 是一个自然数。</li>
+<li>0 不是任何其他自然数的继数。</li>
+<li>每一个自然数 a 都有一个继数。</li>
+<li>如果 a 与 b 的继数相等则 a 与 b 亦相等。</li>
+<li>若一个由自然数组成的集合 s 包含有 0，又若当 s 包含有某一数 a 时，它一定也含有 a 的继数，则 s 就包含有全体自然数。<br>看上去好多了，但是这又和上面的 church 数有什么关系呢？我们可以这么理解：<br>我们先定义了一个零作为基础，又定义了后继这个概念（计算方法），我们现在只不过在用 λ 表达式来表示罢了，其中的 f 就可以理解为后继。这倒是能说得通，但是我要做加法又怎么理解？很简单，只不过是进行多次后继罢了。<br><br><br>正真的 λ 演算比本文所描述的要复杂很多，本文只是简要的介绍。</li>
 </ul>
 
     </div>
