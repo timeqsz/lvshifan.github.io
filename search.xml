@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2018/03/05/test/</url>
-    <content><![CDATA[<h2 id="Lorem-ipsum"><a href="#Lorem-ipsum" class="headerlink" title="Lorem ipsum"></a>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>test test test</p>
-<p>“中文”</p>
-<p>$a^{2} + b^{2} = c^{2}$<br>$\infty, \aleph, \complement, \backepsilon, \eth, \Finv, \hbar$<br>$s_k \equiv 0 \pmod{m}$<br>$\cup, \Cup, \sqcup, \bigcup, \bigsqcup, \uplus, \biguplus$<br>$\lim_{x \to \infty} \frac{1}{n(n+1)}$<br>わたぃ<br>リンゴ<br>ビル</p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2018/03/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -27,6 +12,21 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2018/03/05/test/</url>
+    <content><![CDATA[<h2 id="Lorem-ipsum"><a href="#Lorem-ipsum" class="headerlink" title="Lorem ipsum"></a>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>test test test</p>
+<p>“中文”</p>
+<p>$a^{2} + b^{2} = c^{2}$<br>$\infty, \aleph, \complement, \backepsilon, \eth, \Finv, \hbar$<br>$s_k \equiv 0 \pmod{m}$<br>$\cup, \Cup, \sqcup, \bigcup, \bigsqcup, \uplus, \biguplus$<br>$\lim_{x \to \infty} \frac{1}{n(n+1)}$<br>わたぃ<br>リンゴ<br>ビル</p>
 ]]></content>
       <categories>
         <category>测试</category>
@@ -149,22 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>一起学习魔法吧（番外篇1）</title>
-    <url>/2018/04/22/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%871%EF%BC%89/</url>
-    <content><![CDATA[<p>_任何非常先进的技术，初看都与魔法无异。_</p>
-<h2 id="currying"><a href="#currying" class="headerlink" title="currying"></a>currying</h2><p>currying(柯里化)将函数转化成单参函数，即将所有函数固定为接受一个参数，返回一个值的形式。给予 λ 演算一个理论模型。<br><br><br>而柯里化究竟是什么呢?我们可以这么理解，例如现在我们有一个二元函数<em>f(x,y) = x + y</em> 那么在代码里可以这么书写：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>甚至没学过计算机的人都能看懂它的含义，取两个数 a,b 在进行相加运算后返回结果。但我们应当注意的是，这个函数传进去的只能是两个参数，否则机器将无法工作。更重要的是这个函数返回的是一个数值。<br><br><br>而柯里化的方式是什么呢？柯里化要把这个函数改造为单参函数。逻辑上如下图所示<br><img src="https://s2.ax1x.com/2020/02/08/1W2fiQ.png" alt="image"><br><strong>该图上面是正常的 add，下面是柯里化的 add。</strong><br><br><br>我们相当于构建了两个“机器”每个“机器”只做有限的工作，剩下的工作交给下一个“机器”，这样我们可以把复杂的“机器”拆分成一系列的小型“机器”。<br><br><br>柯里化给我们理清了一个思路，类似于用皮亚诺公理解释自然数，我们可以用这种简单的函数（过程）模型来构建出强大的系统。但是这个理论在实际应用上貌似并不多，至少在我所触及的范围内几乎没有用过。</p>
-<p>注：由于笔者的水平有限，文章中可能存在疏漏。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>魔法学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一起学习魔法吧（番外篇2）</title>
     <url>/2018/04/24/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%89/</url>
     <content><![CDATA[<p>_任何非常先进的技术，初看都与魔法无异。_</p>
@@ -222,6 +206,22 @@
       </tags>
   </entry>
   <entry>
+    <title>一起学习魔法吧（番外篇1）</title>
+    <url>/2018/04/22/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%871%EF%BC%89/</url>
+    <content><![CDATA[<p>_任何非常先进的技术，初看都与魔法无异。_</p>
+<h2 id="currying"><a href="#currying" class="headerlink" title="currying"></a>currying</h2><p>currying(柯里化)将函数转化成单参函数，即将所有函数固定为接受一个参数，返回一个值的形式。给予 λ 演算一个理论模型。<br><br><br>而柯里化究竟是什么呢?我们可以这么理解，例如现在我们有一个二元函数<em>f(x,y) = x + y</em> 那么在代码里可以这么书写：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>甚至没学过计算机的人都能看懂它的含义，取两个数 a,b 在进行相加运算后返回结果。但我们应当注意的是，这个函数传进去的只能是两个参数，否则机器将无法工作。更重要的是这个函数返回的是一个数值。<br><br><br>而柯里化的方式是什么呢？柯里化要把这个函数改造为单参函数。逻辑上如下图所示<br><img src="https://s2.ax1x.com/2020/02/08/1W2fiQ.png" alt="image"><br><strong>该图上面是正常的 add，下面是柯里化的 add。</strong><br><br><br>我们相当于构建了两个“机器”每个“机器”只做有限的工作，剩下的工作交给下一个“机器”，这样我们可以把复杂的“机器”拆分成一系列的小型“机器”。<br><br><br>柯里化给我们理清了一个思路，类似于用皮亚诺公理解释自然数，我们可以用这种简单的函数（过程）模型来构建出强大的系统。但是这个理论在实际应用上貌似并不多，至少在我所触及的范围内几乎没有用过。</p>
+<p>注：由于笔者的水平有限，文章中可能存在疏漏。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>凸优化（零）</title>
     <url>/2020/03/18/%E5%87%B8%E4%BC%98%E5%8C%96%EF%BC%88%E9%9B%B6%EF%BC%89/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列主要为《Convex Optimization》学习笔记  </p>
@@ -234,27 +234,6 @@
       </categories>
       <tags>
         <tag>凸优化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>古典人工智能（零）</title>
-    <url>/2020/03/17/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%20%20(%E9%9B%B6)/</url>
-    <content><![CDATA[<h2 id="人工智能学派"><a href="#人工智能学派" class="headerlink" title="人工智能学派"></a>人工智能学派</h2><p>人工智能的主要流派有三个：1.符号主义(symbolicism)—数理逻辑 2.连接主义(connectionism)—仿生学 3.行为主义(actionism)—控制论<br>该系列博客主要写写其中的符号主义学派。<br>（注： 主要是总结所看过的书籍、博客等，并非完全原创）<br>符号主义学派的核心观点在于，人类的智能主要体现在推理能力。机器应当像人一样思考，这样一来机器才有获取智能的可能。符号主义学派的思路十分明了，建立一个庞大的知识库体系，并赋予机器推理能力这样便可以创造人工智能。至于为什么这种观点被称为<br>符号主义，原因在于该学派普遍认为人类认知基于符号，而思维是一种运算。如今的语义网络与专家系统很大程度上继承了符号主义学派的思路。</p>
-<h3 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h3><p>按照符号主义学派的思路，构建人工智能首先要获取知识。给知识下定义是极其困难的，但我们可以简单总结一下生活中的几种知识：<br>1.事实性知识<br>2.过程性知识<br>3.行为性知识<br>4.实例性知识<br>5.类比性知识<br>6.元知识</p>
-<h4 id="事实性知识"><a href="#事实性知识" class="headerlink" title="事实性知识"></a>事实性知识</h4><p>这种知识一般采用直接表示的方式，例如：地球绕着太阳转、北京是中华人民共和国首都等。但要注意事实性知识的准确性，事实性知识如果出现错误，那么做出的推理必然结果也会不严密。<br>注：本文不讨论事实性知识能否正确被人类认知的哲学相关问题。</p>
-<h4 id="过程性知识"><a href="#过程性知识" class="headerlink" title="过程性知识"></a>过程性知识</h4><p>往往是一系列动作构成的知识，例如：如何做西红柿炒鸡蛋、如何维修电子计算机等</p>
-<h4 id="行为性知识"><a href="#行为性知识" class="headerlink" title="行为性知识"></a>行为性知识</h4><p>不给出事实本身，而是给出某方面的行为。例如微分方程刻画了一个函数的行为但并未给出函数本身。（这类知识往往是某种数学模型）行为性知识往往描述的是事物的内涵而非外延。<br>(注：<br>内涵：内涵往往指事物特有属性的反应<br>外延：外延往往指事物所组成的类<br>例如：当我们谈到人的内涵，指的是人类所具有属性(如：域：真核域 Eukarya \ 界：动物界 Animalia \ 门：脊索动物门 Chordata\ 亚门：脊椎动物亚门 Vertebrata \ 纲：哺乳纲 Mammalia \ 亚纲：真兽亚纲 Eutheria \ 目：灵长目 Primates \ 科：人科 Hominidae \ 属：人属 Homo \ 种：智人种(Homo sapiens sapiens) \ )而人的外延则指全体人类（即所有人类个体的集合）<br>从集合论的角度看内涵指集合所有元素共有的属性，而外延指集合中的所有元素。)</p>
-<h4 id="实例性知识"><a href="#实例性知识" class="headerlink" title="实例性知识"></a>实例性知识</h4><p>只给出实例而知识隐藏在实例中。例如：观察到打雷之后下雨了这便是一个实例性知识。（注：这并不是说打雷一定下雨，所有观察数据都是实例性知识）</p>
-<h4 id="类比性知识"><a href="#类比性知识" class="headerlink" title="类比性知识"></a>类比性知识</h4><p>不给出内涵也不给出外延，但给出它与其他事物的相似之处。这种知识虽然不准确，却能使不同领域之间的知识可以被快速理解。</p>
-<h4 id="元知识"><a href="#元知识" class="headerlink" title="元知识"></a>元知识</h4><p>即关于知识的知识。例如：一个专家系统要知道该系统能回答什么不能回答什么，这本身也是一种知识，只不过是关于知识的知识。</p>
-<h4 id="知识表示"><a href="#知识表示" class="headerlink" title="知识表示"></a>知识表示</h4><p>大概了解了知识之后，问题便是如何表示知识，普遍上有如下几种：<br>1.演绎系统<br>2.产生式系统<br>3.框架结构<br>4.语义网络<br>5.过程性知识</p>
-<p>在后续的文章中，我们将逐一解释这五种表示方法。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>古典人工智能</tag>
       </tags>
   </entry>
   <entry>
@@ -276,6 +255,27 @@
         <tag>Racket</tag>
         <tag>函数式编程</tag>
         <tag>写点简单的</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>古典人工智能（零）</title>
+    <url>/2020/03/17/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%20%20(%E9%9B%B6)/</url>
+    <content><![CDATA[<h2 id="人工智能学派"><a href="#人工智能学派" class="headerlink" title="人工智能学派"></a>人工智能学派</h2><p>人工智能的主要流派有三个：1.符号主义(symbolicism)—数理逻辑 2.连接主义(connectionism)—仿生学 3.行为主义(actionism)—控制论<br>该系列博客主要写写其中的符号主义学派。<br>（注： 主要是总结所看过的书籍、博客等，并非完全原创）<br>符号主义学派的核心观点在于，人类的智能主要体现在推理能力。机器应当像人一样思考，这样一来机器才有获取智能的可能。符号主义学派的思路十分明了，建立一个庞大的知识库体系，并赋予机器推理能力这样便可以创造人工智能。至于为什么这种观点被称为<br>符号主义，原因在于该学派普遍认为人类认知基于符号，而思维是一种运算。如今的语义网络与专家系统很大程度上继承了符号主义学派的思路。</p>
+<h3 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h3><p>按照符号主义学派的思路，构建人工智能首先要获取知识。给知识下定义是极其困难的，但我们可以简单总结一下生活中的几种知识：<br>1.事实性知识<br>2.过程性知识<br>3.行为性知识<br>4.实例性知识<br>5.类比性知识<br>6.元知识</p>
+<h4 id="事实性知识"><a href="#事实性知识" class="headerlink" title="事实性知识"></a>事实性知识</h4><p>这种知识一般采用直接表示的方式，例如：地球绕着太阳转、北京是中华人民共和国首都等。但要注意事实性知识的准确性，事实性知识如果出现错误，那么做出的推理必然结果也会不严密。<br>注：本文不讨论事实性知识能否正确被人类认知的哲学相关问题。</p>
+<h4 id="过程性知识"><a href="#过程性知识" class="headerlink" title="过程性知识"></a>过程性知识</h4><p>往往是一系列动作构成的知识，例如：如何做西红柿炒鸡蛋、如何维修电子计算机等</p>
+<h4 id="行为性知识"><a href="#行为性知识" class="headerlink" title="行为性知识"></a>行为性知识</h4><p>不给出事实本身，而是给出某方面的行为。例如微分方程刻画了一个函数的行为但并未给出函数本身。（这类知识往往是某种数学模型）行为性知识往往描述的是事物的内涵而非外延。<br>(注：<br>内涵：内涵往往指事物特有属性的反应<br>外延：外延往往指事物所组成的类<br>例如：当我们谈到人的内涵，指的是人类所具有属性(如：域：真核域 Eukarya \ 界：动物界 Animalia \ 门：脊索动物门 Chordata\ 亚门：脊椎动物亚门 Vertebrata \ 纲：哺乳纲 Mammalia \ 亚纲：真兽亚纲 Eutheria \ 目：灵长目 Primates \ 科：人科 Hominidae \ 属：人属 Homo \ 种：智人种(Homo sapiens sapiens) \ )而人的外延则指全体人类（即所有人类个体的集合）<br>从集合论的角度看内涵指集合所有元素共有的属性，而外延指集合中的所有元素。)</p>
+<h4 id="实例性知识"><a href="#实例性知识" class="headerlink" title="实例性知识"></a>实例性知识</h4><p>只给出实例而知识隐藏在实例中。例如：观察到打雷之后下雨了这便是一个实例性知识。（注：这并不是说打雷一定下雨，所有观察数据都是实例性知识）</p>
+<h4 id="类比性知识"><a href="#类比性知识" class="headerlink" title="类比性知识"></a>类比性知识</h4><p>不给出内涵也不给出外延，但给出它与其他事物的相似之处。这种知识虽然不准确，却能使不同领域之间的知识可以被快速理解。</p>
+<h4 id="元知识"><a href="#元知识" class="headerlink" title="元知识"></a>元知识</h4><p>即关于知识的知识。例如：一个专家系统要知道该系统能回答什么不能回答什么，这本身也是一种知识，只不过是关于知识的知识。</p>
+<h4 id="知识表示"><a href="#知识表示" class="headerlink" title="知识表示"></a>知识表示</h4><p>大概了解了知识之后，问题便是如何表示知识，普遍上有如下几种：<br>1.演绎系统<br>2.产生式系统<br>3.框架结构<br>4.语义网络<br>5.过程性知识</p>
+<p>在后续的文章中，我们将逐一解释这五种表示方法。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>古典人工智能</tag>
       </tags>
   </entry>
   <entry>
@@ -354,16 +354,11 @@
       </tags>
   </entry>
   <entry>
-    <title>机器学习（一）k近邻算法</title>
-    <url>/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E4%B8%80)/</url>
-    <content><![CDATA[<h2 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K 近邻算法"></a>K 近邻算法</h2><p>K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。<br>其任务与数据如下：  </p>
-<script type="math/tex; mode=display">Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})...(x_{n},y_{n}) \rbrace</script><script type="math/tex; mode=display">x\_{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}</script><script type="math/tex; mode=display">y*{i} \in \mathcal{Y} = \lbrace (c*{1},c*{2},...,c*{k}) \rbrace</script><p>其中$y<em>{i}$是实例的类别。<br>任务是输出实例x的类别y。<br>k近邻算法的三个要素是：1.k值选择 2.度量距离 3.分类决策规则<br>该算法流程如下：<br>根据给定的距离度量，在训练集中找出与x最近邻的k个点，涵盖这k个点的邻域记作$N</em>{k}(x)$<br>在$N*{k}(x)$中根据分类决策规则决定x的类别y：  </p>
-<script type="math/tex; mode=display">\displaystyle y = \mathop{\arg\min}_{\mathbf c\_{j}} \sum\_{x\_{i} \in N_{k}(x)} I(y\*{i}=c\*{i}) , \ i=1,2,...,N; \ j=1,2,...,k</script><p>其中 I 为指示函数当$y*{i} = c_{i}$时 I 为 1，否则为 0。当 k=1 时，该算法又可称最近邻算法。</p>
-<h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>该算法的距离度量往往采用$L_{p}$距离。其定义为：  </p>
-<script type="math/tex; mode=display">\displaystyle L*{p} (x*{i},x*{j}) = (\sum*{l=1}^n \vert x*{i}^{(l)}-x*{j}^{(l)} \vert ^p)^{1/p}</script><h3 id="k-值选择"><a href="#k-值选择" class="headerlink" title="k 值选择"></a>k 值选择</h3><p>k 值不易选取过大，应在较小的值中选取，选取不同的 k 值并进行交叉验证来选取最优值。</p>
-<h3 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h3><p>一般采用多数表决（majority voting rule），其误分类率是：  </p>
-<script type="math/tex; mode=display">\displaystyle 1/k \sum_{x_{i} \in N_{k}(x)} I(y_{i} \neq c_{j})</script><p>那么要使其最小就是使$\displaystyle \sum_{x_{i} \in N_{k}(x)} I(y_{i} = c_{j})$最大，多数表决函数可以等价于经验风险最小化。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>往往利用 kd 树方式构造：<br>构造根结点，不妨选择$x^{(1)}$为坐标轴，以 T 中所有的实例的$x^{(1)}$坐标的中位数为切分点，将根节点对应的超矩形区域切分为两个子区域。切分由通过切分点并与坐标轴$x^{(1)}$垂直的超平面实现。由根节点生成深度为 1 的左右子节点；左子节点对应坐标$x^{(1)}$小于切分点的子区域，右子节点对应于坐标$x^{(1)}$大于切分点的子区域。将落在切分超平面上的点将被保存在根节点。<br>之后对深度为 j 的节点重复这种操作，选择$x^{(l)} \ l = j(mod k)+1$进行。<br>当两个子区域没有实例存在时停止。从而形成 kd 树的区域划分。</p>
+    <title>机器学习（二） 朴素贝叶斯</title>
+    <url>/2020/04/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="朴素贝叶斯法的学习与分类"><a href="#朴素贝叶斯法的学习与分类" class="headerlink" title="朴素贝叶斯法的学习与分类"></a>朴素贝叶斯法的学习与分类</h2><h3 id="任务与数据"><a href="#任务与数据" class="headerlink" title="任务与数据"></a>任务与数据</h3><p>$ DATA =  \lbrace (x_{1},y_{1}),(x_{2},y_{2}),…,(x_{N},y_{N}) \rbrace $<br>$ input space: \mathcal {X} \subseteq \mathbb{R}^{n} $<br>$ output space: \mathcal{Y} = {c_{1},c_{2},…c_{k}} $<br>其中$c_{i}$为类标记，该类标记可以有两个或多个。  </p>
+<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯通过训练数据集学习联合概率分布P(X,Y)。<br>其中先验概率分布为：<br>$ \displaystyle P(Y = c_{k}),k=1,2,…,K $<br>条件概率分布：<br>$ \displaystyle P(X=x|Y=c_{k}) = P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k}),  k=1,2,…,K $<br>学习到联合概率分布P(X,Y)。<br>朴素贝叶斯法对条件概率分布作了条件独立性假设。即：<br>$ \displaystyle P(X=x|Y=c_{k})=P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k})=  \prod_{j=1}^{n} P(X^{(j)}=x^{(j)}|Y=c_{k}) $<br>计算后验概率，将后验概率最大类作为x的类输出，后验概率计算根据贝叶斯定理进行。<br>$ \displaystyle P(Y=c_{k}|X=x)=\frac{P(X=x|Y=c_{k})P(Y=c_{k})}{\sum_{k}P(X=x|Y=c_{k})P(Y=c_{k})} $<br>可解朴素贝叶斯分类器：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k})\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_{k}) $</p>
+<h3 id="后验概率最大化的含义"><a href="#后验概率最大化的含义" class="headerlink" title="后验概率最大化的含义"></a>后验概率最大化的含义</h3><p>使用0-1损失函数有期望风险函数：<br>$ \displaystyle R_{exp}(f)=E[L(Y,f(x))] $<br>取条件期望有：<br>$ \displaystyle R_{exp}f(x)=E_{x} \sum_{k=1}^K [L(c_{k},f(X))]P(c_{k}|X) $<br>为了令期望风险最小化，于是对每个X=x逐个极小化可得：<br>$ \displaystyle f(x)= \mathop{\arg\max}_{\mathbf y \in Y} P(y=c_{k}|X=x)$<br>也即：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k}|X=x) $</p>
 ]]></content>
       <categories>
         <category>计算机科学</category>
@@ -396,11 +391,16 @@
       </tags>
   </entry>
   <entry>
-    <title>机器学习（二） 朴素贝叶斯</title>
-    <url>/2020/04/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="朴素贝叶斯法的学习与分类"><a href="#朴素贝叶斯法的学习与分类" class="headerlink" title="朴素贝叶斯法的学习与分类"></a>朴素贝叶斯法的学习与分类</h2><h3 id="任务与数据"><a href="#任务与数据" class="headerlink" title="任务与数据"></a>任务与数据</h3><p>$ DATA =  \lbrace (x_{1},y_{1}),(x_{2},y_{2}),…,(x_{N},y_{N}) \rbrace $<br>$ input space: \mathcal {X} \subseteq \mathbb{R}^{n} $<br>$ output space: \mathcal{Y} = {c_{1},c_{2},…c_{k}} $<br>其中$c_{i}$为类标记，该类标记可以有两个或多个。  </p>
-<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯通过训练数据集学习联合概率分布P(X,Y)。<br>其中先验概率分布为：<br>$ \displaystyle P(Y = c_{k}),k=1,2,…,K $<br>条件概率分布：<br>$ \displaystyle P(X=x|Y=c_{k}) = P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k}),  k=1,2,…,K $<br>学习到联合概率分布P(X,Y)。<br>朴素贝叶斯法对条件概率分布作了条件独立性假设。即：<br>$ \displaystyle P(X=x|Y=c_{k})=P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k})=  \prod_{j=1}^{n} P(X^{(j)}=x^{(j)}|Y=c_{k}) $<br>计算后验概率，将后验概率最大类作为x的类输出，后验概率计算根据贝叶斯定理进行。<br>$ \displaystyle P(Y=c_{k}|X=x)=\frac{P(X=x|Y=c_{k})P(Y=c_{k})}{\sum_{k}P(X=x|Y=c_{k})P(Y=c_{k})} $<br>可解朴素贝叶斯分类器：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k})\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_{k}) $</p>
-<h3 id="后验概率最大化的含义"><a href="#后验概率最大化的含义" class="headerlink" title="后验概率最大化的含义"></a>后验概率最大化的含义</h3><p>使用0-1损失函数有期望风险函数：<br>$ \displaystyle R_{exp}(f)=E[L(Y,f(x))] $<br>取条件期望有：<br>$ \displaystyle R_{exp}f(x)=E_{x} \sum_{k=1}^K [L(c_{k},f(X))]P(c_{k}|X) $<br>为了令期望风险最小化，于是对每个X=x逐个极小化可得：<br>$ \displaystyle f(x)= \mathop{\arg\max}_{\mathbf y \in Y} P(y=c_{k}|X=x)$<br>也即：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k}|X=x) $</p>
+    <title>机器学习（一）k近邻算法</title>
+    <url>/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E4%B8%80)/</url>
+    <content><![CDATA[<h2 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K 近邻算法"></a>K 近邻算法</h2><p>K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。<br>其任务与数据如下：  </p>
+<script type="math/tex; mode=display">Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})...(x_{n},y_{n}) \rbrace</script><script type="math/tex; mode=display">x\_{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}</script><script type="math/tex; mode=display">y*{i} \in \mathcal{Y} = \lbrace (c*{1},c*{2},...,c*{k}) \rbrace</script><p>其中$y<em>{i}$是实例的类别。<br>任务是输出实例x的类别y。<br>k近邻算法的三个要素是：1.k值选择 2.度量距离 3.分类决策规则<br>该算法流程如下：<br>根据给定的距离度量，在训练集中找出与x最近邻的k个点，涵盖这k个点的邻域记作$N</em>{k}(x)$<br>在$N*{k}(x)$中根据分类决策规则决定x的类别y：  </p>
+<script type="math/tex; mode=display">\displaystyle y = \mathop{\arg\min}_{\mathbf c\_{j}} \sum\_{x\_{i} \in N_{k}(x)} I(y\*{i}=c\*{i}) , \ i=1,2,...,N; \ j=1,2,...,k</script><p>其中 I 为指示函数当$y*{i} = c_{i}$时 I 为 1，否则为 0。当 k=1 时，该算法又可称最近邻算法。</p>
+<h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>该算法的距离度量往往采用$L_{p}$距离。其定义为：  </p>
+<script type="math/tex; mode=display">\displaystyle L*{p} (x*{i},x*{j}) = (\sum*{l=1}^n \vert x*{i}^{(l)}-x*{j}^{(l)} \vert ^p)^{1/p}</script><h3 id="k-值选择"><a href="#k-值选择" class="headerlink" title="k 值选择"></a>k 值选择</h3><p>k 值不易选取过大，应在较小的值中选取，选取不同的 k 值并进行交叉验证来选取最优值。</p>
+<h3 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h3><p>一般采用多数表决（majority voting rule），其误分类率是：  </p>
+<script type="math/tex; mode=display">\displaystyle 1/k \sum_{x_{i} \in N_{k}(x)} I(y_{i} \neq c_{j})</script><p>那么要使其最小就是使$\displaystyle \sum_{x_{i} \in N_{k}(x)} I(y_{i} = c_{j})$最大，多数表决函数可以等价于经验风险最小化。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>往往利用 kd 树方式构造：<br>构造根结点，不妨选择$x^{(1)}$为坐标轴，以 T 中所有的实例的$x^{(1)}$坐标的中位数为切分点，将根节点对应的超矩形区域切分为两个子区域。切分由通过切分点并与坐标轴$x^{(1)}$垂直的超平面实现。由根节点生成深度为 1 的左右子节点；左子节点对应坐标$x^{(1)}$小于切分点的子区域，右子节点对应于坐标$x^{(1)}$大于切分点的子区域。将落在切分超平面上的点将被保存在根节点。<br>之后对深度为 j 的节点重复这种操作，选择$x^{(l)} \ l = j(mod k)+1$进行。<br>当两个子区域没有实例存在时停止。从而形成 kd 树的区域划分。</p>
 ]]></content>
       <categories>
         <category>计算机科学</category>
