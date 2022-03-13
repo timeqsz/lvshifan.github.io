@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test</title>
+    <url>/2018/03/05/test/</url>
+    <content><![CDATA[<h2 id="Lorem-ipsum"><a href="#Lorem-ipsum" class="headerlink" title="Lorem ipsum"></a>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>test test test</p>
+<p>“中文”</p>
+<p>$a^{2} + b^{2} = c^{2}$<br>$\infty, \aleph, \complement, \backepsilon, \eth, \Finv, \hbar$<br>$s_k \equiv 0 \pmod{m}$<br>$\cup, \Cup, \sqcup, \bigcup, \bigsqcup, \uplus, \biguplus$<br>$\lim_{x \to \infty} \frac{1}{n(n+1)}$<br>わたぃ<br>リンゴ<br>ビル</p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2018/03/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -21,18 +36,88 @@
       </tags>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2018/03/05/test/</url>
-    <content><![CDATA[<h2 id="Lorem-ipsum"><a href="#Lorem-ipsum" class="headerlink" title="Lorem ipsum"></a>Lorem ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>test test test</p>
-<p>“中文”</p>
-<p>$a^{2} + b^{2} = c^{2}$<br>$\infty, \aleph, \complement, \backepsilon, \eth, \Finv, \hbar$<br>$s_k \equiv 0 \pmod{m}$<br>$\cup, \Cup, \sqcup, \bigcup, \bigsqcup, \uplus, \biguplus$<br>$\lim_{x \to \infty} \frac{1}{n(n+1)}$<br>わたぃ<br>リンゴ<br>ビル</p>
+    <title>《Introduction to Logic Progrmming》快速阅读笔记</title>
+    <url>/2022/01/04/%E3%80%8Aintroduce%20to%20logic%20programming%E3%80%8B%E5%BF%AB%E9%80%9F%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="logic-programming"><a href="#logic-programming" class="headerlink" title="logic programming"></a>logic programming</h2><p>新年花了一天多点的时间阅读了一下《Introduction to Logic Progrmming》这本书（后称该书）。个人很早以前就阅读过逻辑式编程的书籍，但当时主要针对 prolog 语言进行学习。</p>
+<h3 id="logic-programming-可以做数据库吗？"><a href="#logic-programming-可以做数据库吗？" class="headerlink" title="logic programming 可以做数据库吗？"></a>logic programming 可以做数据库吗？</h3><p>与以往阅读的 prolog 书籍不同，该书最开始就是以一种类似数据库的视角来推进逻辑式编程的讲解。一般的 prolog 书籍会从经典的家族关系作为切入点来讲解逻辑式编程的魅力，但该书从 datasets 开始讲起。<br>该书明确的指出了逻辑式编程的形式，即：<br>facts + rules + query<br>从逻辑式编程的形式我们便可以看出其与数据库千丝万缕的联系我们可以回想一下关系型数据库的形式，以 mysql 为例：</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">假设我们有一个数据库</span><br><span class="line">--------------------------</span><br><span class="line"><span class="bullet">-- </span>iD -- name -- age -----</span><br><span class="line"><span class="bullet">-- </span>0  -- tim  -- 32  -----</span><br><span class="line"><span class="bullet">-- </span>1  -- ada  -- 23  -----</span><br><span class="line"><span class="bullet">-- </span>2  -- tom  -- 23  -----</span><br><span class="line">--------------------------</span><br><span class="line">此时我们利用 mysql的查询语句，查询名字为tim的客户的所有信息</span><br><span class="line">select * from person where name = <span class="emphasis">&#x27;tim&#x27;</span>;</span><br><span class="line">我们可以得到</span><br><span class="line">--------------------------</span><br><span class="line"><span class="bullet">-- </span>iD -- name -- age -----</span><br><span class="line"><span class="bullet">-- </span>0  -- tim  -- 32  -----</span><br><span class="line">--------------------------</span><br></pre></td></tr></table></figure>
+<p>如果我们用 prolog 表达上述过程，我们可以如此构建 datasets</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line"><span class="comment">% facts</span></span><br><span class="line"></span><br><span class="line">person(<span class="number">0</span>,tim,<span class="number">32</span>).</span><br><span class="line">person(<span class="number">1</span>,ada,<span class="number">23</span>).</span><br><span class="line">person(<span class="number">2</span>,tom,<span class="number">23</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">%query</span></span><br><span class="line"></span><br><span class="line">person(<span class="symbol">X</span>,tim,<span class="symbol">Y</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">% result</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">X</span> = <span class="number">0.</span></span><br><span class="line"><span class="symbol">Y</span> = <span class="number">32.</span></span><br></pre></td></tr></table></figure>
+<p>prolog 代码如上所述，我们首先构建了一组事实(facts)，然后根据这组事实查询想要的变量，最后我们可以得到查询结果。<br>但以这种方式构建 facts 可能有有些问题，以 person(0,tim,32)为例，我们并不能得到每个值得含义，例如 0 和 32 我们无法看出其为 id 和年龄。我们可以按照下面的方式构建。</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line"><span class="comment">% facts</span></span><br><span class="line"></span><br><span class="line">person(id(<span class="number">0</span>),name(tim),age(<span class="number">32</span>)).</span><br><span class="line">person(id(<span class="number">1</span>),name(ada),age(<span class="number">23</span>)).</span><br><span class="line">person(id(<span class="number">2</span>),name(tom),age(<span class="number">23</span>)).</span><br><span class="line"></span><br><span class="line"><span class="comment">%query</span></span><br><span class="line"></span><br><span class="line">person(<span class="symbol">X</span>,name(tim),<span class="symbol">Y</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">% result</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">X</span> = id(<span class="number">0</span>).</span><br><span class="line"><span class="symbol">Y</span> = age(<span class="number">32</span>).</span><br></pre></td></tr></table></figure>
+<p>这样我们就可以标注出每个位置值的含义了<br>当然，仅从这个例子来看，prolog 比起 mysql 没什么好处，反而可能增添一些存储负担。<br>我们能发现仅仅做这种简单的查询时，prolog 并不能展现其优势。我们还是得拿出经典的家族关系例子来展现 prolog（逻辑式编程）的某些特性。</p>
+<h3 id="家族关系的经典例子"><a href="#家族关系的经典例子" class="headerlink" title="家族关系的经典例子"></a>家族关系的经典例子</h3><p>我们可以想象一个大家族的族谱，不妨设计一个族谱关系</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 族谱关系的一些事实</span></span><br><span class="line">male(charles).</span><br><span class="line">male(william).</span><br><span class="line">male(peter).</span><br><span class="line">male(henry).</span><br><span class="line">male(andrew).</span><br><span class="line">male(edward).</span><br><span class="line">male(viscount).</span><br><span class="line">male(savanna).</span><br><span class="line"></span><br><span class="line">female(elizabeth).</span><br><span class="line">female(anne).</span><br><span class="line">female(zara).</span><br><span class="line">female(beatrice).</span><br><span class="line">female(eugenie).</span><br><span class="line">female(louise).</span><br><span class="line">female(isla).</span><br><span class="line"></span><br><span class="line">parent(elizabeth,charles).</span><br><span class="line">parent(elizabeth,anne).</span><br><span class="line">parent(elizabeth,andrew).</span><br><span class="line">parent(elizabeth,edward).</span><br><span class="line"></span><br><span class="line">parent(anne,peter).</span><br><span class="line">parent(anne,zara).</span><br><span class="line">parent(charles,william).</span><br><span class="line">parent(charles,henry).</span><br><span class="line">parent(andrew,beatrice).</span><br><span class="line">parent(andrew,eugenie).</span><br><span class="line">parent(edward,louise).</span><br><span class="line">parent(edward,viscount).</span><br><span class="line">parent(peter,savanna).</span><br><span class="line">parent(peter,isla).</span><br><span class="line"></span><br><span class="line"><span class="comment">% 其中male表示男性，female表示女性，parent(X,Y)表示X时Y的父母（父亲或母亲）</span></span><br></pre></td></tr></table></figure>
+<p>当我们面对一些逻辑问题时，使用逻辑式编程便可大大减少我们的时间，例如我们想查询 grandparent 这个关系时，我们只要写下这个规则。</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">grandparent(<span class="symbol">X</span>,<span class="symbol">Y</span>) :- parent(<span class="symbol">X</span>,<span class="symbol">Z</span>),parent(<span class="symbol">Z</span>,<span class="symbol">Y</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">% 这条规则（rules）说明了grandparent的逻辑关系，</span></span><br><span class="line"><span class="comment">% 即grandparent其实就是父母的父母</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>从这里我们能感受到逻辑式编程的一些好处，在我们编写程序时，其实我们就是在编写一个逻辑约束的规则，而逻辑式编程语言（例如 prolog）的引擎可以根据这个规则来寻找对应的解（其实本质上是搜索）。</p>
+<h3 id="updates"><a href="#updates" class="headerlink" title="updates"></a>updates</h3><p>该书在讲解了 facts 和 querys 之后便开始讲解 updates,所以该书确实是以一种数据库的视角来介绍 logic programming 的。<br>书中举了一个 update syntax 的例子</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">p(a,b) &amp; ~q(b) ==&gt; ~p(a,b) &amp; p(b,a)</span><br><span class="line">p(<span class="symbol">X</span>,<span class="symbol">Y</span>) &amp; ~q(<span class="symbol">Y</span>) ==&gt; ~p(<span class="symbol">X</span>,<span class="symbol">Y</span>) &amp; p(<span class="symbol">Y</span>,<span class="symbol">X</span>)</span><br></pre></td></tr></table></figure>
+<p>这样我们便更新了数据库中的规则。</p>
+<h3 id="data-structrue"><a href="#data-structrue" class="headerlink" title="data structrue"></a>data structrue</h3><p>该书紧接着讲述了 lists sets 和 trees 三种类型的数据结构，这里和其他介绍 prolog 的书籍区别不大。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>《introduce to logic programming》 这本书还是值得一读的，通过阅读这本书可以很好的了解 logic programming。先阅读这本书再阅读 prolog 相关书籍也是个不错的选择。</p>
 ]]></content>
       <categories>
-        <category>测试</category>
+        <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>测试</tag>
+        <tag>读书笔记</tag>
+        <tag>编程相关</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一起学习魔法吧（0）</title>
+    <url>/2018/11/11/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%880%EF%BC%89/</url>
+    <content><![CDATA[<p>_开始念动咒语吧！_</p>
+<h2 id="古老的魔法"><a href="#古老的魔法" class="headerlink" title="古老的魔法"></a>古老的魔法</h2><p>从某种意义上讲，写程序和念咒语是没什么区别的。不信你看：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number  =  <span class="number">5</span>;</span><br><span class="line">number ++;</span><br></pre></td></tr></table></figure>
+<p>例如上面这个 c 语言程序片段，我们念动咒语 int number = 5 就把 5 赋值给了 number，这好比念动咒语让帽子里出现鸽子。魔法师是分派别的，他们念动的咒语不同，效果也不用。写程序也是如此，程序编写者使用的语言不同，就好像念动不同派别的咒语。在辉煌的程序语言家族里，有一门较为古老的语言，lisp。这个系列要了解的就是它的一门方言 scheme，让我们先来看看这们语言的基础吧：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(display &quot;Hello Scheme!&quot;)</span><br><span class="line">Hello Scheme!</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>（注：关于法杖（开发环境）的获取，网络上有许多经验，故不再赘述）<br>这门古老的语言和一般的语言不太相同，例如最基本的表达式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(3 + 4)</span><br><span class="line">application: not a procedure;</span><br><span class="line">expected a procedure that can be applied to arguments</span><br><span class="line">given: 3</span><br><span class="line">arguments...:</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>额，看来我们念错了咒语。<del>（还好没被吸进魔法书里）</del>我们看看计算机向我们抱怨了什么，它说这并不是一个过程，现在需要一个过程来应用于参数上。看来计算机认为我们输入的（3 + 4）是参数。其实正确的咒语是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 3 4)</span><br><span class="line">7</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>这也可以理解，不过就是把加法应用在 3 和 4 上，也没什么复杂的嘛！其他的基本运算也是如此：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 3 4)</span><br><span class="line">(* 3 4)</span><br><span class="line">(- 3 4)</span><br><span class="line">(&#x2F; 3 4)</span><br><span class="line"></span><br><span class="line">7</span><br><span class="line">12</span><br><span class="line">-1</span><br><span class="line">3</span><br><span class="line">—</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<p>看起来还都不错，除了最后一个，那是什么？这个东西太诡异了吧，仔细看看好像是分数？等等，你别骗我，计算机可不能搞出来分数。我知道 IEEE754！别想骗我！是的，计算机本身不能表示分数（其实你也可以强行搞，得不偿失），但是不代表我们不能弄出分数结构对不对？<br>我猜你肯定在想这个吧？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(&#x2F; 2 4)</span><br><span class="line">1</span><br><span class="line">—</span><br><span class="line">2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>嘿嘿，事情并不像你想的那样吧，显然我们完全可以用分数进行计算，这就像 1+1 = 2 （当然这是十进制加法，皮亚诺公理下的）一样。我们再试试这样？：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 6 3&#x2F;4)</span><br><span class="line">   3</span><br><span class="line"> 6 —</span><br><span class="line">   4</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>(当然这个比例不太对，但是结果的结构是正确的)能看得出来这是带分数，下面我们看看小数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(* 0.43 0.7)</span><br><span class="line">0.301</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>不错，scheme 直接计算小数乘法还是不错的，不如我们再做一些好玩的事？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 9999999999999999999999999999 233333333333333333333333333)</span><br><span class="line">10233333333333333333333333332</span><br></pre></td></tr></table></figure>
+<p>你在干什么！机器会被你玩坏的！额，但是看上去好像一点问题都没有啊。对了，我们在念动咒语的时候并不像 c 那样要念出我们要召唤精灵的名字(int,char,double,float…)我们直接进行了计算，可见 scheme 不像 c 语言那样是静态类型而是动态类型。所以我们也不用担心 Int 的溢出问题了。<br>刚才我们试的所有式子都是(operator exp exp)的形式，我们不如试试别的？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 0.321 0.32143 0.5634)</span><br><span class="line">1.2058300000000002</span><br></pre></td></tr></table></figure>
+<p>这不对啊，这根本不是他们算出来的结果啊。虽然 scheme 的小数可以直接输入操作，但如同 c 中的 float,double 一样有精度的限制。（IEEE754）<br>这节我们了解了基础的运算和一些规则，但是我们还没有掌握其他的一些必要工具，我们将在下节中介绍。</p>
+]]></content>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一起学习魔法吧（1）</title>
+    <url>/2020/01/27/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<p>上一节中我们对 scheme 有了初步印象，这节我们来介绍它的基本运算。<br>与 c 语言不同的是，scheme 种并没有真正意义上的变量。例如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<p>这种形式的语句在 scheme 中并不存在。在 c 语言中，一个变量必须声明类型，而 scheme 则有所不同。首先来看数的计算。<br>在 c 语言中，我们可以这样写：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int a = <span class="number">5</span>；</span><br><span class="line">Int b = <span class="number">6</span>;</span><br><span class="line">Int c = a + b;</span><br></pre></td></tr></table></figure>
+<p>而在 scheme 中其书写是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure>
+<p>这两者能达到同样的效果。但两者还是有较大的区别的，例如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int a = <span class="number">5</span>;</span><br><span class="line">Int b = <span class="number">6</span>;</span><br><span class="line">b = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure>
+<p>在这时，c 为 14 而在 scheme 中：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define b 9)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure>
+<p>此时则会报错，在 scheme 中所有的值都是常量，不可更改，而不像 c 语言，需要用 const 修饰才为常量。<br>四则运算在上节中也做过基本的介绍，这节中不再过多阐述。<br>同样的，scheme 中也有不同的类型，例如数字，字符，列表，其中列表是一个及其重要的组成。不夸张的说，scheme 的强大与列表有着很深的相关性。<br>接下来我们说说字符，在 c 语言中，我们有字符和字符串，例如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> d = ‘h’;</span><br><span class="line"><span class="built_in">string</span> e = “abcdefg”;</span><br></pre></td></tr></table></figure>
+<p>在 scheme 中，我们如是表示：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define d “h”)</span><br><span class="line">(define e “abcdefg”)</span><br></pre></td></tr></table></figure>
+<p>值得注意的是，在 scheme 中，字符和字符串都用“xxxxxxxxx”表示，我们可以把字符理解成长度为一的字符串。<br>接下来我们说最重要的部分，列表：<br>列表主要由 cons car cdr 构成，其中 cons 是把两个组成部分合成一个序对，值得注意的时，cons 可以连接不同类型的单元，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(cons “abcdef” 6)</span><br><span class="line">    &#39;(&quot;abcdef&quot; . 6)</span><br></pre></td></tr></table></figure>
+<p>如果我们想得到“abcdef” 只需 (car (cons “abcdef” 6))<br>如果要得到 6 只需要(cdr (cons “abcdef” 6))<br>上面简要说了说 scheme 中基本的要素，下节中我们将介绍更多内容。</p>
+]]></content>
+      <tags>
+        <tag>魔法学习</tag>
       </tags>
   </entry>
   <entry>
@@ -64,12 +149,56 @@
       </tags>
   </entry>
   <entry>
+    <title>一起学习魔法吧（番外篇1）</title>
+    <url>/2018/04/22/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%871%EF%BC%89/</url>
+    <content><![CDATA[<p>_任何非常先进的技术，初看都与魔法无异。_</p>
+<h2 id="currying"><a href="#currying" class="headerlink" title="currying"></a>currying</h2><p>currying(柯里化)将函数转化成单参函数，即将所有函数固定为接受一个参数，返回一个值的形式。给予 λ 演算一个理论模型。<br><br><br>而柯里化究竟是什么呢?我们可以这么理解，例如现在我们有一个二元函数<em>f(x,y) = x + y</em> 那么在代码里可以这么书写：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>甚至没学过计算机的人都能看懂它的含义，取两个数 a,b 在进行相加运算后返回结果。但我们应当注意的是，这个函数传进去的只能是两个参数，否则机器将无法工作。更重要的是这个函数返回的是一个数值。<br><br><br>而柯里化的方式是什么呢？柯里化要把这个函数改造为单参函数。逻辑上如下图所示<br><img src="https://s2.ax1x.com/2020/02/08/1W2fiQ.png" alt="image"><br><strong>该图上面是正常的 add，下面是柯里化的 add。</strong><br><br><br>我们相当于构建了两个“机器”每个“机器”只做有限的工作，剩下的工作交给下一个“机器”，这样我们可以把复杂的“机器”拆分成一系列的小型“机器”。<br><br><br>柯里化给我们理清了一个思路，类似于用皮亚诺公理解释自然数，我们可以用这种简单的函数（过程）模型来构建出强大的系统。但是这个理论在实际应用上貌似并不多，至少在我所触及的范围内几乎没有用过。</p>
+<p>注：由于笔者的水平有限，文章中可能存在疏漏。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一起学习魔法吧（番外篇2）</title>
+    <url>/2018/04/24/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%89/</url>
+    <content><![CDATA[<p>_任何非常先进的技术，初看都与魔法无异。_</p>
+<h2 id="λ-calculus"><a href="#λ-calculus" class="headerlink" title="λ-calculus"></a>λ-calculus</h2><p>这篇博客我们简单说说 λ-calculus。<br>在 λ 演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故 λ 演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予 λ 演算一个理论模型）而函数由 λ 表达式匿名定义，如：f(x) = x * 2<br>可以写为 λx.x * 2 而 f(4)的值即可表示为(λx.x * 2) 4。<br>看上去怪怪的，突然冒出来一个孤零零的数字 4，如果有强迫症的话简直不能忍啊！那么我们还可以把它写成下面这个样子：<br>(λf.f 4)(λ.x x * 2)这回看着规整了一些。(λf.f 4)表示的是这个函数接受一个函数作为参数，并作用在 4 上。<br>就如同任何编程语言都有语法一样，λ 演算也需要语法。λ 演算将符合这些语法的表达式也称作“lambda 项”其语法可归纳成三条规则：</p>
+<ul>
+<li>变量 x 本身就是一个有效的 lambda 项</li>
+<li>如果 t 是一个 lambda 项，而 x 是一个变量，则(λx.t) 是一个 lambda 项（称为 lambda 抽象）</li>
+<li>如果 t 和 s 是 lambda 项，那么(ts)是一个 lambda 项（称为应用）<br>等等，这样一来，我写下这种式子(λx.x x)(λx.x x)也是对的，但是貌似计算不出来一个确定的值啊。然而这是可以接受的，因为 lambda 表达式并不要求必须归约到一个确定的值上。<br>接下来我们来看一个有趣的东西：</li>
+</ul>
+<h2 id="Church-数"><a href="#Church-数" class="headerlink" title="Church 数"></a>Church 数</h2><p>Church 数 0, 1, 2, …在 lambda 演算中被定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0 ≡ λf.λx. x</span><br><span class="line">1 ≡ λf.λx. f x</span><br><span class="line">2 ≡ λf.λx. f (f x)</span><br><span class="line">3 ≡ λf.λx. f (f (f x))</span><br><span class="line">...</span><br><span class="line">n ≡ λf.λx. fn x</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>这是什么？怎么凭空就能冒出来 0 ≡ λf.λx. x，1 ≡ λf.λx. f x 这种奇怪的东西？我们先回想一下自然数是怎么定义的？<br>额，像是 0，1，2，3······这种数叫自然数？这种定义太不严谨，我们要用皮亚诺公理定义自然数：</p>
+<ul>
+<li>0 是一个自然数。</li>
+<li>0 不是任何其他自然数的继数。</li>
+<li>每一个自然数 a 都有一个继数。</li>
+<li>如果 a 与 b 的继数相等则 a 与 b 亦相等。</li>
+<li>若一个由自然数组成的集合 s 包含有 0，又若当 s 包含有某一数 a 时，它一定也含有 a 的继数，则 s 就包含有全体自然数。<br>看上去好多了，但是这又和上面的 church 数有什么关系呢？我们可以这么理解：<br>我们先定义了一个零作为基础，又定义了后继这个概念（计算方法），我们现在只不过在用 λ 表达式来表示罢了，其中的 f 就可以理解为后继。这倒是能说得通，但是我要做加法又怎么理解？很简单，只不过是进行多次后继罢了。<br><br><br>正真的 λ 演算比本文所描述的要复杂很多，本文只是简要的介绍。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>魔法学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一道小题</title>
     <url>/2019/10/04/%E4%B8%80%E9%81%93%E5%B0%8F%E9%A2%98/</url>
     <content><![CDATA[<h3 id="一道小题"><a href="#一道小题" class="headerlink" title="一道小题"></a>一道小题</h3><h4 id="题目内容"><a href="#题目内容" class="headerlink" title="题目内容"></a>题目内容</h4><p>在本讲中，我们讲了 RISC 计算机的基本思想。事实上，人们可以设计出只有一条指令的计算机，这种计算机称为单指令计算机 （Single Instruction Computer，SIC） 。因为只有一条指令，指令集不能再精简，所以这种计算机也称为终极精简指令集计算机 （Ultra Reduced Instruction Set Computer，URISC） 。<br>这条唯一的指令有三个操作数，每个操作数均为一个存储单元地址，指令的功能是对前两个存储单元中的操作数做减法，将结果写入 第二个操作数 所指的存储单元中。如果减法的结果小于 0，则发生跳转，执行第三个操作数所指向的存储单元中的指令，否则；继续执行后继指令。<br>因为只有一条指令，所以不需要操作码，因此该指令的格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[L:] a, b, c ; mem[b] &#x3D; mem[b] - mem[a]，if (mem[b] &lt; 0) goto c</span><br></pre></td></tr></table></figure>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line"><span class="comment">[L:]</span> a, b, c ; mem<span class="comment">[b]</span> = mem<span class="comment">[b]</span> - mem<span class="comment">[a]</span>，if (mem<span class="comment">[b]</span> &lt; 0) goto c</span><br></pre></td></tr></table></figure>
 <p>其中，L 为可选的标号，“；” 后面是注释，此处实际上是对该指令功能的形式化描述。<br>尽管 URISC 只有一条指令，但是它是一种通用计算机，也就是说用这一条指令可以编写出实现任何复杂算法的程序。<br>例如，将地址为 SRC 的存储单元中的内容传送到地址为 DEST 的存储单元中。可以编写出如下程序：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">START: DEST, DEST, ADD</span><br><span class="line">ADD : SRC, TEMP, NEXT</span><br><span class="line">NEXT: TEMP, DEST, CONT</span><br><span class="line">CONT: …</span><br><span class="line">…</span><br><span class="line">TEMP: WORD 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">START:</span> DEST, DEST, <span class="keyword">ADD</span></span><br><span class="line"><span class="keyword">ADD</span> : SRC, TEMP, NEXT</span><br><span class="line"><span class="symbol">NEXT:</span> TEMP, DEST, CONT</span><br><span class="line"><span class="symbol">CONT:</span> …</span><br><span class="line">…</span><br><span class="line"><span class="symbol">TEMP:</span> WORD <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <p>其中，WORD 是伪指令，用于将指定的内存单元初始化为指定的常数。<br>根据以上说明，完成如下题目：</p>
 <p>编写一段 URISC 程序，将 a 和 b 相加，结果写入 a 中，b 保持不变。</p>
 <p>编写一段 URISC 程序，将 a 和 b 相乘，结果写入 c 中。约定存储单元 one 包含常数 1，a 和 b 均大于 0，并且 a 和 b 可以被程序修改。</p>
@@ -79,9 +208,9 @@
 <p>第一问的内容思路很清晰，从题目叙述就能知道，这个所谓的 ultra 指令集只支持减法，但是支持负数的存储（应该是补码形式）那么我们只要构建相应的减去负数即可了。</p>
 <p>第二问的就是在加法的基础上构建出乘法，思路是一样的。(构建循环)</p>
 <p>第一问</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">START: TEMP, TEMP, L1 ; TEMP &#x3D; 0</span><br><span class="line">L1: b, TEMP, L2 ; TEMP &#x3D; -b</span><br><span class="line">L2: TEMP, a, END ; a &#x3D; a - TEMP</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">START</span>: <span class="keyword">TEMP</span>, <span class="keyword">TEMP</span>, L1 ; <span class="keyword">TEMP</span> = <span class="number">0</span></span><br><span class="line">L1: b, <span class="keyword">TEMP</span>, L2 ; <span class="keyword">TEMP</span> = -b</span><br><span class="line">L2: <span class="keyword">TEMP</span>, a, <span class="keyword">END</span> ; a = a - <span class="keyword">TEMP</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
 <p>第二问</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">START: c, c, T1 ; c &#x3D; 0</span><br><span class="line">T1: pone, pone, T2 ; pone &#x3D; 0</span><br><span class="line">T2: one, pone, S1 ; pone &#x3D; -1</span><br><span class="line">S1: b1, b1, S2 ; b1 &#x3D; 0</span><br><span class="line">s2: b, b1, L1 ; b1 &#x3D; -b</span><br><span class="line">L1: TEMP, TEMP, L2 ; TEMP &#x3D; 0</span><br><span class="line">L2: a, TEMP, LOOP ; TEMP &#x3D; -a</span><br><span class="line">LOOP: TEMP, c, j ; c -&#x3D; TEMP</span><br><span class="line">j: pone, b1, LOOP ; jump</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">START:</span> c, c, <span class="built_in">T1</span> <span class="comment">; c = 0</span></span><br><span class="line"><span class="symbol">T1:</span> pone, pone, <span class="built_in">T2</span> <span class="comment">; pone = 0</span></span><br><span class="line"><span class="symbol">T2:</span> one, pone, <span class="built_in">S1</span> <span class="comment">; pone = -1</span></span><br><span class="line"><span class="symbol">S1:</span> <span class="keyword">b1, </span><span class="keyword">b1, </span><span class="built_in">S2</span> <span class="comment">; b1 = 0</span></span><br><span class="line"><span class="symbol">s2:</span> <span class="keyword">b, </span><span class="keyword">b1, </span>L1 <span class="comment">; b1 = -b</span></span><br><span class="line"><span class="symbol">L1:</span> TEMP, TEMP, L2 <span class="comment">; TEMP = 0</span></span><br><span class="line"><span class="symbol">L2:</span> a, TEMP, LOOP <span class="comment">; TEMP = -a</span></span><br><span class="line"><span class="symbol">LOOP:</span> TEMP, c, <span class="keyword">j </span><span class="comment">; c -= TEMP</span></span><br><span class="line"><span class="keyword">j: </span>pone, <span class="keyword">b1, </span>LOOP <span class="comment">; jump</span></span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 <p><del>写的好丑</del></p>
 ]]></content>
       <categories>
@@ -90,6 +219,42 @@
       <tags>
         <tag>体系结构</tag>
         <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>凸优化（零）</title>
+    <url>/2020/03/18/%E5%87%B8%E4%BC%98%E5%8C%96%EF%BC%88%E9%9B%B6%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列主要为《Convex Optimization》学习笔记  </p>
+<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><h4 id="直线与线段"><a href="#直线与线段" class="headerlink" title="直线与线段"></a>直线与线段</h4><p>设$x_{1} \neq x_{2}$为$\mathbb{R}^{n}$空间中两个点，则<br>$ y=\theta x_{1}+(1-\theta) x_{2},\theta \in \mathbb{R} $<br>为一条穿越$x_{1},x_{2}$的直线。当$\theta$在0~1变动时，可构成$x_{1}$与$x_{2}$之间的闭线段。y也可表示为：<br>$y=x_{2}+\theta(x_{1}-x_{2})$<br>这种形式可以解释成由基点$x_{2}$向方向$x_{1}-x_{2}$走一定距离的所有点的集合，当$\theta$在0~1之间时，构成了线段，若$\theta$可取任意值，则是直线。</p>
+<h4 id="仿射集合"><a href="#仿射集合" class="headerlink" title="仿射集合"></a>仿射集合</h4><p>设集合$C \subseteq \mathbb{R}^{n}$若$\forall x_{1},x_{2} \in C ,\theta \in \mathbb{R}$有$\theta x_{1}+(1-\theta) x_{2} \in C$则称集合$C$为仿射的。<br>该定义也可以扩展到多个点的情况。当$\theta_{1}+…+\theta_{k} = 1$时，我们称$\theta_{1}x_{1} + \theta_{2}x_{2}+…+\theta_{k}x_{k}$为$x_{1},…,x_{k}$的仿射组合。</p>
+<h4 id="凸集定义"><a href="#凸集定义" class="headerlink" title="凸集定义"></a>凸集定义</h4><p>集合$C$被称为凸集，如果$C$中任意两点间的线段仍在$C$，即对于$\forall x_{1},x_{2} \in C$和满足$0 \leqslant \theta \leqslant 1$均有$\theta x_{1}+(1-\theta)x_{2} \in C$<br>点$\theta_{1}x_{1} + \theta_{2}x_{2}+…+\theta_{k}x_{k}$为点$x_{1},x_{2},…x_{k}$的一个凸组合，其中$\theta_{1}+…+\theta_{k}$并且$\theta_{i} \geqslant 0, i=1,……,k$<br>与仿射集合类似，一个集合是凸集等价于集合包含其中所有点的凸组合。<br>我们称集合C为所有点的凸组合的集合为其凸包，记为 $conv C$:<br>$conv C = \lbrace \theta_{1}x_{1}+…+\theta_{k}x_{k}| x_{i} \in C, \theta_{i} \geqslant 0, i =1,…,k, \theta_{1}+\theta_{2}+…+\theta_{k}=1\rbrace$<br>凸包$conv C$总是凸的，它是包含$C$的最小的凸集。</p>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>凸优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>古典人工智能（零）</title>
+    <url>/2020/03/17/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%20%20(%E9%9B%B6)/</url>
+    <content><![CDATA[<h2 id="人工智能学派"><a href="#人工智能学派" class="headerlink" title="人工智能学派"></a>人工智能学派</h2><p>人工智能的主要流派有三个：1.符号主义(symbolicism)—数理逻辑 2.连接主义(connectionism)—仿生学 3.行为主义(actionism)—控制论<br>该系列博客主要写写其中的符号主义学派。<br>（注： 主要是总结所看过的书籍、博客等，并非完全原创）<br>符号主义学派的核心观点在于，人类的智能主要体现在推理能力。机器应当像人一样思考，这样一来机器才有获取智能的可能。符号主义学派的思路十分明了，建立一个庞大的知识库体系，并赋予机器推理能力这样便可以创造人工智能。至于为什么这种观点被称为<br>符号主义，原因在于该学派普遍认为人类认知基于符号，而思维是一种运算。如今的语义网络与专家系统很大程度上继承了符号主义学派的思路。</p>
+<h3 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h3><p>按照符号主义学派的思路，构建人工智能首先要获取知识。给知识下定义是极其困难的，但我们可以简单总结一下生活中的几种知识：<br>1.事实性知识<br>2.过程性知识<br>3.行为性知识<br>4.实例性知识<br>5.类比性知识<br>6.元知识</p>
+<h4 id="事实性知识"><a href="#事实性知识" class="headerlink" title="事实性知识"></a>事实性知识</h4><p>这种知识一般采用直接表示的方式，例如：地球绕着太阳转、北京是中华人民共和国首都等。但要注意事实性知识的准确性，事实性知识如果出现错误，那么做出的推理必然结果也会不严密。<br>注：本文不讨论事实性知识能否正确被人类认知的哲学相关问题。</p>
+<h4 id="过程性知识"><a href="#过程性知识" class="headerlink" title="过程性知识"></a>过程性知识</h4><p>往往是一系列动作构成的知识，例如：如何做西红柿炒鸡蛋、如何维修电子计算机等</p>
+<h4 id="行为性知识"><a href="#行为性知识" class="headerlink" title="行为性知识"></a>行为性知识</h4><p>不给出事实本身，而是给出某方面的行为。例如微分方程刻画了一个函数的行为但并未给出函数本身。（这类知识往往是某种数学模型）行为性知识往往描述的是事物的内涵而非外延。<br>(注：<br>内涵：内涵往往指事物特有属性的反应<br>外延：外延往往指事物所组成的类<br>例如：当我们谈到人的内涵，指的是人类所具有属性(如：域：真核域 Eukarya \ 界：动物界 Animalia \ 门：脊索动物门 Chordata\ 亚门：脊椎动物亚门 Vertebrata \ 纲：哺乳纲 Mammalia \ 亚纲：真兽亚纲 Eutheria \ 目：灵长目 Primates \ 科：人科 Hominidae \ 属：人属 Homo \ 种：智人种(Homo sapiens sapiens) \ )而人的外延则指全体人类（即所有人类个体的集合）<br>从集合论的角度看内涵指集合所有元素共有的属性，而外延指集合中的所有元素。)</p>
+<h4 id="实例性知识"><a href="#实例性知识" class="headerlink" title="实例性知识"></a>实例性知识</h4><p>只给出实例而知识隐藏在实例中。例如：观察到打雷之后下雨了这便是一个实例性知识。（注：这并不是说打雷一定下雨，所有观察数据都是实例性知识）</p>
+<h4 id="类比性知识"><a href="#类比性知识" class="headerlink" title="类比性知识"></a>类比性知识</h4><p>不给出内涵也不给出外延，但给出它与其他事物的相似之处。这种知识虽然不准确，却能使不同领域之间的知识可以被快速理解。</p>
+<h4 id="元知识"><a href="#元知识" class="headerlink" title="元知识"></a>元知识</h4><p>即关于知识的知识。例如：一个专家系统要知道该系统能回答什么不能回答什么，这本身也是一种知识，只不过是关于知识的知识。</p>
+<h4 id="知识表示"><a href="#知识表示" class="headerlink" title="知识表示"></a>知识表示</h4><p>大概了解了知识之后，问题便是如何表示知识，普遍上有如下几种：<br>1.演绎系统<br>2.产生式系统<br>3.框架结构<br>4.语义网络<br>5.过程性知识</p>
+<p>在后续的文章中，我们将逐一解释这五种表示方法。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>古典人工智能</tag>
       </tags>
   </entry>
   <entry>
@@ -108,9 +273,21 @@
       </categories>
       <tags>
         <tag>haskell</tag>
+        <tag>Racket</tag>
         <tag>函数式编程</tag>
         <tag>写点简单的</tag>
-        <tag>Racket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>古典人工智能（一）</title>
+    <url>/2020/05/10/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="演绎系统"><a href="#演绎系统" class="headerlink" title="演绎系统"></a>演绎系统</h2><h3 id="谓词演算"><a href="#谓词演算" class="headerlink" title="谓词演算"></a>谓词演算</h3><h4 id="知识单元的构造"><a href="#知识单元的构造" class="headerlink" title="知识单元的构造"></a>知识单元的构造</h4><p>对于知识我们可以用一种陈述性结论表示，例如：<br>天是蓝的<br>1+1=2<br>表示知识的陈述性形式称为命题。带有参数的命题被称作谓词。<br>例如 xx 是水果这就是一个谓词，我们可以设谓词 P 为 xx 是水果，那么有：<br>P1： P(苹果)<br>P2： P(葡萄)<br>我们说 P1 和 P2 是两个命题。它们的含义分别是：<br>P1： 苹果是水果<br>P2： 葡萄是水果<br>我们可以将不同的谓词结合起来形成新的谓词，如：<br>P3: fruit(X) -&gt; sweet(X)<br>这个命题表示如果 X 是水果，那么水果是甜的。在这里我们必须注意的是，这个新的谓词在逻辑上被规定是正确的，但这并不能代表它就是真正意义上的正确。我们也可以轻轻松松举出反例来反驳这个命题，但计算机是无法做到的。<br>从某种程度上讲这也是演绎系统的一大问题，在人类社会并不是只存在逻辑支配着所有的规律（至少目前来看不是）。所以完全指望构建完美的演绎系统来模拟世界无论从工程角度还是理论角度恐怕都是不可能的。（参考哥德尔不完备定律）<br>如上所示，我们表示出了一个新的知识单元，如果构建出大量的知识单元并制定一些规则，那么计算机可以说有了一定的“智能”（只要这些规则足够复杂且规模庞大）。<br>谓词可以不断组合形成新的谓词，理论上一个逻辑链是可以无限延伸的，如 P1(X)-&gt;P2(X)-&gt;P3(X)-&gt;P4(X)-&gt;P5(X)-&gt;……-&gt;（无限延伸）。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>古典人工智能</tag>
       </tags>
   </entry>
   <entry>
@@ -124,12 +301,33 @@
 <p>我们今天可以看看另一种风格的“程序”</p>
 <h3 id="prolog"><a href="#prolog" class="headerlink" title="prolog"></a>prolog</h3><p>这是一门不同的语言，它没有赋值，也没有传统意义上的函数。它有的只是陈述性语句和待求解的问题。这是个例子：</p>
 <p>这并不像是程序而像一份声明清单，而 prolog 恰恰是以一阶谓词为基础的逻辑性语言（program in logic）（个人认为，这某种程度上也限制了它的应用场景）prolog 求解问题的方是还是十分暴力的，主要是匹配和回溯。<br>例如上述问题，prolog 是如何处理的呢？其步骤如下:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.找到第一个问题 uncle(a,U)</span><br><span class="line">2.进行事实匹配</span><br><span class="line">father(a,b).</span><br><span class="line">father(c,d).</span><br><span class="line">father(a,c).</span><br><span class="line">均不符合。</span><br><span class="line">3.规则匹配有</span><br><span class="line">brother(a,Z),father(Z,U)</span><br><span class="line">4.再分为两个问题</span><br><span class="line">brother(a,Z)与 father(Z,U)</span><br><span class="line">进行匹配</span><br><span class="line">5.brother(a,Z)</span><br><span class="line">可以匹配到</span><br><span class="line">brother(a,c).</span><br><span class="line">故有：&#123;c&#x2F;Z&#125; （注：类似于变量替换）</span><br><span class="line">6.代入进第二个问题</span><br><span class="line">father(c,U)</span><br><span class="line">7.寻找事实</span><br><span class="line">father(c,d)符合</span><br><span class="line">可得&#123;d&#x2F;U&#125; 8.解为 d 即 a 是 d 的叔叔</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>.找到第一个问题 uncle(<span class="selector-tag">a</span>,U)</span><br><span class="line"><span class="number">2</span>.进行事实匹配</span><br><span class="line"><span class="function"><span class="title">father</span><span class="params">(a,b)</span></span>.</span><br><span class="line"><span class="function"><span class="title">father</span><span class="params">(c,d)</span></span>.</span><br><span class="line"><span class="function"><span class="title">father</span><span class="params">(a,c)</span></span>.</span><br><span class="line">均不符合。</span><br><span class="line"><span class="number">3</span>.规则匹配有</span><br><span class="line"><span class="function"><span class="title">brother</span><span class="params">(a,Z)</span></span>,father(Z,U)</span><br><span class="line"><span class="number">4</span>.再分为两个问题</span><br><span class="line"><span class="function"><span class="title">brother</span><span class="params">(a,Z)</span></span>与 father(Z,U)</span><br><span class="line">进行匹配</span><br><span class="line"><span class="number">5</span>.brother(<span class="selector-tag">a</span>,Z)</span><br><span class="line">可以匹配到</span><br><span class="line"><span class="function"><span class="title">brother</span><span class="params">(a,c)</span></span>.</span><br><span class="line">故有：&#123;c/Z&#125; （注：类似于变量替换）</span><br><span class="line"><span class="number">6</span>.代入进第二个问题</span><br><span class="line"><span class="function"><span class="title">father</span><span class="params">(c,U)</span></span></span><br><span class="line"><span class="number">7</span>.寻找事实</span><br><span class="line"><span class="function"><span class="title">father</span><span class="params">(c,d)</span></span>符合</span><br><span class="line">可得&#123;d/U&#125; <span class="number">8</span>.解为 d 即 <span class="selector-tag">a</span> 是 d 的叔叔</span><br></pre></td></tr></table></figure>
 <p>可以看出 prolog 处理问题比较死板，其逻辑又相似于 sql 之类的数据库语言（事实上其变种语言的确应用在了数据库上）然而其程序编写的难度对新手的确极不友好但学习这种这种语言也给我们提供了另一种看待程序语言的思路（或者说看待程序的思路）<br>这篇博客只是简要介绍了 prolog 的基本思路，prolog 中还有很多其他技巧，如果感兴趣可以慢慢探索。</p>
 ]]></content>
       <tags>
         <tag>写点简单的</tag>
         <tag>prolog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微观经济学（零）</title>
+    <url>/2020/03/20/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%EF%BC%88%E9%9B%B6%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>该系列总结曼昆微观经济学笔记。</p>
+<h2 id="经济学十大原理"><a href="#经济学十大原理" class="headerlink" title="经济学十大原理"></a>经济学十大原理</h2><h3 id="人们如何做出决策"><a href="#人们如何做出决策" class="headerlink" title="人们如何做出决策"></a>人们如何做出决策</h3><h4 id="原理一：人们面临权衡取舍"><a href="#原理一：人们面临权衡取舍" class="headerlink" title="原理一：人们面临权衡取舍"></a>原理一：人们面临权衡取舍</h4><p>做出决策就是要求我们在一个目标和另一个目标之间进行权衡取舍。例如社会面临的一种权衡取舍是在效率与平等之间。效率(effeciency)是指社会能从稀缺资源中取得到的最大利益，平等(equality)是指将这些利益平均分配给社会成员。<br>（注：为什么平等和效率是冲突的？这与平等的概念有关，平等究竟是什么？）</p>
+<h4 id="原理二：-某种东西的成本是为了得到它所放弃的东西"><a href="#原理二：-某种东西的成本是为了得到它所放弃的东西" class="headerlink" title="原理二： 某种东西的成本是为了得到它所放弃的东西"></a>原理二： 某种东西的成本是为了得到它所放弃的东西</h4><p>机会成本(opportunity cost)：是为了得到这种东西所放弃的东西。  </p>
+<h4 id="原理三：-理性人考虑边际量"><a href="#原理三：-理性人考虑边际量" class="headerlink" title="原理三： 理性人考虑边际量"></a>原理三： 理性人考虑边际量</h4><p>理性人(rational people)：系统而有目的地尽最大努力实现其目标的人。<br>边际变动(marginal change)：对行动计划的微小增量调整。</p>
+<h4 id="原理四：-人们会对激励作出反应"><a href="#原理四：-人们会对激励作出反应" class="headerlink" title="原理四： 人们会对激励作出反应"></a>原理四： 人们会对激励作出反应</h4><p>激励(incentive)：引起一个人做出某种行为得某种东西。<br>（注：此处的激励更像是反馈）</p>
+<h3 id="人们如何相互影响"><a href="#人们如何相互影响" class="headerlink" title="人们如何相互影响"></a>人们如何相互影响</h3><h4 id="原理五：贸易可以使每个人得状况都变得更好"><a href="#原理五：贸易可以使每个人得状况都变得更好" class="headerlink" title="原理五：贸易可以使每个人得状况都变得更好"></a>原理五：贸易可以使每个人得状况都变得更好</h4><h4 id="原理六：市场通常是组织经济活动的一种好方法"><a href="#原理六：市场通常是组织经济活动的一种好方法" class="headerlink" title="原理六：市场通常是组织经济活动的一种好方法"></a>原理六：市场通常是组织经济活动的一种好方法</h4><p>市场经济(market economy)：当许多企业和家庭在物品与服务市场上相互交易时，通过他们的分散决策配置资源的经济。</p>
+<h4 id="原理七：政府有时可以改善市场结果"><a href="#原理七：政府有时可以改善市场结果" class="headerlink" title="原理七：政府有时可以改善市场结果"></a>原理七：政府有时可以改善市场结果</h4><p>产权(property rights)：个人拥有并控制稀缺资源的能力。<br>市场失灵(market failure)：市场本身不能有效配置资源的情况。<br>外部性(externality)：一个人的行为对旁观者福利的影响。<br>市场势力(market power)：单个经济活动者（或某个经济活动小群体）对市场价格有显著影响的能力。<br>（注：什么时候市场会失灵？稀缺性的定义是否具有主体性？是否能找到所有的外部性并纳入成本？如何预防市场势力的产生？还是说市场势力是市场的正常结果？）</p>
+<h3 id="整体经济如何运行"><a href="#整体经济如何运行" class="headerlink" title="整体经济如何运行"></a>整体经济如何运行</h3><h4 id="原理八：一国的生活水平取决于它生产物品与服务的能力"><a href="#原理八：一国的生活水平取决于它生产物品与服务的能力" class="headerlink" title="原理八：一国的生活水平取决于它生产物品与服务的能力"></a>原理八：一国的生活水平取决于它生产物品与服务的能力</h4><p>生产率(productivity)：每单位劳动所投入的生产物品与服务数量。<br>（注：金融服务是否是一种服务？这种服务的稀缺性如何界定？该怎样看待利用金融体系吸血问题？还是说利用金融体系吸血这个命题根本不存在？）</p>
+<h4 id="原理九：当政府发行了过多货币时，物价上涨"><a href="#原理九：当政府发行了过多货币时，物价上涨" class="headerlink" title="原理九：当政府发行了过多货币时，物价上涨"></a>原理九：当政府发行了过多货币时，物价上涨</h4><p>通货膨胀(inflation)：经济中物价总水平的上升。</p>
+<h4 id="原理十：社会面临通货膨胀与失业之间的短期权衡取舍"><a href="#原理十：社会面临通货膨胀与失业之间的短期权衡取舍" class="headerlink" title="原理十：社会面临通货膨胀与失业之间的短期权衡取舍"></a>原理十：社会面临通货膨胀与失业之间的短期权衡取舍</h4><p>经济周期(business cycle)：就业和生产等经济活动的波动。</p>
+]]></content>
+      <categories>
+        <category>经济学相关</category>
+      </categories>
+      <tags>
+        <tag>经济学原理</tag>
       </tags>
   </entry>
   <entry>
@@ -153,6 +351,62 @@
 ]]></content>
       <tags>
         <tag>色彩模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习（一）k近邻算法</title>
+    <url>/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E4%B8%80)/</url>
+    <content><![CDATA[<h2 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K 近邻算法"></a>K 近邻算法</h2><p>K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。<br>其任务与数据如下：  </p>
+<script type="math/tex; mode=display">Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})...(x_{n},y_{n}) \rbrace</script><script type="math/tex; mode=display">x\_{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}</script><script type="math/tex; mode=display">y*{i} \in \mathcal{Y} = \lbrace (c*{1},c*{2},...,c*{k}) \rbrace</script><p>其中$y<em>{i}$是实例的类别。<br>任务是输出实例x的类别y。<br>k近邻算法的三个要素是：1.k值选择 2.度量距离 3.分类决策规则<br>该算法流程如下：<br>根据给定的距离度量，在训练集中找出与x最近邻的k个点，涵盖这k个点的邻域记作$N</em>{k}(x)$<br>在$N*{k}(x)$中根据分类决策规则决定x的类别y：  </p>
+<script type="math/tex; mode=display">\displaystyle y = \mathop{\arg\min}_{\mathbf c\_{j}} \sum\_{x\_{i} \in N_{k}(x)} I(y\*{i}=c\*{i}) , \ i=1,2,...,N; \ j=1,2,...,k</script><p>其中 I 为指示函数当$y*{i} = c_{i}$时 I 为 1，否则为 0。当 k=1 时，该算法又可称最近邻算法。</p>
+<h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>该算法的距离度量往往采用$L_{p}$距离。其定义为：  </p>
+<script type="math/tex; mode=display">\displaystyle L*{p} (x*{i},x*{j}) = (\sum*{l=1}^n \vert x*{i}^{(l)}-x*{j}^{(l)} \vert ^p)^{1/p}</script><h3 id="k-值选择"><a href="#k-值选择" class="headerlink" title="k 值选择"></a>k 值选择</h3><p>k 值不易选取过大，应在较小的值中选取，选取不同的 k 值并进行交叉验证来选取最优值。</p>
+<h3 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h3><p>一般采用多数表决（majority voting rule），其误分类率是：  </p>
+<script type="math/tex; mode=display">\displaystyle 1/k \sum_{x_{i} \in N_{k}(x)} I(y_{i} \neq c_{j})</script><p>那么要使其最小就是使$\displaystyle \sum_{x_{i} \in N_{k}(x)} I(y_{i} = c_{j})$最大，多数表决函数可以等价于经验风险最小化。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>往往利用 kd 树方式构造：<br>构造根结点，不妨选择$x^{(1)}$为坐标轴，以 T 中所有的实例的$x^{(1)}$坐标的中位数为切分点，将根节点对应的超矩形区域切分为两个子区域。切分由通过切分点并与坐标轴$x^{(1)}$垂直的超平面实现。由根节点生成深度为 1 的左右子节点；左子节点对应坐标$x^{(1)}$小于切分点的子区域，右子节点对应于坐标$x^{(1)}$大于切分点的子区域。将落在切分超平面上的点将被保存在根节点。<br>之后对深度为 j 的节点重复这种操作，选择$x^{(l)} \ l = j(mod k)+1$进行。<br>当两个子区域没有实例存在时停止。从而形成 kd 树的区域划分。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习（零）单层感知机</title>
+    <url>/2020/03/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E9%9B%B6)/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好久没更新博客了，准备开一个新的系列总结一下自己机器学习的相关经验</p>
+<h2 id="单层感知机"><a href="#单层感知机" class="headerlink" title="单层感知机"></a>单层感知机</h2><p>我们今天看一个超级简单的模型，单层感知机。其结构可以看作是（以四元为例）<br><a href="https://imgchr.com/i/3zt3Uf"><img src="https://s2.ax1x.com/2020/03/08/3zt3Uf.md.png" alt="3zt3Uf.md.png"></a><br>首先我们来看看任务和数据是什么样子的：</p>
+<p>$Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})…(x_{m},y_{m}) \rbrace $<br>$x<em>{i} \in \mathcal {X} \subseteq \mathbb{R}^{n}$<br>$y</em>{i} \in \mathcal {Y} = \lbrace 1,-1 \rbrace $</p>
+<p>这组数据给出的情景是：存在一个二分类任务，其中 n 维数据有 m 组，现要找到一个模型 f(·)来对数据进行分类，并求出其 w 与 b。<br>由于我们的任务是二分类任务，且输出为 1 或-1，不妨将 f(·)设为 sigmoid 函数(由于 sign 函数不可导)<br>在该任务中我们要找到一个超平面 w*x+b = 0 将正负实例分到平面两侧，则有</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+1  \qquad & w*x+b \gt 0\\
+-1 \qquad & w*x+b \lt 0\\
+\end{cases}</script><p>我们可以将这两个公式合为一个 <script type="math/tex">(w*x_{i}+b)*y_{i} \gt 0</script>当一个数据符合该不等式时，该数据便被分类正确。<br>显而易见的，当误分类的点越少时，模型便越精准。因此我们可以定义 loss 函数为<script type="math/tex">\displaystyle \sum*{x*{i} \in M} 1</script>其中M为误分类点的集合。我们的目的就是找到合适的参数w与b将该loss函数取到最小值。但由于该loss函数是离散的，我们无法对其进行求导等操作。因此我们不妨将loss函数改为如下形式  </p>
+<script type="math/tex; mode=display">\displaystyle L(w,b) = \sum*{x*{i} \in M} -y*{i}*(w*x+b)</script><p>这样一来我们便可以进行求导操作，利用随机梯度下降法(stochastic gradient descent)进行训练。loss 函数对 w 和 b 分别求导可得：  </p>
+<script type="math/tex; mode=display">\nabla*{w} L(w,b) = \sum*{x\*{i} \in M} -y\*{i} \_x*{i}</script><script type="math/tex; mode=display">\nabla*{b} L(w,b) = \sum\_{x*{i} \in M} -y*{i}</script><p>进而我们利用每个误分类点$(x*{i},y*{i})$对 w,b 进行更新：  </p>
+<script type="math/tex; mode=display">w := w+\eta y\*{i}x\*{i}</script><script type="math/tex; mode=display">b := b+\eta y\_{i}</script><p>其中$\eta$为学习率，我们可以取 0~1 中的任何一个数值。学习率的选取在很多时候对算法的收敛速度有很大的影响。<br>对上述式子我们可以不断地进行迭代，到没有误分类点后停止。<br>以上便是单层感知机模型。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习（二） 朴素贝叶斯</title>
+    <url>/2020/04/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="朴素贝叶斯法的学习与分类"><a href="#朴素贝叶斯法的学习与分类" class="headerlink" title="朴素贝叶斯法的学习与分类"></a>朴素贝叶斯法的学习与分类</h2><h3 id="任务与数据"><a href="#任务与数据" class="headerlink" title="任务与数据"></a>任务与数据</h3><p>$ DATA =  \lbrace (x_{1},y_{1}),(x_{2},y_{2}),…,(x_{N},y_{N}) \rbrace $<br>$ input space: \mathcal {X} \subseteq \mathbb{R}^{n} $<br>$ output space: \mathcal{Y} = {c_{1},c_{2},…c_{k}} $<br>其中$c_{i}$为类标记，该类标记可以有两个或多个。  </p>
+<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯通过训练数据集学习联合概率分布P(X,Y)。<br>其中先验概率分布为：<br>$ \displaystyle P(Y = c_{k}),k=1,2,…,K $<br>条件概率分布：<br>$ \displaystyle P(X=x|Y=c_{k}) = P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k}),  k=1,2,…,K $<br>学习到联合概率分布P(X,Y)。<br>朴素贝叶斯法对条件概率分布作了条件独立性假设。即：<br>$ \displaystyle P(X=x|Y=c_{k})=P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k})=  \prod_{j=1}^{n} P(X^{(j)}=x^{(j)}|Y=c_{k}) $<br>计算后验概率，将后验概率最大类作为x的类输出，后验概率计算根据贝叶斯定理进行。<br>$ \displaystyle P(Y=c_{k}|X=x)=\frac{P(X=x|Y=c_{k})P(Y=c_{k})}{\sum_{k}P(X=x|Y=c_{k})P(Y=c_{k})} $<br>可解朴素贝叶斯分类器：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k})\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_{k}) $</p>
+<h3 id="后验概率最大化的含义"><a href="#后验概率最大化的含义" class="headerlink" title="后验概率最大化的含义"></a>后验概率最大化的含义</h3><p>使用0-1损失函数有期望风险函数：<br>$ \displaystyle R_{exp}(f)=E[L(Y,f(x))] $<br>取条件期望有：<br>$ \displaystyle R_{exp}f(x)=E_{x} \sum_{k=1}^K [L(c_{k},f(X))]P(c_{k}|X) $<br>为了令期望风险最小化，于是对每个X=x逐个极小化可得：<br>$ \displaystyle f(x)= \mathop{\arg\max}_{\mathbf y \in Y} P(y=c_{k}|X=x)$<br>也即：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k}|X=x) $</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -237,260 +491,6 @@
       </categories>
       <tags>
         <tag>计算机科学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《Introduction to Logic Progrmming》快速阅读笔记</title>
-    <url>/2022/01/04/%E3%80%8Aintroduce%20to%20logic%20programming%E3%80%8B%E5%BF%AB%E9%80%9F%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="logic-programming"><a href="#logic-programming" class="headerlink" title="logic programming"></a>logic programming</h2><p>新年花了一天多点的时间阅读了一下《Introduction to Logic Progrmming》这本书（后称该书）。个人很早以前就阅读过逻辑式编程的书籍，但当时主要针对 prolog 语言进行学习。</p>
-<h3 id="logic-programming-可以做数据库吗？"><a href="#logic-programming-可以做数据库吗？" class="headerlink" title="logic programming 可以做数据库吗？"></a>logic programming 可以做数据库吗？</h3><p>与以往阅读的 prolog 书籍不同，该书最开始就是以一种类似数据库的视角来推进逻辑式编程的讲解。一般的 prolog 书籍会从经典的家族关系作为切入点来讲解逻辑式编程的魅力，但该书从 datasets 开始讲起。<br>该书明确的指出了逻辑式编程的形式，即：<br>facts + rules + query<br>从逻辑式编程的形式我们便可以看出其与数据库千丝万缕的联系我们可以回想一下关系型数据库的形式，以 mysql 为例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设我们有一个数据库</span><br><span class="line">--------------------------</span><br><span class="line">-- iD -- name -- age -----</span><br><span class="line">-- 0  -- tim  -- 32  -----</span><br><span class="line">-- 1  -- ada  -- 23  -----</span><br><span class="line">-- 2  -- tom  -- 23  -----</span><br><span class="line">--------------------------</span><br><span class="line">此时我们利用 mysql的查询语句，查询名字为tim的客户的所有信息</span><br><span class="line">select * from person where name &#x3D; &#39;tim&#39;;</span><br><span class="line">我们可以得到</span><br><span class="line">--------------------------</span><br><span class="line">-- iD -- name -- age -----</span><br><span class="line">-- 0  -- tim  -- 32  -----</span><br><span class="line">--------------------------</span><br></pre></td></tr></table></figure>
-<p>如果我们用 prolog 表达上述过程，我们可以如此构建 datasets</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line"><span class="comment">% facts</span></span><br><span class="line"></span><br><span class="line">person(<span class="number">0</span>,tim,<span class="number">32</span>).</span><br><span class="line">person(<span class="number">1</span>,ada,<span class="number">23</span>).</span><br><span class="line">person(<span class="number">2</span>,tom,<span class="number">23</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">%query</span></span><br><span class="line"></span><br><span class="line">person(<span class="symbol">X</span>,tim,<span class="symbol">Y</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">% result</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">X</span> = <span class="number">0.</span></span><br><span class="line"><span class="symbol">Y</span> = <span class="number">32.</span></span><br></pre></td></tr></table></figure>
-<p>prolog 代码如上所述，我们首先构建了一组事实(facts)，然后根据这组事实查询想要的变量，最后我们可以得到查询结果。<br>但以这种方式构建 facts 可能有有些问题，以 person(0,tim,32)为例，我们并不能得到每个值得含义，例如 0 和 32 我们无法看出其为 id 和年龄。我们可以按照下面的方式构建。</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line"><span class="comment">% facts</span></span><br><span class="line"></span><br><span class="line">person(id(<span class="number">0</span>),name(tim),age(<span class="number">32</span>)).</span><br><span class="line">person(id(<span class="number">1</span>),name(ada),age(<span class="number">23</span>)).</span><br><span class="line">person(id(<span class="number">2</span>),name(tom),age(<span class="number">23</span>)).</span><br><span class="line"></span><br><span class="line"><span class="comment">%query</span></span><br><span class="line"></span><br><span class="line">person(<span class="symbol">X</span>,name(tim),<span class="symbol">Y</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">% result</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">X</span> = id(<span class="number">0</span>).</span><br><span class="line"><span class="symbol">Y</span> = age(<span class="number">32</span>).</span><br></pre></td></tr></table></figure>
-<p>这样我们就可以标注出每个位置值的含义了<br>当然，仅从这个例子来看，prolog 比起 mysql 没什么好处，反而可能增添一些存储负担。<br>我们能发现仅仅做这种简单的查询时，prolog 并不能展现其优势。我们还是得拿出经典的家族关系例子来展现 prolog（逻辑式编程）的某些特性。</p>
-<h3 id="家族关系的经典例子"><a href="#家族关系的经典例子" class="headerlink" title="家族关系的经典例子"></a>家族关系的经典例子</h3><p>我们可以想象一个大家族的族谱，不妨设计一个族谱关系</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 族谱关系的一些事实</span></span><br><span class="line">male(charles).</span><br><span class="line">male(william).</span><br><span class="line">male(peter).</span><br><span class="line">male(henry).</span><br><span class="line">male(andrew).</span><br><span class="line">male(edward).</span><br><span class="line">male(viscount).</span><br><span class="line">male(savanna).</span><br><span class="line"></span><br><span class="line">female(elizabeth).</span><br><span class="line">female(anne).</span><br><span class="line">female(zara).</span><br><span class="line">female(beatrice).</span><br><span class="line">female(eugenie).</span><br><span class="line">female(louise).</span><br><span class="line">female(isla).</span><br><span class="line"></span><br><span class="line">parent(elizabeth,charles).</span><br><span class="line">parent(elizabeth,anne).</span><br><span class="line">parent(elizabeth,andrew).</span><br><span class="line">parent(elizabeth,edward).</span><br><span class="line"></span><br><span class="line">parent(anne,peter).</span><br><span class="line">parent(anne,zara).</span><br><span class="line">parent(charles,william).</span><br><span class="line">parent(charles,henry).</span><br><span class="line">parent(andrew,beatrice).</span><br><span class="line">parent(andrew,eugenie).</span><br><span class="line">parent(edward,louise).</span><br><span class="line">parent(edward,viscount).</span><br><span class="line">parent(peter,savanna).</span><br><span class="line">parent(peter,isla).</span><br><span class="line"></span><br><span class="line"><span class="comment">% 其中male表示男性，female表示女性，parent(X,Y)表示X时Y的父母（父亲或母亲）</span></span><br></pre></td></tr></table></figure>
-<p>当我们面对一些逻辑问题时，使用逻辑式编程便可大大减少我们的时间，例如我们想查询 grandparent 这个关系时，我们只要写下这个规则。</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">grandparent(<span class="symbol">X</span>,<span class="symbol">Y</span>) :- parent(<span class="symbol">X</span>,<span class="symbol">Z</span>),parent(<span class="symbol">Z</span>,<span class="symbol">Y</span>).</span><br><span class="line"></span><br><span class="line"><span class="comment">% 这条规则（rules）说明了grandparent的逻辑关系，</span></span><br><span class="line"><span class="comment">% 即grandparent其实就是父母的父母</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>从这里我们能感受到逻辑式编程的一些好处，在我们编写程序时，其实我们就是在编写一个逻辑约束的规则，而逻辑式编程语言（例如 prolog）的引擎可以根据这个规则来寻找对应的解（其实本质上是搜索）。</p>
-<h3 id="updates"><a href="#updates" class="headerlink" title="updates"></a>updates</h3><p>该书在讲解了 facts 和 querys 之后便开始讲解 updates,所以该书确实是以一种数据库的视角来介绍 logic programming 的。<br>书中举了一个 update syntax 的例子</p>
-<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">p(a,b) &amp; ~q(b) ==&gt; ~p(a,b) &amp; p(b,a)</span><br><span class="line">p(<span class="symbol">X</span>,<span class="symbol">Y</span>) &amp; ~q(<span class="symbol">Y</span>) ==&gt; ~p(<span class="symbol">X</span>,<span class="symbol">Y</span>) &amp; p(<span class="symbol">Y</span>,<span class="symbol">X</span>)</span><br></pre></td></tr></table></figure>
-<p>这样我们便更新了数据库中的规则。</p>
-<h3 id="data-structrue"><a href="#data-structrue" class="headerlink" title="data structrue"></a>data structrue</h3><p>该书紧接着讲述了 lists sets 和 trees 三种类型的数据结构，这里和其他介绍 prolog 的书籍区别不大。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>《introduce to logic programming》 这本书还是值得一读的，通过阅读这本书可以很好的了解 logic programming。先阅读这本书再阅读 prolog 相关书籍也是个不错的选择。</p>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
-      </categories>
-      <tags>
-        <tag>编程相关</tag>
-        <tag>读书笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一起学习魔法吧（0）</title>
-    <url>/2018/11/11/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%880%EF%BC%89/</url>
-    <content><![CDATA[<p>_开始念动咒语吧！_</p>
-<h2 id="古老的魔法"><a href="#古老的魔法" class="headerlink" title="古老的魔法"></a>古老的魔法</h2><p>从某种意义上讲，写程序和念咒语是没什么区别的。不信你看：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> number  =  <span class="number">5</span>;</span><br><span class="line">number ++;</span><br></pre></td></tr></table></figure>
-<p>例如上面这个 c 语言程序片段，我们念动咒语 int number = 5 就把 5 赋值给了 number，这好比念动咒语让帽子里出现鸽子。魔法师是分派别的，他们念动的咒语不同，效果也不用。写程序也是如此，程序编写者使用的语言不同，就好像念动不同派别的咒语。在辉煌的程序语言家族里，有一门较为古老的语言，lisp。这个系列要了解的就是它的一门方言 scheme，让我们先来看看这们语言的基础吧：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(display &quot;Hello Scheme!&quot;)</span><br><span class="line">Hello Scheme!</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>（注：关于法杖（开发环境）的获取，网络上有许多经验，故不再赘述）<br>这门古老的语言和一般的语言不太相同，例如最基本的表达式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(3 + 4)</span><br><span class="line">application: not a procedure;</span><br><span class="line">expected a procedure that can be applied to arguments</span><br><span class="line">given: 3</span><br><span class="line">arguments...:</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>额，看来我们念错了咒语。<del>（还好没被吸进魔法书里）</del>我们看看计算机向我们抱怨了什么，它说这并不是一个过程，现在需要一个过程来应用于参数上。看来计算机认为我们输入的（3 + 4）是参数。其实正确的咒语是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 3 4)</span><br><span class="line">7</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>这也可以理解，不过就是把加法应用在 3 和 4 上，也没什么复杂的嘛！其他的基本运算也是如此：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 3 4)</span><br><span class="line">(* 3 4)</span><br><span class="line">(- 3 4)</span><br><span class="line">(&#x2F; 3 4)</span><br><span class="line"></span><br><span class="line">7</span><br><span class="line">12</span><br><span class="line">-1</span><br><span class="line">3</span><br><span class="line">—</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
-<p>看起来还都不错，除了最后一个，那是什么？这个东西太诡异了吧，仔细看看好像是分数？等等，你别骗我，计算机可不能搞出来分数。我知道 IEEE754！别想骗我！是的，计算机本身不能表示分数（其实你也可以强行搞，得不偿失），但是不代表我们不能弄出分数结构对不对？<br>我猜你肯定在想这个吧？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(&#x2F; 2 4)</span><br><span class="line">1</span><br><span class="line">—</span><br><span class="line">2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>嘿嘿，事情并不像你想的那样吧，显然我们完全可以用分数进行计算，这就像 1+1 = 2 （当然这是十进制加法，皮亚诺公理下的）一样。我们再试试这样？：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 6 3&#x2F;4)</span><br><span class="line">   3</span><br><span class="line"> 6 —</span><br><span class="line">   4</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>(当然这个比例不太对，但是结果的结构是正确的)能看得出来这是带分数，下面我们看看小数：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(* 0.43 0.7)</span><br><span class="line">0.301</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<p>不错，scheme 直接计算小数乘法还是不错的，不如我们再做一些好玩的事？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 9999999999999999999999999999 233333333333333333333333333)</span><br><span class="line">10233333333333333333333333332</span><br></pre></td></tr></table></figure>
-<p>你在干什么！机器会被你玩坏的！额，但是看上去好像一点问题都没有啊。对了，我们在念动咒语的时候并不像 c 那样要念出我们要召唤精灵的名字(int,char,double,float…)我们直接进行了计算，可见 scheme 不像 c 语言那样是静态类型而是动态类型。所以我们也不用担心 Int 的溢出问题了。<br>刚才我们试的所有式子都是(operator exp exp)的形式，我们不如试试别的？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(+ 0.321 0.32143 0.5634)</span><br><span class="line">1.2058300000000002</span><br></pre></td></tr></table></figure>
-<p>这不对啊，这根本不是他们算出来的结果啊。虽然 scheme 的小数可以直接输入操作，但如同 c 中的 float,double 一样有精度的限制。（IEEE754）<br>这节我们了解了基础的运算和一些规则，但是我们还没有掌握其他的一些必要工具，我们将在下节中介绍。</p>
-]]></content>
-      <tags>
-        <tag>魔法学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一起学习魔法吧（1）</title>
-    <url>/2020/01/27/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<p>上一节中我们对 scheme 有了初步印象，这节我们来介绍它的基本运算。<br>与 c 语言不同的是，scheme 种并没有真正意义上的变量。例如：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-<p>这种形式的语句在 scheme 中并不存在。在 c 语言中，一个变量必须声明类型，而 scheme 则有所不同。首先来看数的计算。<br>在 c 语言中，我们可以这样写：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int a = <span class="number">5</span>；</span><br><span class="line">Int b = <span class="number">6</span>;</span><br><span class="line">Int c = a + b;</span><br></pre></td></tr></table></figure>
-<p>而在 scheme 中其书写是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure>
-<p>这两者能达到同样的效果。但两者还是有较大的区别的，例如：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int a = <span class="number">5</span>;</span><br><span class="line">Int b = <span class="number">6</span>;</span><br><span class="line">b = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure>
-<p>在这时，c 为 14 而在 scheme 中：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define a 5)</span><br><span class="line">(define b 6)</span><br><span class="line">(define b 9)</span><br><span class="line">(define c (+ a b))</span><br></pre></td></tr></table></figure>
-<p>此时则会报错，在 scheme 中所有的值都是常量，不可更改，而不像 c 语言，需要用 const 修饰才为常量。<br>四则运算在上节中也做过基本的介绍，这节中不再过多阐述。<br>同样的，scheme 中也有不同的类型，例如数字，字符，列表，其中列表是一个及其重要的组成。不夸张的说，scheme 的强大与列表有着很深的相关性。<br>接下来我们说说字符，在 c 语言中，我们有字符和字符串，例如：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> d = ‘h’;</span><br><span class="line"><span class="built_in">string</span> e = “abcdefg”;</span><br></pre></td></tr></table></figure>
-<p>在 scheme 中，我们如是表示：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(define d “h”)</span><br><span class="line">(define e “abcdefg”)</span><br></pre></td></tr></table></figure>
-<p>值得注意的是，在 scheme 中，字符和字符串都用“xxxxxxxxx”表示，我们可以把字符理解成长度为一的字符串。<br>接下来我们说最重要的部分，列表：<br>列表主要由 cons car cdr 构成，其中 cons 是把两个组成部分合成一个序对，值得注意的时，cons 可以连接不同类型的单元，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;(cons “abcdef” 6)</span><br><span class="line">    &#39;(&quot;abcdef&quot; . 6)</span><br></pre></td></tr></table></figure>
-<p>如果我们想得到“abcdef” 只需 (car (cons “abcdef” 6))<br>如果要得到 6 只需要(cdr (cons “abcdef” 6))<br>上面简要说了说 scheme 中基本的要素，下节中我们将介绍更多内容。</p>
-]]></content>
-      <tags>
-        <tag>魔法学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一起学习魔法吧（番外篇1）</title>
-    <url>/2018/04/22/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%871%EF%BC%89/</url>
-    <content><![CDATA[<p>_任何非常先进的技术，初看都与魔法无异。_</p>
-<h2 id="currying"><a href="#currying" class="headerlink" title="currying"></a>currying</h2><p>currying(柯里化)将函数转化成单参函数，即将所有函数固定为接受一个参数，返回一个值的形式。给予 λ 演算一个理论模型。<br><br><br>而柯里化究竟是什么呢?我们可以这么理解，例如现在我们有一个二元函数<em>f(x,y) = x + y</em> 那么在代码里可以这么书写：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>甚至没学过计算机的人都能看懂它的含义，取两个数 a,b 在进行相加运算后返回结果。但我们应当注意的是，这个函数传进去的只能是两个参数，否则机器将无法工作。更重要的是这个函数返回的是一个数值。<br><br><br>而柯里化的方式是什么呢？柯里化要把这个函数改造为单参函数。逻辑上如下图所示<br><img src="https://s2.ax1x.com/2020/02/08/1W2fiQ.png" alt="image"><br><strong>该图上面是正常的 add，下面是柯里化的 add。</strong><br><br><br>我们相当于构建了两个“机器”每个“机器”只做有限的工作，剩下的工作交给下一个“机器”，这样我们可以把复杂的“机器”拆分成一系列的小型“机器”。<br><br><br>柯里化给我们理清了一个思路，类似于用皮亚诺公理解释自然数，我们可以用这种简单的函数（过程）模型来构建出强大的系统。但是这个理论在实际应用上貌似并不多，至少在我所触及的范围内几乎没有用过。</p>
-<p>注：由于笔者的水平有限，文章中可能存在疏漏。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>魔法学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一起学习魔法吧（番外篇2）</title>
-    <url>/2018/04/24/%E4%B8%80%E8%B5%B7%E5%AD%A6%E4%B9%A0%E9%AD%94%E6%B3%95%E5%90%A7%EF%BC%88%E7%95%AA%E5%A4%96%E7%AF%872%EF%BC%89/</url>
-    <content><![CDATA[<p>_任何非常先进的技术，初看都与魔法无异。_</p>
-<h2 id="λ-calculus"><a href="#λ-calculus" class="headerlink" title="λ-calculus"></a>λ-calculus</h2><p>这篇博客我们简单说说 λ-calculus。<br>在 λ 演算中，每个表达式均代表一个函数，这个函数有一个参数，并返回一个值。故 λ 演算只有一种“类型”，即单参函数。（这也是为什么上一篇博客里说柯里化给予 λ 演算一个理论模型）而函数由 λ 表达式匿名定义，如：f(x) = x * 2<br>可以写为 λx.x * 2 而 f(4)的值即可表示为(λx.x * 2) 4。<br>看上去怪怪的，突然冒出来一个孤零零的数字 4，如果有强迫症的话简直不能忍啊！那么我们还可以把它写成下面这个样子：<br>(λf.f 4)(λ.x x * 2)这回看着规整了一些。(λf.f 4)表示的是这个函数接受一个函数作为参数，并作用在 4 上。<br>就如同任何编程语言都有语法一样，λ 演算也需要语法。λ 演算将符合这些语法的表达式也称作“lambda 项”其语法可归纳成三条规则：</p>
-<ul>
-<li>变量 x 本身就是一个有效的 lambda 项</li>
-<li>如果 t 是一个 lambda 项，而 x 是一个变量，则(λx.t) 是一个 lambda 项（称为 lambda 抽象）</li>
-<li>如果 t 和 s 是 lambda 项，那么(ts)是一个 lambda 项（称为应用）<br>等等，这样一来，我写下这种式子(λx.x x)(λx.x x)也是对的，但是貌似计算不出来一个确定的值啊。然而这是可以接受的，因为 lambda 表达式并不要求必须归约到一个确定的值上。<br>接下来我们来看一个有趣的东西：</li>
-</ul>
-<h2 id="Church-数"><a href="#Church-数" class="headerlink" title="Church 数"></a>Church 数</h2><p>Church 数 0, 1, 2, …在 lambda 演算中被定义如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0 ≡ λf.λx. x</span><br><span class="line">1 ≡ λf.λx. f x</span><br><span class="line">2 ≡ λf.λx. f (f x)</span><br><span class="line">3 ≡ λf.λx. f (f (f x))</span><br><span class="line">...</span><br><span class="line">n ≡ λf.λx. fn x</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>这是什么？怎么凭空就能冒出来 0 ≡ λf.λx. x，1 ≡ λf.λx. f x 这种奇怪的东西？我们先回想一下自然数是怎么定义的？<br>额，像是 0，1，2，3······这种数叫自然数？这种定义太不严谨，我们要用皮亚诺公理定义自然数：</p>
-<ul>
-<li>0 是一个自然数。</li>
-<li>0 不是任何其他自然数的继数。</li>
-<li>每一个自然数 a 都有一个继数。</li>
-<li>如果 a 与 b 的继数相等则 a 与 b 亦相等。</li>
-<li>若一个由自然数组成的集合 s 包含有 0，又若当 s 包含有某一数 a 时，它一定也含有 a 的继数，则 s 就包含有全体自然数。<br>看上去好多了，但是这又和上面的 church 数有什么关系呢？我们可以这么理解：<br>我们先定义了一个零作为基础，又定义了后继这个概念（计算方法），我们现在只不过在用 λ 表达式来表示罢了，其中的 f 就可以理解为后继。这倒是能说得通，但是我要做加法又怎么理解？很简单，只不过是进行多次后继罢了。<br><br><br>正真的 λ 演算比本文所描述的要复杂很多，本文只是简要的介绍。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>魔法学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>凸优化（零）</title>
-    <url>/2020/03/18/%E5%87%B8%E4%BC%98%E5%8C%96%EF%BC%88%E9%9B%B6%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列主要为《Convex Optimization》学习笔记  </p>
-<h3 id="凸集"><a href="#凸集" class="headerlink" title="凸集"></a>凸集</h3><h4 id="直线与线段"><a href="#直线与线段" class="headerlink" title="直线与线段"></a>直线与线段</h4><p>设$x_{1} \neq x_{2}$为$\mathbb{R}^{n}$空间中两个点，则<br>$ y=\theta x_{1}+(1-\theta) x_{2},\theta \in \mathbb{R} $<br>为一条穿越$x_{1},x_{2}$的直线。当$\theta$在0~1变动时，可构成$x_{1}$与$x_{2}$之间的闭线段。y也可表示为：<br>$y=x_{2}+\theta(x_{1}-x_{2})$<br>这种形式可以解释成由基点$x_{2}$向方向$x_{1}-x_{2}$走一定距离的所有点的集合，当$\theta$在0~1之间时，构成了线段，若$\theta$可取任意值，则是直线。</p>
-<h4 id="仿射集合"><a href="#仿射集合" class="headerlink" title="仿射集合"></a>仿射集合</h4><p>设集合$C \subseteq \mathbb{R}^{n}$若$\forall x_{1},x_{2} \in C ,\theta \in \mathbb{R}$有$\theta x_{1}+(1-\theta) x_{2} \in C$则称集合$C$为仿射的。<br>该定义也可以扩展到多个点的情况。当$\theta_{1}+…+\theta_{k} = 1$时，我们称$\theta_{1}x_{1} + \theta_{2}x_{2}+…+\theta_{k}x_{k}$为$x_{1},…,x_{k}$的仿射组合。</p>
-<h4 id="凸集定义"><a href="#凸集定义" class="headerlink" title="凸集定义"></a>凸集定义</h4><p>集合$C$被称为凸集，如果$C$中任意两点间的线段仍在$C$，即对于$\forall x_{1},x_{2} \in C$和满足$0 \leqslant \theta \leqslant 1$均有$\theta x_{1}+(1-\theta)x_{2} \in C$<br>点$\theta_{1}x_{1} + \theta_{2}x_{2}+…+\theta_{k}x_{k}$为点$x_{1},x_{2},…x_{k}$的一个凸组合，其中$\theta_{1}+…+\theta_{k}$并且$\theta_{i} \geqslant 0, i=1,……,k$<br>与仿射集合类似，一个集合是凸集等价于集合包含其中所有点的凸组合。<br>我们称集合C为所有点的凸组合的集合为其凸包，记为 $conv C$:<br>$conv C = \lbrace \theta_{1}x_{1}+…+\theta_{k}x_{k}| x_{i} \in C, \theta_{i} \geqslant 0, i =1,…,k, \theta_{1}+\theta_{2}+…+\theta_{k}=1\rbrace$<br>凸包$conv C$总是凸的，它是包含$C$的最小的凸集。</p>
-]]></content>
-      <categories>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>凸优化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>古典人工智能（零）</title>
-    <url>/2020/03/17/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%20%20(%E9%9B%B6)/</url>
-    <content><![CDATA[<h2 id="人工智能学派"><a href="#人工智能学派" class="headerlink" title="人工智能学派"></a>人工智能学派</h2><p>人工智能的主要流派有三个：1.符号主义(symbolicism)—数理逻辑 2.连接主义(connectionism)—仿生学 3.行为主义(actionism)—控制论<br>该系列博客主要写写其中的符号主义学派。<br>（注： 主要是总结所看过的书籍、博客等，并非完全原创）<br>符号主义学派的核心观点在于，人类的智能主要体现在推理能力。机器应当像人一样思考，这样一来机器才有获取智能的可能。符号主义学派的思路十分明了，建立一个庞大的知识库体系，并赋予机器推理能力这样便可以创造人工智能。至于为什么这种观点被称为<br>符号主义，原因在于该学派普遍认为人类认知基于符号，而思维是一种运算。如今的语义网络与专家系统很大程度上继承了符号主义学派的思路。</p>
-<h3 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h3><p>按照符号主义学派的思路，构建人工智能首先要获取知识。给知识下定义是极其困难的，但我们可以简单总结一下生活中的几种知识：<br>1.事实性知识<br>2.过程性知识<br>3.行为性知识<br>4.实例性知识<br>5.类比性知识<br>6.元知识</p>
-<h4 id="事实性知识"><a href="#事实性知识" class="headerlink" title="事实性知识"></a>事实性知识</h4><p>这种知识一般采用直接表示的方式，例如：地球绕着太阳转、北京是中华人民共和国首都等。但要注意事实性知识的准确性，事实性知识如果出现错误，那么做出的推理必然结果也会不严密。<br>注：本文不讨论事实性知识能否正确被人类认知的哲学相关问题。</p>
-<h4 id="过程性知识"><a href="#过程性知识" class="headerlink" title="过程性知识"></a>过程性知识</h4><p>往往是一系列动作构成的知识，例如：如何做西红柿炒鸡蛋、如何维修电子计算机等</p>
-<h4 id="行为性知识"><a href="#行为性知识" class="headerlink" title="行为性知识"></a>行为性知识</h4><p>不给出事实本身，而是给出某方面的行为。例如微分方程刻画了一个函数的行为但并未给出函数本身。（这类知识往往是某种数学模型）行为性知识往往描述的是事物的内涵而非外延。<br>(注：<br>内涵：内涵往往指事物特有属性的反应<br>外延：外延往往指事物所组成的类<br>例如：当我们谈到人的内涵，指的是人类所具有属性(如：域：真核域 Eukarya \ 界：动物界 Animalia \ 门：脊索动物门 Chordata\ 亚门：脊椎动物亚门 Vertebrata \ 纲：哺乳纲 Mammalia \ 亚纲：真兽亚纲 Eutheria \ 目：灵长目 Primates \ 科：人科 Hominidae \ 属：人属 Homo \ 种：智人种(Homo sapiens sapiens) \ )而人的外延则指全体人类（即所有人类个体的集合）<br>从集合论的角度看内涵指集合所有元素共有的属性，而外延指集合中的所有元素。)</p>
-<h4 id="实例性知识"><a href="#实例性知识" class="headerlink" title="实例性知识"></a>实例性知识</h4><p>只给出实例而知识隐藏在实例中。例如：观察到打雷之后下雨了这便是一个实例性知识。（注：这并不是说打雷一定下雨，所有观察数据都是实例性知识）</p>
-<h4 id="类比性知识"><a href="#类比性知识" class="headerlink" title="类比性知识"></a>类比性知识</h4><p>不给出内涵也不给出外延，但给出它与其他事物的相似之处。这种知识虽然不准确，却能使不同领域之间的知识可以被快速理解。</p>
-<h4 id="元知识"><a href="#元知识" class="headerlink" title="元知识"></a>元知识</h4><p>即关于知识的知识。例如：一个专家系统要知道该系统能回答什么不能回答什么，这本身也是一种知识，只不过是关于知识的知识。</p>
-<h4 id="知识表示"><a href="#知识表示" class="headerlink" title="知识表示"></a>知识表示</h4><p>大概了解了知识之后，问题便是如何表示知识，普遍上有如下几种：<br>1.演绎系统<br>2.产生式系统<br>3.框架结构<br>4.语义网络<br>5.过程性知识</p>
-<p>在后续的文章中，我们将逐一解释这五种表示方法。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>古典人工智能</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>古典人工智能（一）</title>
-    <url>/2020/05/10/%E5%8F%A4%E5%85%B8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="演绎系统"><a href="#演绎系统" class="headerlink" title="演绎系统"></a>演绎系统</h2><h3 id="谓词演算"><a href="#谓词演算" class="headerlink" title="谓词演算"></a>谓词演算</h3><h4 id="知识单元的构造"><a href="#知识单元的构造" class="headerlink" title="知识单元的构造"></a>知识单元的构造</h4><p>对于知识我们可以用一种陈述性结论表示，例如：<br>天是蓝的<br>1+1=2<br>表示知识的陈述性形式称为命题。带有参数的命题被称作谓词。<br>例如 xx 是水果这就是一个谓词，我们可以设谓词 P 为 xx 是水果，那么有：<br>P1： P(苹果)<br>P2： P(葡萄)<br>我们说 P1 和 P2 是两个命题。它们的含义分别是：<br>P1： 苹果是水果<br>P2： 葡萄是水果<br>我们可以将不同的谓词结合起来形成新的谓词，如：<br>P3: fruit(X) -&gt; sweet(X)<br>这个命题表示如果 X 是水果，那么水果是甜的。在这里我们必须注意的是，这个新的谓词在逻辑上被规定是正确的，但这并不能代表它就是真正意义上的正确。我们也可以轻轻松松举出反例来反驳这个命题，但计算机是无法做到的。<br>从某种程度上讲这也是演绎系统的一大问题，在人类社会并不是只存在逻辑支配着所有的规律（至少目前来看不是）。所以完全指望构建完美的演绎系统来模拟世界无论从工程角度还是理论角度恐怕都是不可能的。（参考哥德尔不完备定律）<br>如上所示，我们表示出了一个新的知识单元，如果构建出大量的知识单元并制定一些规则，那么计算机可以说有了一定的“智能”（只要这些规则足够复杂且规模庞大）。<br>谓词可以不断组合形成新的谓词，理论上一个逻辑链是可以无限延伸的，如 P1(X)-&gt;P2(X)-&gt;P3(X)-&gt;P4(X)-&gt;P5(X)-&gt;……-&gt;（无限延伸）。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>古典人工智能</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微观经济学（零）</title>
-    <url>/2020/03/20/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%EF%BC%88%E9%9B%B6%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>该系列总结曼昆微观经济学笔记。</p>
-<h2 id="经济学十大原理"><a href="#经济学十大原理" class="headerlink" title="经济学十大原理"></a>经济学十大原理</h2><h3 id="人们如何做出决策"><a href="#人们如何做出决策" class="headerlink" title="人们如何做出决策"></a>人们如何做出决策</h3><h4 id="原理一：人们面临权衡取舍"><a href="#原理一：人们面临权衡取舍" class="headerlink" title="原理一：人们面临权衡取舍"></a>原理一：人们面临权衡取舍</h4><p>做出决策就是要求我们在一个目标和另一个目标之间进行权衡取舍。例如社会面临的一种权衡取舍是在效率与平等之间。效率(effeciency)是指社会能从稀缺资源中取得到的最大利益，平等(equality)是指将这些利益平均分配给社会成员。<br>（注：为什么平等和效率是冲突的？这与平等的概念有关，平等究竟是什么？）</p>
-<h4 id="原理二：-某种东西的成本是为了得到它所放弃的东西"><a href="#原理二：-某种东西的成本是为了得到它所放弃的东西" class="headerlink" title="原理二： 某种东西的成本是为了得到它所放弃的东西"></a>原理二： 某种东西的成本是为了得到它所放弃的东西</h4><p>机会成本(opportunity cost)：是为了得到这种东西所放弃的东西。  </p>
-<h4 id="原理三：-理性人考虑边际量"><a href="#原理三：-理性人考虑边际量" class="headerlink" title="原理三： 理性人考虑边际量"></a>原理三： 理性人考虑边际量</h4><p>理性人(rational people)：系统而有目的地尽最大努力实现其目标的人。<br>边际变动(marginal change)：对行动计划的微小增量调整。</p>
-<h4 id="原理四：-人们会对激励作出反应"><a href="#原理四：-人们会对激励作出反应" class="headerlink" title="原理四： 人们会对激励作出反应"></a>原理四： 人们会对激励作出反应</h4><p>激励(incentive)：引起一个人做出某种行为得某种东西。<br>（注：此处的激励更像是反馈）</p>
-<h3 id="人们如何相互影响"><a href="#人们如何相互影响" class="headerlink" title="人们如何相互影响"></a>人们如何相互影响</h3><h4 id="原理五：贸易可以使每个人得状况都变得更好"><a href="#原理五：贸易可以使每个人得状况都变得更好" class="headerlink" title="原理五：贸易可以使每个人得状况都变得更好"></a>原理五：贸易可以使每个人得状况都变得更好</h4><h4 id="原理六：市场通常是组织经济活动的一种好方法"><a href="#原理六：市场通常是组织经济活动的一种好方法" class="headerlink" title="原理六：市场通常是组织经济活动的一种好方法"></a>原理六：市场通常是组织经济活动的一种好方法</h4><p>市场经济(market economy)：当许多企业和家庭在物品与服务市场上相互交易时，通过他们的分散决策配置资源的经济。</p>
-<h4 id="原理七：政府有时可以改善市场结果"><a href="#原理七：政府有时可以改善市场结果" class="headerlink" title="原理七：政府有时可以改善市场结果"></a>原理七：政府有时可以改善市场结果</h4><p>产权(property rights)：个人拥有并控制稀缺资源的能力。<br>市场失灵(market failure)：市场本身不能有效配置资源的情况。<br>外部性(externality)：一个人的行为对旁观者福利的影响。<br>市场势力(market power)：单个经济活动者（或某个经济活动小群体）对市场价格有显著影响的能力。<br>（注：什么时候市场会失灵？稀缺性的定义是否具有主体性？是否能找到所有的外部性并纳入成本？如何预防市场势力的产生？还是说市场势力是市场的正常结果？）</p>
-<h3 id="整体经济如何运行"><a href="#整体经济如何运行" class="headerlink" title="整体经济如何运行"></a>整体经济如何运行</h3><h4 id="原理八：一国的生活水平取决于它生产物品与服务的能力"><a href="#原理八：一国的生活水平取决于它生产物品与服务的能力" class="headerlink" title="原理八：一国的生活水平取决于它生产物品与服务的能力"></a>原理八：一国的生活水平取决于它生产物品与服务的能力</h4><p>生产率(productivity)：每单位劳动所投入的生产物品与服务数量。<br>（注：金融服务是否是一种服务？这种服务的稀缺性如何界定？该怎样看待利用金融体系吸血问题？还是说利用金融体系吸血这个命题根本不存在？）</p>
-<h4 id="原理九：当政府发行了过多货币时，物价上涨"><a href="#原理九：当政府发行了过多货币时，物价上涨" class="headerlink" title="原理九：当政府发行了过多货币时，物价上涨"></a>原理九：当政府发行了过多货币时，物价上涨</h4><p>通货膨胀(inflation)：经济中物价总水平的上升。</p>
-<h4 id="原理十：社会面临通货膨胀与失业之间的短期权衡取舍"><a href="#原理十：社会面临通货膨胀与失业之间的短期权衡取舍" class="headerlink" title="原理十：社会面临通货膨胀与失业之间的短期权衡取舍"></a>原理十：社会面临通货膨胀与失业之间的短期权衡取舍</h4><p>经济周期(business cycle)：就业和生产等经济活动的波动。</p>
-]]></content>
-      <categories>
-        <category>经济学相关</category>
-      </categories>
-      <tags>
-        <tag>经济学原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习（二） 朴素贝叶斯</title>
-    <url>/2020/04/13/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="朴素贝叶斯法的学习与分类"><a href="#朴素贝叶斯法的学习与分类" class="headerlink" title="朴素贝叶斯法的学习与分类"></a>朴素贝叶斯法的学习与分类</h2><h3 id="任务与数据"><a href="#任务与数据" class="headerlink" title="任务与数据"></a>任务与数据</h3><p>$ DATA =  \lbrace (x_{1},y_{1}),(x_{2},y_{2}),…,(x_{N},y_{N}) \rbrace $<br>$ input space: \mathcal {X} \subseteq \mathbb{R}^{n} $<br>$ output space: \mathcal{Y} = {c_{1},c_{2},…c_{k}} $<br>其中$c_{i}$为类标记，该类标记可以有两个或多个。  </p>
-<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯通过训练数据集学习联合概率分布P(X,Y)。<br>其中先验概率分布为：<br>$ \displaystyle P(Y = c_{k}),k=1,2,…,K $<br>条件概率分布：<br>$ \displaystyle P(X=x|Y=c_{k}) = P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k}),  k=1,2,…,K $<br>学习到联合概率分布P(X,Y)。<br>朴素贝叶斯法对条件概率分布作了条件独立性假设。即：<br>$ \displaystyle P(X=x|Y=c_{k})=P(X^{(1)}=x^{(1)},…,X^{(n)}=x^{(n)}|Y=c_{k})=  \prod_{j=1}^{n} P(X^{(j)}=x^{(j)}|Y=c_{k}) $<br>计算后验概率，将后验概率最大类作为x的类输出，后验概率计算根据贝叶斯定理进行。<br>$ \displaystyle P(Y=c_{k}|X=x)=\frac{P(X=x|Y=c_{k})P(Y=c_{k})}{\sum_{k}P(X=x|Y=c_{k})P(Y=c_{k})} $<br>可解朴素贝叶斯分类器：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k})\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_{k}) $</p>
-<h3 id="后验概率最大化的含义"><a href="#后验概率最大化的含义" class="headerlink" title="后验概率最大化的含义"></a>后验概率最大化的含义</h3><p>使用0-1损失函数有期望风险函数：<br>$ \displaystyle R_{exp}(f)=E[L(Y,f(x))] $<br>取条件期望有：<br>$ \displaystyle R_{exp}f(x)=E_{x} \sum_{k=1}^K [L(c_{k},f(X))]P(c_{k}|X) $<br>为了令期望风险最小化，于是对每个X=x逐个极小化可得：<br>$ \displaystyle f(x)= \mathop{\arg\max}_{\mathbf y \in Y} P(y=c_{k}|X=x)$<br>也即：<br>$ \displaystyle y =  \mathop{\arg\max}_{\mathbf c_{k}} P(Y=c_{k}|X=x) $</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习（一）k近邻算法</title>
-    <url>/2020/03/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E4%B8%80)/</url>
-    <content><![CDATA[<h2 id="K-近邻算法"><a href="#K-近邻算法" class="headerlink" title="K 近邻算法"></a>K 近邻算法</h2><p>K 近邻算法是一种基本的分类与回归方法。K 近邻算法没有显式的学习过程，实际上式利用训练数据集对特征向量空间进行划分。<br>其任务与数据如下：  </p>
-<script type="math/tex; mode=display">Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})...(x_{n},y_{n}) \rbrace</script><script type="math/tex; mode=display">x\_{i} \in \mathcal{X} \subseteq \mathbb{R}^{n}</script><script type="math/tex; mode=display">y*{i} \in \mathcal{Y} = \lbrace (c*{1},c*{2},...,c*{k}) \rbrace</script><p>其中$y<em>{i}$是实例的类别。<br>任务是输出实例x的类别y。<br>k近邻算法的三个要素是：1.k值选择 2.度量距离 3.分类决策规则<br>该算法流程如下：<br>根据给定的距离度量，在训练集中找出与x最近邻的k个点，涵盖这k个点的邻域记作$N</em>{k}(x)$<br>在$N*{k}(x)$中根据分类决策规则决定x的类别y：  </p>
-<script type="math/tex; mode=display">\displaystyle y = \mathop{\arg\min}_{\mathbf c\_{j}} \sum\_{x\_{i} \in N_{k}(x)} I(y\*{i}=c\*{i}) , \ i=1,2,...,N; \ j=1,2,...,k</script><p>其中 I 为指示函数当$y*{i} = c_{i}$时 I 为 1，否则为 0。当 k=1 时，该算法又可称最近邻算法。</p>
-<h3 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h3><p>该算法的距离度量往往采用$L_{p}$距离。其定义为：  </p>
-<script type="math/tex; mode=display">\displaystyle L*{p} (x*{i},x*{j}) = (\sum*{l=1}^n \vert x*{i}^{(l)}-x*{j}^{(l)} \vert ^p)^{1/p}</script><h3 id="k-值选择"><a href="#k-值选择" class="headerlink" title="k 值选择"></a>k 值选择</h3><p>k 值不易选取过大，应在较小的值中选取，选取不同的 k 值并进行交叉验证来选取最优值。</p>
-<h3 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a>分类决策规则</h3><p>一般采用多数表决（majority voting rule），其误分类率是：  </p>
-<script type="math/tex; mode=display">\displaystyle 1/k \sum_{x_{i} \in N_{k}(x)} I(y_{i} \neq c_{j})</script><p>那么要使其最小就是使$\displaystyle \sum_{x_{i} \in N_{k}(x)} I(y_{i} = c_{j})$最大，多数表决函数可以等价于经验风险最小化。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>往往利用 kd 树方式构造：<br>构造根结点，不妨选择$x^{(1)}$为坐标轴，以 T 中所有的实例的$x^{(1)}$坐标的中位数为切分点，将根节点对应的超矩形区域切分为两个子区域。切分由通过切分点并与坐标轴$x^{(1)}$垂直的超平面实现。由根节点生成深度为 1 的左右子节点；左子节点对应坐标$x^{(1)}$小于切分点的子区域，右子节点对应于坐标$x^{(1)}$大于切分点的子区域。将落在切分超平面上的点将被保存在根节点。<br>之后对深度为 j 的节点重复这种操作，选择$x^{(l)} \ l = j(mod k)+1$进行。<br>当两个子区域没有实例存在时停止。从而形成 kd 树的区域划分。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习（零）单层感知机</title>
-    <url>/2020/03/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20%20(%E9%9B%B6)/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好久没更新博客了，准备开一个新的系列总结一下自己机器学习的相关经验</p>
-<h2 id="单层感知机"><a href="#单层感知机" class="headerlink" title="单层感知机"></a>单层感知机</h2><p>我们今天看一个超级简单的模型，单层感知机。其结构可以看作是（以四元为例）<br><a href="https://imgchr.com/i/3zt3Uf"><img src="https://s2.ax1x.com/2020/03/08/3zt3Uf.md.png" alt="3zt3Uf.md.png"></a><br>首先我们来看看任务和数据是什么样子的：</p>
-<p>$Data = \lbrace (x_{1},y_{1}),(x_{2},y_{2})…(x_{m},y_{m}) \rbrace $<br>$x<em>{i} \in \mathcal {X} \subseteq \mathbb{R}^{n}$<br>$y</em>{i} \in \mathcal {Y} = \lbrace 1,-1 \rbrace $</p>
-<p>这组数据给出的情景是：存在一个二分类任务，其中 n 维数据有 m 组，现要找到一个模型 f(·)来对数据进行分类，并求出其 w 与 b。<br>由于我们的任务是二分类任务，且输出为 1 或-1，不妨将 f(·)设为 sigmoid 函数(由于 sign 函数不可导)<br>在该任务中我们要找到一个超平面 w*x+b = 0 将正负实例分到平面两侧，则有</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-1  \qquad & w*x+b \gt 0\\
--1 \qquad & w*x+b \lt 0\\
-\end{cases}</script><p>我们可以将这两个公式合为一个 <script type="math/tex">(w*x_{i}+b)*y_{i} \gt 0</script>当一个数据符合该不等式时，该数据便被分类正确。<br>显而易见的，当误分类的点越少时，模型便越精准。因此我们可以定义 loss 函数为<script type="math/tex">\displaystyle \sum*{x*{i} \in M} 1</script>其中M为误分类点的集合。我们的目的就是找到合适的参数w与b将该loss函数取到最小值。但由于该loss函数是离散的，我们无法对其进行求导等操作。因此我们不妨将loss函数改为如下形式  </p>
-<script type="math/tex; mode=display">\displaystyle L(w,b) = \sum*{x*{i} \in M} -y*{i}*(w*x+b)</script><p>这样一来我们便可以进行求导操作，利用随机梯度下降法(stochastic gradient descent)进行训练。loss 函数对 w 和 b 分别求导可得：  </p>
-<script type="math/tex; mode=display">\nabla*{w} L(w,b) = \sum*{x\*{i} \in M} -y\*{i} \_x*{i}</script><script type="math/tex; mode=display">\nabla*{b} L(w,b) = \sum\_{x*{i} \in M} -y*{i}</script><p>进而我们利用每个误分类点$(x*{i},y*{i})$对 w,b 进行更新：  </p>
-<script type="math/tex; mode=display">w := w+\eta y\*{i}x\*{i}</script><script type="math/tex; mode=display">b := b+\eta y\_{i}</script><p>其中$\eta$为学习率，我们可以取 0~1 中的任何一个数值。学习率的选取在很多时候对算法的收敛速度有很大的影响。<br>对上述式子我们可以不断地进行迭代，到没有误分类点后停止。<br>以上便是单层感知机模型。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
 </search>
